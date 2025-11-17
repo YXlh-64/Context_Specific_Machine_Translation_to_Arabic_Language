@@ -16,8 +16,7 @@ from transformers import (
     AutoModelForCausalLM,
     TrainingArguments,
     Trainer,
-    BitsAndBytesConfig,
-    DataCollatorForLanguageModeling
+    BitsAndBytesConfig
 )
 from peft import (
     LoraConfig,
@@ -26,7 +25,6 @@ from peft import (
     TaskType
 )
 from datasets import load_dataset
-import wandb
 
 # Setup logging
 logging.basicConfig(
@@ -34,6 +32,58 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+# Custom Data Collator for proper padding
+@dataclass
+class DataCollatorForCausalLM:
+    """
+    Custom data collator that properly handles padding for causal language modeling
+    """
+    tokenizer: AutoTokenizer
+    pad_to_multiple_of: Optional[int] = None
+    return_tensors: str = "pt"
+    
+    def __call__(self, features: List[Dict[str, List[int]]]) -> Dict[str, torch.Tensor]:
+        # Extract input_ids and labels
+        input_ids = [feature["input_ids"] for feature in features]
+        labels = [feature["labels"] for feature in features]
+        
+        # Find max length in batch
+        max_length = max(len(ids) for ids in input_ids)
+        
+        # Pad to multiple if specified
+        if self.pad_to_multiple_of is not None:
+            max_length = ((max_length + self.pad_to_multiple_of - 1) 
+                         // self.pad_to_multiple_of * self.pad_to_multiple_of)
+        
+        # Pad input_ids and labels
+        padded_input_ids = []
+        padded_labels = []
+        attention_mask = []
+        
+        for ids, lbls in zip(input_ids, labels):
+            padding_length = max_length - len(ids)
+            
+            # Pad input_ids with pad_token_id
+            padded_ids = ids + [self.tokenizer.pad_token_id] * padding_length
+            padded_input_ids.append(padded_ids)
+            
+            # Pad labels with -100 (ignore index)
+            padded_lbls = lbls + [-100] * padding_length
+            padded_labels.append(padded_lbls)
+            
+            # Create attention mask (1 for real tokens, 0 for padding)
+            mask = [1] * len(ids) + [0] * padding_length
+            attention_mask.append(mask)
+        
+        # Convert to tensors
+        batch = {
+            "input_ids": torch.tensor(padded_input_ids, dtype=torch.long),
+            "attention_mask": torch.tensor(attention_mask, dtype=torch.long),
+            "labels": torch.tensor(padded_labels, dtype=torch.long)
+        }
+        
+        return batch
 
 @dataclass
 class ModelArguments:
@@ -202,8 +252,8 @@ class QWENTrainer:
         )
         
         # For causal LM, labels are the same as input_ids
-        # Create a copy as a list to avoid reference issues
-        outputs['labels'] = [ids[:] for ids in outputs['input_ids']]
+        # Copy input_ids to labels - they should have the same structure
+        outputs['labels'] = outputs['input_ids'].copy()
         
         return outputs
     
@@ -232,10 +282,9 @@ class QWENTrainer:
             desc="Tokenizing dataset"
         )
         
-        # Data collator
-        data_collator = DataCollatorForLanguageModeling(
+        # Use custom data collator for proper padding
+        data_collator = DataCollatorForCausalLM(
             tokenizer=self.tokenizer,
-            mlm=False,
             pad_to_multiple_of=8  # Pad to multiple of 8 for efficiency
         )
         
@@ -300,9 +349,9 @@ def main():
                         help="Output directory for the model")
     parser.add_argument("--num_train_epochs", type=int, default=3,
                         help="Number of training epochs")
-    parser.add_argument("--per_device_train_batch_size", type=int, default=4,
+    parser.add_argument("--per_device_train_batch_size", type=int, default=16,
                         help="Training batch size per device")
-    parser.add_argument("--per_device_eval_batch_size", type=int, default=4,
+    parser.add_argument("--per_device_eval_batch_size", type=int, default=16,
                         help="Evaluation batch size per device")
     parser.add_argument("--gradient_accumulation_steps", type=int, default=4,
                         help="Gradient accumulation steps")
