@@ -1,522 +1,1040 @@
+# RAG Translation Agent - Context-Specific Machine Translation to Arabic<<<<<<< HEAD
+
 # RAG Translation Agent - Context-Specific Machine Translation to Arabic
+
+A Retrieval-Augmented Generation (RAG) system for English-to-Arabic translation using **local Mistral-7B-Instruct** with context-aware translation. Optimized for 3.6GB VRAM using 4-bit quantization.
 
 A Retrieval-Augmented Generation (RAG) system for English-to-Arabic translation using **local Mistral-7B-Instruct** with context-aware translation.
 
+---
+
 ## 🎯 Project Overview
 
+## 🎯 Overview## 🎯 What is This?
+
+This project implements a **Retrieval-Augmented Generation (RAG)** system for context-aware English-to-Arabic translation, specifically optimized for economic and financial domain texts. The system combines semantic search with neural machine translation to deliver domain-specific, consistent, and accurate translations.
+
+This project implements a **RAG-based translation system** that combines:
 
 
-## 🎯 What is This?This project implements a **Retrieval-Augmented Generation (RAG)** system for context-aware English-to-Arabic translation, specifically optimized for economic and financial domain texts. The system combines semantic search with neural machine translation to deliver domain-specific, consistent, and accurate translations.
+
+- **Vector Database (FAISS)** - Stores translation examples from economic/financial domain
+
+- **Sentence Embeddings** - Semantic similarity search to find relevant contextThis system combines:### What Makes This "Agentic"?
+
+- **Local Mistral-7B-Instruct** - 4-bit quantized LLM for high-quality translation
+
+- **RAG Pipeline** - Retrieves similar examples to improve translation accuracy- **Vector Database** (FAISS) with 1.8M+ economic translation pairs
 
 
 
-This system combines:### What Makes This "Agentic"?
+### Key Features- **Sentence Embeddings** for semantic similarity searchThe **agentic** nature of this system lies in its autonomous decision-making and multi-step reasoning process:
 
-- **Vector Database** (FAISS) with 1.8M+ economic translation pairs
 
-- **Sentence Embeddings** for semantic similarity searchThe **agentic** nature of this system lies in its autonomous decision-making and multi-step reasoning process:
 
-- **Google Gemini API** for context-aware translation
+✅ **100% Local** - No API keys, runs entirely on your machine  - **Google Gemini API** for context-aware translation
 
-- **RAG Pipeline** that retrieves similar examples to improve translation quality1. **Autonomous Context Retrieval**: The agent independently determines which translation examples are most relevant by:
+✅ **Memory Efficient** - 4-bit quantization fits in 3.6GB VRAM  
 
-   - Semantically analyzing the input text
+✅ **Context-Aware** - Uses similar translations to improve quality  - **RAG Pipeline** that retrieves similar examples to improve translation quality1. **Autonomous Context Retrieval**: The agent independently determines which translation examples are most relevant by:
 
-## 🚀 Quick Start   - Querying the vector database for similar examples
+✅ **Evaluation Ready** - Built-in BLEU and chrF metrics  
 
-   - Ranking and selecting the most contextually appropriate examples
+✅ **Domain-Specific** - Optimized for economic/financial texts     - Semantically analyzing the input text
 
-### 1. Installation
 
-2. **Adaptive Translation Strategy**: Based on retrieved context, the agent:
+
+---## 🚀 Quick Start   - Querying the vector database for similar examples
+
+
+
+## 🚀 Quick Start   - Ranking and selecting the most contextually appropriate examples
+
+
+
+### 1. Installation### 1. Installation
+
+
+
+```bash2. **Adaptive Translation Strategy**: Based on retrieved context, the agent:
+
+cd ATA/RAG_Retrieval
 
 ```bash   - Dynamically adjusts its translation approach
 
-# Install dependencies   - Incorporates domain-specific terminology
+# Install dependencies
+
+pip install -r requirements.txt# Install dependencies   - Incorporates domain-specific terminology
+
+```
 
 pip install -r requirements.txt   - Maintains consistency with similar past translations
 
+**What gets installed:**
+
+- PyTorch with CUDA support```
+
+- Transformers + BitsAndBytes (4-bit quantization)
+
+- Sentence transformers (embeddings)3. **Multi-Step Pipeline Orchestration**: The agent autonomously coordinates:
+
+- FAISS (vector database)
+
+- sacrebleu (evaluation metrics)### 2. Get Gemini API Key   - Text normalization and preprocessing
+
+
+
+### 2. Build Vector Database   - Semantic retrieval operations
+
+
+
+```bash1. Visit: https://makersuite.google.com/app/apikey   - Context formatting and prompt construction
+
+# Index 10,000 translation examples (recommended for testing)
+
+python build_vector_db.py --sample 100002. Create a free API key   - Translation generation with appropriate parameters
+
+
+
+# Or use all available data:3. Set environment variable:   - Post-processing and result validation
+
+# python build_vector_db.py
+
 ```
 
-3. **Multi-Step Pipeline Orchestration**: The agent autonomously coordinates:
-
-### 2. Get Gemini API Key   - Text normalization and preprocessing
-
-   - Semantic retrieval operations
-
-1. Visit: https://makersuite.google.com/app/apikey   - Context formatting and prompt construction
-
-2. Create a free API key   - Translation generation with appropriate parameters
-
-3. Set environment variable:   - Post-processing and result validation
 
 
+**Expected time:** 2-5 minutes  ```bash4. **Self-Optimization**: The system can:
 
-```bash4. **Self-Optimization**: The system can:
+**Output:** Vector database in `./vector_db/`
 
 export GOOGLE_API_KEY="your_api_key_here"   - Filter results based on domain metadata
 
+### 3. Test Translation
+
 ```   - Adjust retrieval parameters (top-k, similarity thresholds)
 
-   - Select between different translation models
+```bash
+
+python test_translation.py   - Select between different translation models
+
+```
 
 ### 3. Build Vector Database (First Time Only)   - Apply quantization strategies based on available resources
 
+**What it does:**
 
+- Loads vector database with translation examples
 
-```bashThis goes beyond a simple translation API by acting as an intelligent agent that makes contextual decisions at each step to optimize translation quality.
+- Downloads & quantizes Mistral-7B (first run only, ~13GB)
+
+- Translates test sentences WITH and WITHOUT RAG context```bashThis goes beyond a simple translation API by acting as an intelligent agent that makes contextual decisions at each step to optimize translation quality.
+
+- Shows retrieved examples and improvements
 
 python build_vector_db.py --config config.ini --sample 10000
 
-```---
+**First run:** 60-90 seconds (model download)  
+
+**Subsequent runs:** 10-20 seconds```---
 
 
 
-This indexes translation examples from `economic v1.csv` for retrieval.## 📊 Data Source
+### 4. Launch Web Interface
 
 
 
-### 4. Test Translation### Economic v1.csv - UN Parallel Corpus
+```bashThis indexes translation examples from `economic v1.csv` for retrieval.## 📊 Data Source
 
-
-
-```bashThe system is trained and retrieves context from `economic v1.csv`, a parallel corpus containing:
-
-python test_gemini.py
-
-```- **Source**: English text from UN documents (economic and financial domain)
-
-- **Target**: Professional Arabic translations
-
-### 5. Run Evaluation- **Size**: Contains thousands of parallel sentence pairs
-
-- **Domain**: Economic, financial, legal, and political terminology
-
-```bash- **Structure**:
-
-# Extract test samples  - `id`: Unique identifier for each translation pair
-
-python extract_test_samples.py --num_samples 100  - `en`: English source text
-
-  - `ar`: Arabic target translation
-
-# Compare RAG vs non-RAG
-
-python compare_rag.py \**Example entries**:
-
-    --api_key $GOOGLE_API_KEY \```csv
-
-    --test_file test_samples.csv \id,en,ar
-
-    --sample 1001,"The question of financial assistance to defendants unable to fund their defence...","وهناك حاجة أيضا الى النظر في مسألة تقديم المساعدة المالية..."
-
-```9,"It is estimated that the cost of maintaining UNFICYP...","تشير التقديرات الى أن تكاليف اﻹبقاء على قوة..."
+streamlit run app.py
 
 ```
 
-## 📊 How It Works
 
-This high-quality parallel corpus serves as:
 
-### RAG Translation Pipeline1. **Training data** for building the vector database
+Open browser at `http://localhost:8501` for interactive translation!### 4. Test Translation### Economic v1.csv - UN Parallel Corpus
 
-2. **Retrieval source** for finding similar translation contexts
 
-```3. **Quality reference** for domain-specific terminology
-
-Input Text
-
-    ↓---
-
-1. Normalize & Preprocess
-
-    ↓## 🏗️ System Architecture
-
-2. Generate Embedding (Sentence-BERT)
-
-    ↓```
-
-3. Search Vector DB (FAISS)┌──────────────────────────────────────────────────────────────────┐
-
-    ↓│                         User Interface Layer                      │
-
-4. Retrieve Top-K Similar Examples│  ┌────────────────┐  ┌────────────────┐  ┌───────────────────┐ │
-
-    ↓│  │  Streamlit UI  │  │   Python API   │  │  CLI Scripts      │ │
-
-5. Build Context Prompt with Examples│  │   (app.py)     │  │ (rag_agent.py) │  │ (example.py)      │ │
-
-    ↓│  └────────────────┘  └────────────────┘  └───────────────────┘ │
-
-6. Send to Gemini API└──────────────────────────────────────────────────────────────────┘
-
-    ↓                              ↓
-
-7. Get Context-Aware Translation┌──────────────────────────────────────────────────────────────────┐
-
-    ↓│                     RAG Agent (Orchestrator)                      │
-
-Output Translation│                         rag_agent.py                              │
-
-```│  ┌──────────────────────────────────────────────────────────┐  │
-
-│  │  1. Text Normalization                                    │  │
-
-### Example│  │  2. Context Retrieval (semantic search)                   │  │
-
-│  │  3. Prompt Construction (with retrieved examples)         │  │
-
-**Without RAG (Baseline)**:│  │  4. Translation Generation                                │  │
-
-```│  │  5. Result Post-processing                                │  │
-
-Input: "The economic growth rate increased significantly."│  └──────────────────────────────────────────────────────────┘  │
-
-Output: [Generic translation]└──────────────────────────────────────────────────────────────────┘
-
-```              ↓                                ↓
-
-┌────────────────────────────┐    ┌──────────────────────────────┐
-
-**With RAG (Context-Aware)**:│   Retrieval Component      │    │   Translation Component      │
-
-```│     vector_db.py           │    │      Transformers            │
-
-Input: "The economic growth rate increased significantly."│                            │    │                              │
-
-│  ┌──────────────────────┐ │    │  ┌────────────────────────┐ │
-
-Retrieved Examples:│  │ Embedding Model      │ │    │  │ Translation Models     │ │
-
-1. "Economic indicators show positive trends" → "تظهر المؤشرات الاقتصادية اتجاهات إيجابية"│  │ • Sentence-BERT      │ │    │  │ • MarianMT (default)   │ │
-
-2. "The growth rate exceeds expectations" → "معدل النمو يتجاوز التوقعات"│  │ • Multilingual       │ │    │  │ • NLLB                 │ │
-
-3. "GDP growth accelerated" → "تسارع نمو الناتج المحلي الإجمالي"│  │ • 768D vectors       │ │    │  │ • QWEN (fine-tuned)    │ │
-
-│  └──────────────────────┘ │    │  └────────────────────────┘ │
-
-Output: [Domain-specific, consistent translation using economic terminology]│                            │    │                              │
-
-```│  ┌──────────────────────┐ │    │  ┌────────────────────────┐ │
-
-│  │ Vector Database      │ │    │  │ Generation Config      │ │
-
-## 📁 File Structure│  │ • ChromaDB           │ │    │  │ • Beam search          │ │
-
-│  │ • FAISS (GPU-accel.) │ │    │  │ • Temperature tuning   │ │
-
-```│  │ • Cosine similarity  │ │    │  │ • Top-p sampling       │ │
-
-RAG_Agent/│  └──────────────────────┘ │    │  └────────────────────────┘ │
-
-├── rag_agent.py              # Main translation agent (Gemini API)└────────────────────────────┘    └──────────────────────────────┘
-
-├── vector_db.py              # FAISS vector database manager              ↓
-
-├── utils.py                  # Utilities (normalization, formatting)┌──────────────────────────────────────────────────────────────────┐
-
-├── config.ini                # Configuration settings│                      Data Storage Layer                           │
-
-││  ┌─────────────────┐  ┌──────────────────┐  ┌────────────────┐ │
-
-├── build_vector_db.py        # Build/update vector database│  │  Vector Index   │  │  Metadata Store  │  │  Economic Data │ │
-
-├── test_gemini.py            # Quick test script│  │  (embeddings)   │  │   (text pairs)   │  │ (economic.csv) │ │
-
-├── compare_rag.py            # Evaluation with metrics (BLEU, chrF)│  └─────────────────┘  └──────────────────┘  └────────────────┘ │
-
-├── extract_test_samples.py   # Extract test data└──────────────────────────────────────────────────────────────────┘
-
-│```
-
-├── app.py                    # Streamlit web UI (optional)
-
-├── evaluate.py               # Full evaluation suite---
-
-├── requirements.txt          # Python dependencies
-
-│## 🔄 RAG Process Explained
-
-├── economic v1.csv           # Translation corpus (1.8M pairs)
-
-└── vector_db/                # FAISS index files### Step-by-Step Translation Pipeline
-
-    └── translation_corpus.index
-
-```#### 1. **Input Processing** (`utils.py`)
-
-```
-
-## 🔧 ConfigurationUser Input: "The GDP growth rate increased by 3.5% in Q2 2024"
-
-                    ↓
-
-Edit `config.ini`:        [Text Normalization]
-
-                    ↓
-
-```iniNormalized: "The GDP growth rate increased by 3.5% in Q2 2024"
-
-[GEMINI]```
-
-model_name = gemini-pro
-
-temperature = 0.3#### 2. **Semantic Embedding** (`vector_db.py`)
-
-top_k_retrieval = 3```
-
-max_output_tokens = 512Normalized Text → Sentence-BERT Encoder → 768D Vector
-
-[0.023, -0.145, 0.892, ..., 0.334]
-
-[VECTOR_DB]```
-
-db_type = faiss
-
-collection_name = translation_corpus#### 3. **Context Retrieval** (`vector_db.py`)
-
-The vector database searches for similar translation examples:
-
-[EMBEDDINGS]```
-
-model_name = sentence-transformers/paraphrase-multilingual-mpnet-base-v2Query Vector → Vector Database (FAISS/ChromaDB)
-
-device = cuda                    ↓
-
-```    [Cosine Similarity Search]
-
-                    ↓
-
-## 💻 UsageTop-5 Similar Examples (from economic v1.csv):
-
-1. "The economic growth rate increased..." → "ارتفع معدل النمو الاقتصادي..."
-
-### Python API2. "GDP estimates for the quarter..." → "تقديرات الناتج المحلي الإجمالي للربع..."
-
-3. "Growth statistics show..." → "تظهر إحصاءات النمو..."
-
-```python4. "Financial indicators improved..." → "تحسنت المؤشرات المالية..."
-
-from rag_agent import RAGTranslationAgent5. "The rate of increase..." → "معدل الزيادة..."
-
-from vector_db import VectorDBManager```
-
-from utils import load_config
-
-#### 4. **Prompt Construction** (`rag_agent.py`)
-
-# Load config```
-
-config = load_config("config.ini")System: You are a professional translator specializing in economic texts.
-
-
-
-# Initialize vector databaseContext (Similar Examples):
-
-vector_db = VectorDBManager(- EN: "The economic growth rate increased..."
-
-    db_type="faiss",  AR: "ارتفع معدل النمو الاقتصادي..."
-
-    embedding_model=config.get("EMBEDDINGS", "model_name"),- EN: "GDP estimates for the quarter..."
-
-    db_path="./vector_db",  AR: "تقديرات الناتج المحلي الإجمالي للربع..."
-
-    device="cuda"[... more examples ...]
-
-)
-
-Now translate:
-
-# Initialize translation agentEN: "The GDP growth rate increased by 3.5% in Q2 2024"
-
-agent = RAGTranslationAgent(AR: 
-
-    api_key="YOUR_GEMINI_API_KEY",  # or use env var```
-
-    vector_db_manager=vector_db,
-
-    model_name="gemini-pro",#### 5. **Translation Generation** (`rag_agent.py`)
-
-    temperature=0.3,```
-
-    top_k_retrieval=3Prompt → Translation Model (MarianMT/NLLB/QWEN)
-
-)                    ↓
-
-        [Beam Search Decoding]
-
-# Translate with RAG        [Context-Aware Generation]
-
-result = agent.translate(                    ↓
-
-    "The economic growth rate increased significantly.",Arabic Translation: "ارتفع معدل نمو الناتج المحلي الإجمالي بنسبة 3.5% في الربع الثاني من عام 2024"
-
-    use_context=True,```
-
-    return_context=True
-
-)#### 6. **Post-Processing** (`utils.py`)
-
-```
-
-print(f"Translation: {result['translation']}")Raw Output → [Normalization] → Final Translation
-
-print(f"Used {result['num_retrieved']} context examples")```
-
-```
-
-### Why RAG Improves Translation
-
-### Command Line
-
-**Without RAG** (baseline model):
-
-```bash```
-
-# Quick testInput: "The GDP growth rate increased by 3.5%"
-
-python test_gemini.pyOutput: "زاد معدل نمو الناتج المحلي بنسبة 3.5٪"
-
-        (Generic translation, inconsistent terminology)
-
-# Full evaluation```
-
-python compare_rag.py --api_key $GOOGLE_API_KEY --test_file test.csv
-
-**With RAG** (context-aware):
-
-# Web UI```
-
-streamlit run app.pyInput: "The GDP growth rate increased by 3.5%"
-
-```Retrieved Context: Similar economic translations from UN corpus
-
-Output: "ارتفع معدل نمو الناتج المحلي الإجمالي بنسبة 3.5٪"
-
-## 📈 Evaluation Metrics        (Domain-specific, consistent with UN terminology)
-
-```
-
-The system evaluates translation quality using:
 
 ---
 
-- **BLEU Score**: Precision-based metric (0-100)
-
-- **chrF Score**: Character n-gram F-score (0-100)## 📁 File Structure and Purpose
 
 
-
-### Expected Results### Core Components
+## 📊 Model Configuration```bashThe system is trained and retrieves context from `economic v1.csv`, a parallel corpus containing:
 
 
 
-```#### 1. **`rag_agent.py`** - The Orchestrator
-
-📊 RESULTS COMPARISON**Purpose**: Main agentic component that coordinates the entire RAG pipeline.
-
-============================================================
-
-**Key Responsibilities**:
-
-🔵 WITHOUT RAG (Baseline):- Manages the translation workflow
-
-   BLEU Score:  42.35- Coordinates retrieval and generation
-
-   chrF Score:  65.78- Handles different model types (Seq2Seq, Causal LM)
-
-- Implements context-aware prompting
-
-🟢 WITH RAG (Context-Aware):- Batch processing support
-
-   BLEU Score:  58.92
-
-   chrF Score:  78.43**Key Class**: `RAGTranslationAgent`
-
-- **Methods**:
-
-📈 IMPROVEMENT:  - `translate()`: Single text translation with RAG
-
-   BLEU: +16.57 points (+39.1%)  - `translate_batch()`: Batch translation processing
-
-   chrF: +12.65 points (+19.2%)  - `_translate_seq2seq()`: For MarianMT, NLLB models
-
-```  - `_translate_causal()`: For QWEN, LLaMA models
+### Current Model: **Mistral-7B-Instruct-v0.2**python test_gemini.py
 
 
 
-## 🎓 Key Features**Agentic Features**:
+Configured in `config.ini`:```- **Source**: English text from UN documents (economic and financial domain)
 
-- Autonomous context retrieval decisions
 
-### Why RAG?- Dynamic prompt construction based on retrieved examples
 
-- Adaptive generation parameters
+```ini- **Target**: Professional Arabic translations
 
-1. **Domain Adaptation**: Uses economic/financial terminology from corpus
+[TRANSLATION]
 
-2. **Consistency**: Learns translation style from retrieved examples#### 2. **`vector_db.py`** - The Memory System
+model_name = mistralai/Mistral-7B-Instruct-v0.2### 5. Run Evaluation- **Size**: Contains thousands of parallel sentence pairs
 
-3. **Context-Aware**: Better handling of idiomatic expressions**Purpose**: Manages semantic search and retrieval from the parallel corpus.
+device = cuda
 
-4. **Dynamic**: No model retraining needed for new domains
+use_4bit = true          # Critical for 3.6GB VRAM- **Domain**: Economic, financial, legal, and political terminology
 
-**Key Responsibilities**:
+max_length = 256
 
-### Why Gemini API?- Build vector database from `economic v1.csv`
+temperature = 0.3        # Low = deterministic, high = creative```bash- **Structure**:
 
-- Generate embeddings for source texts
+top_p = 0.9
 
-1. **Causal Language Model**: Excels at in-context learning- Perform semantic similarity search
+```# Extract test samples  - `id`: Unique identifier for each translation pair
 
-2. **Few-Shot Learning**: Effectively uses retrieved examples- Handle both ChromaDB and FAISS backends
 
-3. **Easy Setup**: No local GPU requirements
 
-4. **Free Tier**: 60 requests/min, 1,500/day**Key Class**: `VectorDBManager`
+### Alternative Modelspython extract_test_samples.py --num_samples 100  - `en`: English source text
 
-- **Methods**:
 
-## 🔍 Comparison with MarianMT  - `build_from_dataframe()`: Index the economic corpus
 
-  - `retrieve()`: Semantic search for similar translations
+You can change the model by editing `config.ini`:  - `ar`: Arabic target translation
 
-| Feature | MarianMT (Previous) | Gemini + RAG (Current) |  - `add_examples()`: Add new translation pairs
 
-|---------|---------------------|------------------------|  - `_initialize_chromadb()` / `_initialize_faiss()`: Backend setup
 
-| **Architecture** | Seq2Seq Encoder-Decoder | Causal Language Model |
+```ini# Compare RAG vs non-RAG
 
-| **Context Usage** | ❌ Can't use retrieved examples | ✅ Leverages RAG context |**Supported Backends**:
+# Option 1: Llama-2 (requires HuggingFace token)
 
-| **Domain Adaptation** | ❌ Fixed at training | ✅ Dynamic via retrieval |- **ChromaDB**: Easy persistence, good for <10M documents
+model_name = meta-llama/Llama-2-7b-chat-hfpython compare_rag.py \**Example entries**:
 
-| **Setup** | Complex (quantization issues) | Simple (API key) |- **FAISS**: Ultra-fast search, GPU-accelerated, scalable
 
-| **Hardware** | Requires GPU | API-based (no GPU needed) |
 
-| **Translation Quality** | Good | Better with context |#### 3. **`utils.py`** - Helper Functions
+# Option 2: Zephyr (good alternative)    --api_key $GOOGLE_API_KEY \```csv
 
-**Purpose**: Common utilities for text processing and configuration.
+model_name = HuggingFaceH4/zephyr-7b-beta
+
+    --test_file test_samples.csv \id,en,ar
+
+# Option 3: Your fine-tuned model
+
+model_name = ../LLMs/QWEN/outputs/your_model    --sample 1001,"The question of financial assistance to defendants unable to fund their defence...","وهناك حاجة أيضا الى النظر في مسألة تقديم المساعدة المالية..."
+
+```
+
+```9,"It is estimated that the cost of maintaining UNFICYP...","تشير التقديرات الى أن تكاليف اﻹبقاء على قوة..."
+
+**For Llama-2:** Run `huggingface-cli login` first
+
+```
+
+---
+
+## 📊 How It Works
+
+## 🧪 Evaluation & Comparison
+
+This high-quality parallel corpus serves as:
+
+### Create Test Dataset
+
+### RAG Translation Pipeline1. **Training data** for building the vector database
+
+```bash
+
+python extract_test_samples.py --num_samples 100 --output test_data.csv2. **Retrieval source** for finding similar translation contexts
+
+```
+
+```3. **Quality reference** for domain-specific terminology
+
+### Compare RAG vs Non-RAG
+
+Input Text
+
+```bash
+
+python compare_rag.py \    ↓---
+
+    --test_file test_data.csv \
+
+    --sample 50 \1. Normalize & Preprocess
+
+    --output_dir ./evaluation_results \
+
+    --top_k 3    ↓## 🏗️ System Architecture
+
+```
+
+2. Generate Embedding (Sentence-BERT)
+
+**What this does:**
+
+1. Translates all samples **without RAG** (baseline)    ↓```
+
+2. Translates same samples **with RAG** (context-aware)
+
+3. Calculates BLEU and chrF scores3. Search Vector DB (FAISS)┌──────────────────────────────────────────────────────────────────┐
+
+4. Shows improvement metrics
+
+5. Saves detailed results    ↓│                         User Interface Layer                      │
+
+
+
+**Expected Output:**4. Retrieve Top-K Similar Examples│  ┌────────────────┐  ┌────────────────┐  ┌───────────────────┐ │
+
+
+
+```    ↓│  │  Streamlit UI  │  │   Python API   │  │  CLI Scripts      │ │
+
+📊 RESULTS COMPARISON
+
+============================================================5. Build Context Prompt with Examples│  │   (app.py)     │  │ (rag_agent.py) │  │ (example.py)      │ │
+
+
+
+🔵 WITHOUT RAG (Baseline):    ↓│  └────────────────┘  └────────────────┘  └───────────────────┘ │
+
+   BLEU Score:  28.45
+
+   chrF Score:  52.306. Send to Gemini API└──────────────────────────────────────────────────────────────────┘
+
+   Successful:  50/50
+
+    ↓                              ↓
+
+🟢 WITH RAG (Context-Aware):
+
+   BLEU Score:  34.787. Get Context-Aware Translation┌──────────────────────────────────────────────────────────────────┐
+
+   chrF Score:  58.92
+
+   Successful:  50/50    ↓│                     RAG Agent (Orchestrator)                      │
+
+
+
+📈 IMPROVEMENT:Output Translation│                         rag_agent.py                              │
+
+   BLEU: +6.33 points (+22.3%)
+
+   chrF: +6.62 points (+12.7%)```│  ┌──────────────────────────────────────────────────────────┐  │
+
+```
+
+│  │  1. Text Normalization                                    │  │
+
+**Results saved to:**
+
+- `evaluation_results/comparison_summary_*.json` - Metrics### Example│  │  2. Context Retrieval (semantic search)                   │  │
+
+- `evaluation_results/detailed_translations_*.csv` - All translations
+
+│  │  3. Prompt Construction (with retrieved examples)         │  │
+
+---
+
+**Without RAG (Baseline)**:│  │  4. Translation Generation                                │  │
+
+## 📁 Project Structure
+
+```│  │  5. Result Post-processing                                │  │
+
+```
+
+RAG_Retrieval/Input: "The economic growth rate increased significantly."│  └──────────────────────────────────────────────────────────┘  │
+
+├── rag_agent.py              # Core translation agent (Mistral-7B)
+
+├── vector_db.py              # Vector database manager (FAISS)Output: [Generic translation]└──────────────────────────────────────────────────────────────────┘
+
+├── utils.py                  # Utility functions
+
+├── config.ini                # Configuration file```              ↓                                ↓
+
+├── requirements.txt          # Dependencies
+
+│┌────────────────────────────┐    ┌──────────────────────────────┐
+
+├── compare_rag.py            # ⭐ RAG evaluation script
+
+├── evaluate.py               # General evaluation**With RAG (Context-Aware)**:│   Retrieval Component      │    │   Translation Component      │
+
+├── test_translation.py       # Quick functionality test
+
+├── quick_test.py             # Minimal test```│     vector_db.py           │    │      Transformers            │
+
+├── example.py                # Usage examples
+
+│Input: "The economic growth rate increased significantly."│                            │    │                              │
+
+├── app.py                    # Streamlit web interface
+
+├── build_vector_db.py        # Build FAISS index│  ┌──────────────────────┐ │    │  ┌────────────────────────┐ │
+
+├── extract_test_samples.py   # Create test datasets
+
+│Retrieved Examples:│  │ Embedding Model      │ │    │  │ Translation Models     │ │
+
+├── economic v1.csv           # Training corpus (UN data)
+
+└── vector_db/                # FAISS index (created after build)1. "Economic indicators show positive trends" → "تظهر المؤشرات الاقتصادية اتجاهات إيجابية"│  │ • Sentence-BERT      │ │    │  │ • MarianMT (default)   │ │
+
+```
+
+2. "The growth rate exceeds expectations" → "معدل النمو يتجاوز التوقعات"│  │ • Multilingual       │ │    │  │ • NLLB                 │ │
+
+---
+
+3. "GDP growth accelerated" → "تسارع نمو الناتج المحلي الإجمالي"│  │ • 768D vectors       │ │    │  │ • QWEN (fine-tuned)    │ │
+
+## 🎓 How RAG Works
+
+│  └──────────────────────┘ │    │  └────────────────────────┘ │
+
+### Without RAG (Baseline)
+
+```Output: [Domain-specific, consistent translation using economic terminology]│                            │    │                              │
+
+English Text → Mistral-7B → Arabic Translation
+
+``````│  ┌──────────────────────┐ │    │  ┌────────────────────────┐ │
+
+
+
+Simple, but lacks domain knowledge and consistency.│  │ Vector Database      │ │    │  │ Generation Config      │ │
+
+
+
+### With RAG (Context-Aware)## 📁 File Structure│  │ • ChromaDB           │ │    │  │ • Beam search          │ │
+
+```
+
+English Text → Vector DB Search → Similar Examples│  │ • FAISS (GPU-accel.) │ │    │  │ • Temperature tuning   │ │
+
+              ↓
+
+    [Example 1, Example 2, Example 3]```│  │ • Cosine similarity  │ │    │  │ • Top-p sampling       │ │
+
+              ↓
+
+       Mistral-7B (with context) → Arabic TranslationRAG_Agent/│  └──────────────────────┘ │    │  └────────────────────────┘ │
+
+```
+
+├── rag_agent.py              # Main translation agent (Gemini API)└────────────────────────────┘    └──────────────────────────────┘
+
+The model sees similar translations and adapts accordingly!
+
+├── vector_db.py              # FAISS vector database manager              ↓
+
+### Example
+
+├── utils.py                  # Utilities (normalization, formatting)┌──────────────────────────────────────────────────────────────────┐
+
+**Input:** "The economic growth rate increased significantly."
+
+├── config.ini                # Configuration settings│                      Data Storage Layer                           │
+
+**Retrieved Context:**
+
+1. "Economic growth accelerated..." → "تسارع النمو الاقتصادي..."││  ┌─────────────────┐  ┌──────────────────┐  ┌────────────────┐ │
+
+2. "The GDP growth rate rose..." → "ارتفع معدل نمو الناتج المحلي..."
+
+3. "Significant increase in growth..." → "زيادة كبيرة في النمو..."├── build_vector_db.py        # Build/update vector database│  │  Vector Index   │  │  Metadata Store  │  │  Economic Data │ │
+
+
+
+**Result:** More accurate terminology and natural phrasing!├── test_gemini.py            # Quick test script│  │  (embeddings)   │  │   (text pairs)   │  │ (economic.csv) │ │
+
+
+
+---├── compare_rag.py            # Evaluation with metrics (BLEU, chrF)│  └─────────────────┘  └──────────────────┘  └────────────────┘ │
+
+
+
+## 📈 Performance Expectations├── extract_test_samples.py   # Extract test data└──────────────────────────────────────────────────────────────────┘
+
+
+
+### VRAM Usage│```
+
+- **Embeddings model:** ~0.5 GB
+
+- **Mistral-7B (4-bit):** ~3.5-4 GB├── app.py                    # Streamlit web UI (optional)
+
+- **Total:** ~4-4.5 GB
+
+- **Recommended:** 6GB+ VRAM├── evaluate.py               # Full evaluation suite---
+
+
+
+### Translation Speed├── requirements.txt          # Python dependencies
+
+- **First translation:** 30-60 seconds (model loading)
+
+- **With RAG:** 2-5 seconds/sentence│## 🔄 RAG Process Explained
+
+- **Without RAG:** 1-3 seconds/sentence
+
+├── economic v1.csv           # Translation corpus (1.8M pairs)
+
+### Quality Improvements
+
+- **BLEU:** +15-30% improvement└── vector_db/                # FAISS index files### Step-by-Step Translation Pipeline
+
+- **chrF:** +10-20% improvement
+
+- **Consistency:** Significantly better    └── translation_corpus.index
+
+- **Domain accuracy:** Much improved
+
+```#### 1. **Input Processing** (`utils.py`)
+
+---
+
+```
+
+## ⚙️ Configuration Guide
+
+## 🔧 ConfigurationUser Input: "The GDP growth rate increased by 3.5% in Q2 2024"
+
+Edit `config.ini` to customize:
+
+                    ↓
+
+### Vector Database
+
+```iniEdit `config.ini`:        [Text Normalization]
+
+[VECTOR_DB]
+
+db_type = faiss              # GPU-accelerated                    ↓
+
+top_k = 3                    # Number of examples to retrieve
+
+similarity_threshold = 0.5   # Minimum similarity (0-1)```iniNormalized: "The GDP growth rate increased by 3.5% in Q2 2024"
+
+```
+
+[GEMINI]```
+
+### Embeddings
+
+```inimodel_name = gemini-pro
+
+[EMBEDDINGS]
+
+model_name = sentence-transformers/paraphrase-multilingual-mpnet-base-v2temperature = 0.3#### 2. **Semantic Embedding** (`vector_db.py`)
+
+device = cuda
+
+batch_size = 16top_k_retrieval = 3```
+
+```
+
+max_output_tokens = 512Normalized Text → Sentence-BERT Encoder → 768D Vector
+
+### Translation Model
+
+```ini[0.023, -0.145, 0.892, ..., 0.334]
+
+[TRANSLATION]
+
+model_name = mistralai/Mistral-7B-Instruct-v0.2[VECTOR_DB]```
+
+use_4bit = true              # CRITICAL for low VRAM
+
+max_length = 256             # Output length limitdb_type = faiss
+
+temperature = 0.3            # 0.1 = deterministic, 1.0 = creative
+
+top_p = 0.9                  # Nucleus samplingcollection_name = translation_corpus#### 3. **Context Retrieval** (`vector_db.py`)
+
+```
+
+The vector database searches for similar translation examples:
+
+---
+
+[EMBEDDINGS]```
+
+## 💡 Usage Examples
+
+model_name = sentence-transformers/paraphrase-multilingual-mpnet-base-v2Query Vector → Vector Database (FAISS/ChromaDB)
+
+### Basic Translation
+
+device = cuda                    ↓
+
+```python
+
+from rag_agent import RAGTranslationAgent```    [Cosine Similarity Search]
+
+from vector_db import VectorDBManager
+
+from utils import load_config                    ↓
+
+
+
+# Load configuration## 💻 UsageTop-5 Similar Examples (from economic v1.csv):
+
+config = load_config("config.ini")
+
+1. "The economic growth rate increased..." → "ارتفع معدل النمو الاقتصادي..."
+
+# Initialize vector database
+
+vector_db = VectorDBManager(### Python API2. "GDP estimates for the quarter..." → "تقديرات الناتج المحلي الإجمالي للربع..."
+
+    db_type="faiss",
+
+    embedding_model=config.get("EMBEDDINGS", "model_name"),3. "Growth statistics show..." → "تظهر إحصاءات النمو..."
+
+    db_path="./vector_db",
+
+    collection_name="translation_corpus",```python4. "Financial indicators improved..." → "تحسنت المؤشرات المالية..."
+
+    device="cuda"
+
+)from rag_agent import RAGTranslationAgent5. "The rate of increase..." → "معدل الزيادة..."
+
+
+
+# Initialize translation agentfrom vector_db import VectorDBManager```
+
+agent = RAGTranslationAgent(
+
+    model_name="mistralai/Mistral-7B-Instruct-v0.2",from utils import load_config
+
+    vector_db_manager=vector_db,
+
+    device="cuda",#### 4. **Prompt Construction** (`rag_agent.py`)
+
+    use_4bit=True,
+
+    temperature=0.3,# Load config```
+
+    top_k_retrieval=3
+
+)config = load_config("config.ini")System: You are a professional translator specializing in economic texts.
+
+
+
+# Translate with RAG
+
+result = agent.translate(
+
+    "The economic growth rate increased significantly.",# Initialize vector databaseContext (Similar Examples):
+
+    use_context=True,
+
+    return_context=Truevector_db = VectorDBManager(- EN: "The economic growth rate increased..."
+
+)
+
+    db_type="faiss",  AR: "ارتفع معدل النمو الاقتصادي..."
+
+print(f"Translation: {result['translation']}")
+
+print(f"Used {result['num_retrieved']} examples")    embedding_model=config.get("EMBEDDINGS", "model_name"),- EN: "GDP estimates for the quarter..."
+
+
+
+# Show retrieved examples    db_path="./vector_db",  AR: "تقديرات الناتج المحلي الإجمالي للربع..."
+
+for i, ex in enumerate(result['retrieved_examples'], 1):
+
+    print(f"\nExample {i} (similarity: {ex['similarity']:.3f}):")    device="cuda"[... more examples ...]
+
+    print(f"  EN: {ex['en']}")
+
+    print(f"  AR: {ex['ar']}"))
+
+```
+
+Now translate:
+
+### Translation Without RAG
+
+# Initialize translation agentEN: "The GDP growth rate increased by 3.5% in Q2 2024"
+
+```python
+
+# Baseline translation (no context)agent = RAGTranslationAgent(AR: 
+
+result = agent.translate(
+
+    "The economic growth rate increased significantly.",    api_key="YOUR_GEMINI_API_KEY",  # or use env var```
+
+    use_context=False
+
+)    vector_db_manager=vector_db,
+
+
+
+print(f"Translation: {result['translation']}")    model_name="gemini-pro",#### 5. **Translation Generation** (`rag_agent.py`)
+
+```
+
+    temperature=0.3,```
+
+### Batch Translation
+
+    top_k_retrieval=3Prompt → Translation Model (MarianMT/NLLB/QWEN)
+
+```python
+
+sentences = [)                    ↓
+
+    "The economic growth rate increased.",
+
+    "Inflation remains a concern.",        [Beam Search Decoding]
+
+    "The central bank announced new policies."
+
+]# Translate with RAG        [Context-Aware Generation]
+
+
+
+results = agent.batch_translate(result = agent.translate(                    ↓
+
+    sentences,
+
+    use_context=True    "The economic growth rate increased significantly.",Arabic Translation: "ارتفع معدل نمو الناتج المحلي الإجمالي بنسبة 3.5% في الربع الثاني من عام 2024"
+
+)
+
+    use_context=True,```
+
+for i, result in enumerate(results):
+
+    print(f"{i+1}. {result['translation']}")    return_context=True
+
+```
+
+)#### 6. **Post-Processing** (`utils.py`)
+
+---
+
+```
+
+## 📊 Understanding Metrics
+
+print(f"Translation: {result['translation']}")Raw Output → [Normalization] → Final Translation
+
+### BLEU Score (0-100)
+
+- Measures n-gram overlap with reference translationprint(f"Used {result['num_retrieved']} context examples")```
+
+- Industry standard for machine translation
+
+- **20-30:** Understandable```
+
+- **30-40:** Good quality
+
+- **40-50:** Very good### Why RAG Improves Translation
+
+- **50+:** Excellent
+
+### Command Line
+
+**RAG typically adds +5 to +15 points**
+
+**Without RAG** (baseline model):
+
+### chrF Score (0-100)
+
+- Character-level F-score```bash```
+
+- Better for morphologically rich languages (Arabic)
+
+- More robust than BLEU# Quick testInput: "The GDP growth rate increased by 3.5%"
+
+- Generally higher scores
+
+python test_gemini.pyOutput: "زاد معدل نمو الناتج المحلي بنسبة 3.5٪"
+
+**RAG typically adds +3 to +10 points**
+
+        (Generic translation, inconsistent terminology)
+
+### What Good Results Look Like
+
+- ✅ BLEU improvement > 5 points# Full evaluation```
+
+- ✅ chrF improvement > 3 points
+
+- ✅ Consistent domain terminologypython compare_rag.py --api_key $GOOGLE_API_KEY --test_file test.csv
+
+- ✅ Natural, fluent translations
+
+**With RAG** (context-aware):
+
+---
+
+# Web UI```
 
 ## 🐛 Troubleshooting
 
+streamlit run app.pyInput: "The GDP growth rate increased by 3.5%"
+
+### Out of Memory Error
+
+```Retrieved Context: Similar economic translations from UN corpus
+
+```
+
+RuntimeError: CUDA out of memoryOutput: "ارتفع معدل نمو الناتج المحلي الإجمالي بنسبة 3.5٪"
+
+```
+
+## 📈 Evaluation Metrics        (Domain-specific, consistent with UN terminology)
+
+**Solutions:**
+
+1. Ensure `use_4bit = true` in config.ini```
+
+2. Close other GPU applications
+
+3. Reduce `max_length` to 128The system evaluates translation quality using:
+
+4. Try a smaller model or reduce `batch_size`
+
+---
+
+### Model Download Issues
+
+- **BLEU Score**: Precision-based metric (0-100)
+
+```
+
+HTTPError: 401 Unauthorized- **chrF Score**: Character n-gram F-score (0-100)## 📁 File Structure and Purpose
+
+```
+
+
+
+For Llama-2, get a HuggingFace token:
+
+```bash### Expected Results### Core Components
+
+huggingface-cli login
+
+```
+
+
+
+Or use Mistral (no token needed):```#### 1. **`rag_agent.py`** - The Orchestrator
+
+```ini
+
+model_name = mistralai/Mistral-7B-Instruct-v0.2📊 RESULTS COMPARISON**Purpose**: Main agentic component that coordinates the entire RAG pipeline.
+
+```
+
+============================================================
+
+### Slow First Run
+
+**Key Responsibilities**:
+
+The first run downloads ~13GB model - this is normal and only happens once.
+
+🔵 WITHOUT RAG (Baseline):- Manages the translation workflow
+
+### Poor Translation Quality
+
+   BLEU Score:  42.35- Coordinates retrieval and generation
+
+Try adjusting in `config.ini`:
+
+```ini   chrF Score:  65.78- Handles different model types (Seq2Seq, Causal LM)
+
+# More deterministic
+
+temperature = 0.1- Implements context-aware prompting
+
+
+
+# Retrieve more examples🟢 WITH RAG (Context-Aware):- Batch processing support
+
+top_k = 5
+
+   BLEU Score:  58.92
+
+# Higher similarity threshold
+
+similarity_threshold = 0.6   chrF Score:  78.43**Key Class**: `RAGTranslationAgent`
+
+```
+
+- **Methods**:
+
+---
+
+📈 IMPROVEMENT:  - `translate()`: Single text translation with RAG
+
+## 🎯 Quick Command Reference
+
+   BLEU: +16.57 points (+39.1%)  - `translate_batch()`: Batch translation processing
+
+| Task | Command |
+
+|------|---------|   chrF: +12.65 points (+19.2%)  - `_translate_seq2seq()`: For MarianMT, NLLB models
+
+| Install | `pip install -r requirements.txt` |
+
+| Build database | `python build_vector_db.py --sample 10000` |```  - `_translate_causal()`: For QWEN, LLaMA models
+
+| Quick test | `python test_translation.py` |
+
+| Create test data | `python extract_test_samples.py --num_samples 100` |
+
+| **Run evaluation** | `python compare_rag.py --test_file test_data.csv --sample 50` |
+
+| Web interface | `streamlit run app.py` |## 🎓 Key Features**Agentic Features**:
+
+| Check GPU | `nvidia-smi` |
+
+- Autonomous context retrieval decisions
+
+---
+
+### Why RAG?- Dynamic prompt construction based on retrieved examples
+
+## 📚 Data Source
+
+- Adaptive generation parameters
+
+### Economic v1.csv - UN Parallel Corpus
+
+1. **Domain Adaptation**: Uses economic/financial terminology from corpus
+
+The system uses a parallel corpus containing:
+
+2. **Consistency**: Learns translation style from retrieved examples#### 2. **`vector_db.py`** - The Memory System
+
+- **Source:** English text from UN documents
+
+- **Target:** Professional Arabic translations  3. **Context-Aware**: Better handling of idiomatic expressions**Purpose**: Manages semantic search and retrieval from the parallel corpus.
+
+- **Domain:** Economic, financial, legal, and political terminology
+
+- **Size:** Thousands of high-quality parallel sentence pairs4. **Dynamic**: No model retraining needed for new domains
+
+
+
+**Structure:****Key Responsibilities**:
+
+- `en` - English source text
+
+- `ar` - Arabic target translation### Why Gemini API?- Build vector database from `economic v1.csv`
+
+- `domain` - Document domain/category (optional)
+
+- Generate embeddings for source texts
+
+---
+
+1. **Causal Language Model**: Excels at in-context learning- Perform semantic similarity search
+
+## 🔬 System Requirements
+
+2. **Few-Shot Learning**: Effectively uses retrieved examples- Handle both ChromaDB and FAISS backends
+
+### Hardware
+
+- **GPU:** 6GB+ VRAM (4GB might work but tight)3. **Easy Setup**: No local GPU requirements
+
+- **RAM:** 16GB+ system RAM
+
+- **Storage:** ~15GB for models and database4. **Free Tier**: 60 requests/min, 1,500/day**Key Class**: `VectorDBManager`
+
+
+
+### Software- **Methods**:
+
+- **CUDA:** 11.8+ or 12.x
+
+- **Python:** 3.8+## 🔍 Comparison with MarianMT  - `build_from_dataframe()`: Index the economic corpus
+
+- **OS:** Linux (tested), Windows/Mac should work
+
+  - `retrieve()`: Semantic search for similar translations
+
+---
+
+| Feature | MarianMT (Previous) | Gemini + RAG (Current) |  - `add_examples()`: Add new translation pairs
+
+## 🚦 Getting Started Checklist
+
+|---------|---------------------|------------------------|  - `_initialize_chromadb()` / `_initialize_faiss()`: Backend setup
+
+- [ ] Install dependencies: `pip install -r requirements.txt`
+
+- [ ] Build vector database: `python build_vector_db.py --sample 10000`| **Architecture** | Seq2Seq Encoder-Decoder | Causal Language Model |
+
+- [ ] Test system: `python test_translation.py`
+
+- [ ] Extract test data: `python extract_test_samples.py --num_samples 100`| **Context Usage** | ❌ Can't use retrieved examples | ✅ Leverages RAG context |**Supported Backends**:
+
+- [ ] Run evaluation: `python compare_rag.py --test_file test_data.csv --sample 50`
+
+- [ ] Check results in `evaluation_results/`| **Domain Adaptation** | ❌ Fixed at training | ✅ Dynamic via retrieval |- **ChromaDB**: Easy persistence, good for <10M documents
+
+- [ ] Try web interface: `streamlit run app.py`
+
+| **Setup** | Complex (quantization issues) | Simple (API key) |- **FAISS**: Ultra-fast search, GPU-accelerated, scalable
+
+---
+
+| **Hardware** | Requires GPU | API-based (no GPU needed) |
+
+## 🎓 Next Steps
+
+| **Translation Quality** | Good | Better with context |#### 3. **`utils.py`** - Helper Functions
+
+1. **Run comparison** to see RAG improvements
+
+2. **Tune parameters** in config.ini (temperature, top_k)**Purpose**: Common utilities for text processing and configuration.
+
+3. **Add domain data** to vector database
+
+4. **Fine-tune model** on your specific domain## 🐛 Troubleshooting
+
+5. **Deploy** to production
+
 **Key Functions**:
+
+---
 
 ### API Key Error- `normalize_english_text()`: Clean and normalize English input
 
+## 📄 License
+
 - `normalize_arabic_text()`: Clean and normalize Arabic output
+
+This project is part of the Context-Specific Machine Translation research.
 
 ```bash- `format_context_examples()`: Format retrieved examples for prompts
 
+---
+
 # Check if set- `chunk_text()`: Handle long texts
+
+## 🤝 Contributing
 
 echo $GOOGLE_API_KEY- `load_config()`: Configuration management
 
+Contributions, issues, and feature requests are welcome!
+
 - `setup_logging()`: Logging infrastructure
 
+---
+
 # Set it
+
+**Built with ❤️ for accurate, context-aware Arabic translation**
 
 export GOOGLE_API_KEY="your_key_here"### Scripts and Tools
 
