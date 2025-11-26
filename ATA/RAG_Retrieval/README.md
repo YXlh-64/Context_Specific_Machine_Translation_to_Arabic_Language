@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 # RAG Translation Agent - Context-Specific Machine Translation to Arabic
 
 A Retrieval-Augmented Generation (RAG) system for English-to-Arabic translation using **local Mistral-7B-Instruct** with context-aware translation.
 
 ## 🎯 Project Overview
+=======
+# RAG Translation Agent - Gemini API# RAG Translation Agent - Context-Specific Machine Translation to Arabic
+
+
+
+A Retrieval-Augmented Generation (RAG) system for English-to-Arabic translation using Google's Gemini API with context-aware translation.## 🎯 Project Overview
+>>>>>>> 5566cacfdd1b6b4cd345f64f4a5d937a490cbc7a
 
 
 
