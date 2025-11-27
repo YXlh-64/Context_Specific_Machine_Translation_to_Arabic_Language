@@ -1,0 +1,1739 @@
+"query","field"
+"Terms: hybrid cloud=[الحوسبة السحابية الهجينة] - enhanced scalability=[قابلية التوسع المحسنة] - on-premises infrastructure=[البنية التحتية على الموقع] - data centers=[مراكز البيانات] - auto-scaling=[التوسع التلقائي]
+
+English: Cloud computing enables organizations to access resources over the internet without managing physical hardware.
+Arabic: تتيح الحوسبة السحابية للمنظمات الوصول إلى الموارد عبر الإنترنت دون إدارة الأجهزة المادية.
+
+English: Virtual machines in the cloud provide isolation and efficient resource utilization.
+Arabic: توفر الآلات الافتراضية في السحابة العزل والاستخدام الفعال للموارد.
+
+English: Data centers host the physical servers that power cloud services worldwide.
+Arabic: تستضيف مراكز البيانات الخوادم المادية التي تدعم خدمات السحابة عالميًا.
+
+English: Scalability allows cloud systems to handle varying workloads dynamically.
+Arabic: تسمح قابلية التوسع لأنظمة السحابة بمعالجة أحمال العمل المتغيرة ديناميكيًا.
+
+English: Many enterprises leverage hybrid cloud setups for enhanced scalability by combining on-premises infrastructure with data centers and auto-scaling features.
+Arabic: تستفيد العديد من الشركات من إعدادات الحوسبة السحابية الهجينة لقابلية التوسع المحسنة من خلال دمج البنية التحتية على الموقع مع مراكز البيانات وميزات التوسع التلقائي.
+
+Terms: hybrid cloud=[الحوسبة السحابية الهجينة] - enhanced scalability=[قابلية التوسع المحسنة] - on-premises infrastructure=[البنية التحتية على الموقع] - data centers=[مراكز البيانات] - auto-scaling=[التوسع التلقائي]
+English: Many enterprises leverage hybrid cloud setups for enhanced scalability by combining on-premises infrastructure with data centers and auto-scaling features.
+Arabic:","technology"
+
+
+"Terms: serverless computing=[الحوسبة بدون خادم] - function as a service=[الوظيفة كخدمة] - event-driven architecture=[الهندسة المعمارية المدفوعة بالأحداث] - cold starts=[البدء البارد] - pay-per-use=[الدفع حسب الاستخدام]
+
+English: Serverless platforms abstract away server management for developers.
+Arabic: تقوم المنصات بدون خادم بتجريد إدارة الخادم عن المطورين.
+
+English: FaaS allows running code in response to events without provisioning servers.
+Arabic: تسمح FaaS بتشغيل الكود استجابة للأحداث دون توفير خوادم.
+
+English: Event-driven systems scale automatically based on incoming triggers.
+Arabic: تقوم الأنظمة المدفوعة بالأحداث بالتوسع تلقائيًا بناءً على المحفزات الواردة.
+
+English: One drawback of serverless is occasional cold starts delaying execution.
+Arabic: عيب واحد في الحوسبة بدون خادم هو بدء بارد عرضي يؤخر التنفيذ.
+
+English: Serverless computing with function as a service relies on event-driven architecture to minimize cold starts and enable pay-per-use billing.
+Arabic: تعتمد الحوسبة بدون خادم مع الوظيفة كخدمة على الهندسة المعمارية المدفوعة بالأحداث لتقليل البدء البارد وتمكين الفوترة حسب الاستخدام.
+
+Terms: serverless computing=[الحوسبة بدون خادم] - function as a service=[الوظيفة كخدمة] - event-driven architecture=[الهندسة المعمارية المدفوعة بالأحداث] - cold starts=[البدء البارد] - pay-per-use=[الدفع حسب الاستخدام]
+English: Serverless computing with function as a service relies on event-driven architecture to minimize cold starts and enable pay-per-use billing.
+Arabic:","technology"
+"Terms: container orchestration=[تنسيق الحاويات] - Kubernetes cluster=[مجموعة كوبرنيتس] - pod management=[إدارة البود] - service discovery=[اكتشاف الخدمة] - rolling updates=[التحديثات المتدحرجة]
+
+English: Containers package applications with their dependencies for portability.
+Arabic: تحزم الحاويات التطبيقات مع تبعياتها للنقلية.
+
+English: Orchestration tools automate deployment across multiple hosts.
+Arabic: تقوم أدوات التنسيق بأتمتة النشر عبر مضيفين متعددين.
+
+English: Kubernetes is a popular open-source platform for managing containerized workloads.
+Arabic: كوبرنيتس هي منصة مفتوحة المصدر شائعة لإدارة أحمال العمل المحوية.
+
+English: Clusters group nodes to run pods, which are the smallest deployable units.
+Arabic: تجمع المجموعات العقد لتشغيل البود، وهي أصغر وحدات قابلة للنشر.
+
+English: Container orchestration in a Kubernetes cluster handles pod management, service discovery, and rolling updates seamlessly.
+Arabic: يتعامل تنسيق الحاويات في مجموعة كوبرنيتس مع إدارة البود واكتشاف الخدمة والتحديثات المتدحرجة بسلاسة.
+
+Terms: container orchestration=[تنسيق الحاويات] - Kubernetes cluster=[مجموعة كوبرنيتس] - pod management=[إدارة البود] - service discovery=[اكتشاف الخدمة] - rolling updates=[التحديثات المتدحرجة]
+English: Container orchestration in a Kubernetes cluster handles pod management, service discovery, and rolling updates seamlessly.
+Arabic:","technology"
+"Terms: multi-cloud strategy=[استراتيجية متعددة السحاب] - vendor lock-in=[التقييد بالمزود] - workload portability=[نقلية أحمال العمل] - cost optimization=[تحسين التكلفة] - interoperability=[التكاملية]
+
+English: Organizations use multiple cloud providers to avoid dependency on one.
+Arabic: تستخدم المنظمات مزودي سحاب متعددين لتجنب الاعتماد على واحد.
+
+English: Vendor lock-in occurs when migrating becomes difficult due to proprietary services.
+Arabic: يحدث التقييد بالمزود عندما يصبح النقل صعبًا بسبب الخدمات الخاصة.
+
+English: Portability ensures applications can move between clouds easily.
+Arabic: تضمن النقلية نقل التطبيقات بين السحب بسهولة.
+
+English: Interoperability standards facilitate communication across providers.
+Arabic: تسهل معايير التكاملية التواصل عبر المزودين.
+
+English: A multi-cloud strategy mitigates vendor lock-in through workload portability, cost optimization, and interoperability.
+Arabic: تخفف استراتيجية متعددة السحاب من التقييد بالمزود من خلال نقلية أحمال العمل وتحسين التكلفة والتكاملية.
+
+Terms: multi-cloud strategy=[استراتيجية متعددة السحاب] - vendor lock-in=[التقييد بالمزود] - workload portability=[نقلية أحمال العمل] - cost optimization=[تحسين التكلفة] - interoperability=[التكاملية]
+English: A multi-cloud strategy mitigates vendor lock-in through workload portability, cost optimization, and interoperability.
+Arabic:","technology"
+"Terms: Infrastructure as a Service=[البنية التحتية كخدمة] - Platform as a Service=[المنصة كخدمة] - Software as a Service=[البرمجيات كخدمة] - managed services=[الخدمات المدارة] - consumption-based pricing=[التسعير حسب الاستهلاك]
+
+English: IaaS provides virtualized computing resources over the internet.
+Arabic: توفر IaaS موارد حوسبة افتراضية عبر الإنترنت.
+
+English: PaaS offers a platform allowing customers to develop and run applications.
+Arabic: تقدم PaaS منصة تسمح للعملاء بتطوير وتشغيل التطبيقات.
+
+English: SaaS delivers software applications on a subscription basis.
+Arabic: تقدم SaaS تطبيقات برمجيات على أساس اشتراك.
+
+English: Managed services reduce the operational burden on users.
+Arabic: تقلل الخدمات المدارة من العبء التشغيلي على المستخدمين.
+
+English: Cloud models like Infrastructure as a Service, Platform as a Service, and Software as a Service utilize managed services with consumption-based pricing.
+Arabic: تستخدم نماذج السحاب مثل البنية التحتية كخدمة والمنصة كخدمة والبرمجيات كخدمة الخدمات المدارة مع التسعير حسب الاستهلاك.
+
+Terms: Infrastructure as a Service=[البنية التحتية كخدمة] - Platform as a Service=[المنصة كخدمة] - Software as a Service=[البرمجيات كخدمة] - managed services=[الخدمات المدارة] - consumption-based pricing=[التسعير حسب الاستهلاك]
+English: Cloud models like Infrastructure as a Service, Platform as a Service, and Software as a Service utilize managed services with consumption-based pricing.
+Arabic:","technology"
+"Terms: load balancer=[موازن الحمل] - horizontal scaling=[التوسع الأفقي] - health checks=[فحوصات الصحة] - traffic distribution=[توزيع الحركة] - session persistence=[استمرارية الجلسة]
+
+English: Load balancers distribute incoming traffic across multiple servers.
+Arabic: يوزع موازن الحمل الحركة الواردة عبر خوادم متعددة.
+
+English: Horizontal scaling adds more instances to handle increased load.
+Arabic: يضيف التوسع الأفقي حالات إضافية لمعالجة الحمل المتزايد.
+
+English: Health checks ensure only healthy servers receive traffic.
+Arabic: تضمن فحوصات الصحة أن الخوادم الصحية فقط تتلقى الحركة.
+
+English: Traffic distribution improves application availability and performance.
+Arabic: يحسن توزيع الحركة توافر التطبيق وأدائه.
+
+English: In cloud environments, the load balancer supports horizontal scaling via health checks, traffic distribution, and session persistence.
+Arabic: في بيئات السحاب، يدعم موازن الحمل التوسع الأفقي عبر فحوصات الصحة وتوزيع الحركة واستمرارية الجلسة.
+
+Terms: load balancer=[موازن الحمل] - horizontal scaling=[التوسع الأفقي] - health checks=[فحوصات الصحة] - traffic distribution=[توزيع الحركة] - session persistence=[استمرارية الجلسة]
+English: In cloud environments, the load balancer supports horizontal scaling via health checks, traffic distribution, and session persistence.
+Arabic:","technology"
+"Terms: data encryption=[تشفير البيانات] - at-rest encryption=[التشفير أثناء الراحة] - in-transit encryption=[التشفير أثناء النقل] - key management service=[خدمة إدارة المفاتيح] - compliance standards=[معايير الامتثال]
+
+English: Encryption protects data from unauthorized access.
+Arabic: يحمي التشفير البيانات من الوصول غير المصرح به.
+
+English: At-rest encryption secures stored data on disks.
+Arabic: يؤمن التشفير أثناء الراحة البيانات المخزنة على الأقراص.
+
+English: In-transit encryption safeguards data during transmission.
+Arabic: يحمي التشفير أثناء النقل البيانات أثناء النقل.
+
+English: Key management is crucial for secure encryption practices.
+Arabic: إدارة المفاتيح أمر حاسم لممارسات التشفير الآمنة.
+
+English: Cloud providers implement data encryption using at-rest encryption, in-transit encryption, key management service, and compliance standards.
+Arabic: تنفذ مزودو السحاب تشفير البيانات باستخدام التشفير أثناء الراحة والتشفير أثناء النقل وخدمة إدارة المفاتيح ومعايير الامتثال.
+
+Terms: data encryption=[تشفير البيانات] - at-rest encryption=[التشفير أثناء الراحة] - in-transit encryption=[التشفير أثناء النقل] - key management service=[خدمة إدارة المفاتيح] - compliance standards=[معايير الامتثال]
+English: Cloud providers implement data encryption using at-rest encryption, in-transit encryption, key management service, and compliance standards.
+Arabic:","technology"
+"Terms: Virtual Private Cloud=[السحابة الخاصة الافتراضية] - subnet isolation=[عزل الشبكة الفرعية] - security groups=[مجموعات الأمان] - network access control=[التحكم في الوصول إلى الشبكة] - peering connections=[اتصالات الاقتران]
+
+English: VPCs create logically isolated sections within public clouds.
+Arabic: تنشئ VPCs أقسامًا معزولة منطقيًا داخل السحب العامة.
+
+English: Subnets divide VPCs into smaller network segments.
+Arabic: تقسم الشبكات الفرعية VPCs إلى شرائح شبكية أصغر.
+
+English: Security groups act as virtual firewalls for instances.
+Arabic: تعمل مجموعات الأمان كجدران نار افتراضية للحالات.
+
+English: NAC lists define inbound and outbound traffic rules.
+Arabic: تحدد قوائم التحكم في الوصول إلى الشبكة قواعد الحركة الداخلة والخارجة.
+
+English: The Virtual Private Cloud enforces subnet isolation with security groups, network access control, and peering connections.
+Arabic: تفرض السحابة الخاصة الافتراضية عزل الشبكة الفرعية باستخدام مجموعات الأمان والتحكم في الوصول إلى الشبكة واتصالات الاقتران.
+
+Terms: Virtual Private Cloud=[السحابة الخاصة الافتراضية] - subnet isolation=[عزل الشبكة الفرعية] - security groups=[مجموعات الأمان] - network access control=[التحكم في الوصول إلى الشبكة] - peering connections=[اتصالات الاقتران]
+English: The Virtual Private Cloud enforces subnet isolation with security groups, network access control, and peering connections.
+Arabic:","technology"
+"Terms: edge computing=[الحوسبة الحافية] - low latency=[انخفاض التأخير] - content delivery network=[شبكة توزيع المحتوى] - data processing=[معالجة البيانات] - cloud integration=[التكامل مع السحاب]
+
+English: Edge computing processes data closer to the source.
+Arabic: تعالج الحوسبة الحافية البيانات أقرب إلى المصدر.
+
+English: Low latency improves real-time application performance.
+Arabic: يحسن انخفاض التأخير أداء التطبيقات في الوقت الفعلي.
+
+English: CDNs cache content at edge locations globally.
+Arabic: تخزن شبكات توزيع المحتوى المحتوى في مواقع حافية عالميًا.
+
+English: Local data processing reduces bandwidth usage.
+Arabic: تقلل معالجة البيانات المحلية من استخدام النطاق الترددي.
+
+English: Edge computing complements cloud services with low latency via content delivery network, data processing, and cloud integration.
+Arabic: تكمل الحوسبة الحافية خدمات السحاب بانخفاض التأخير عبر شبكة توزيع المحتوى ومعالجة البيانات والتكامل مع السحاب.
+
+Terms: edge computing=[الحوسبة الحافية] - low latency=[انخفاض التأخير] - content delivery network=[شبكة توزيع المحتوى] - data processing=[معالجة البيانات] - cloud integration=[التكامل مع السحاب]
+English: Edge computing complements cloud services with low latency via content delivery network, data processing, and cloud integration.
+Arabic:","technology"
+"Terms: CI/CD pipeline=[أنبوب CI/CD] - continuous integration=[التكامل المستمر] - continuous deployment=[النشر المستمر] - infrastructure as code=[البنية التحتية ككود] - automated testing=[الاختبار الآلي]
+
+English: CI/CD automates software delivery processes.
+Arabic: يؤتمت CI/CD عمليات تسليم البرمجيات.
+
+English: Continuous integration merges code changes frequently.
+Arabic: يدمج التكامل المستمر تغييرات الكود بشكل متكرر.
+
+English: Continuous deployment releases updates automatically.
+Arabic: يصدر النشر المستمر التحديثات تلقائيًا.
+
+English: IaC manages infrastructure through version-controlled code.
+Arabic: تدير البنية التحتية ككود البنية التحتية عبر كود يتحكم في الإصدارات.
+
+English: Cloud-based CI/CD pipeline incorporates continuous integration, continuous deployment, infrastructure as code, and automated testing.
+Arabic: يدمج أنبوب CI/CD المبني على السحاب التكامل المستمر والنشر المستمر والبنية التحتية ككود والاختبار الآلي.
+
+Terms: CI/CD pipeline=[أنبوب CI/CD] - continuous integration=[التكامل المستمر] - continuous deployment=[النشر المستمر] - infrastructure as code=[البنية التحتية ككود] - automated testing=[الاختبار الآلي]
+English: Cloud-based CI/CD pipeline incorporates continuous integration, continuous deployment, infrastructure as code, and automated testing.
+Arabic:","technology"
+"Terms: API endpoints=واجهات برمجة التطبيقات - request validation=التحقق من صحة الطلب - asynchronous processing=معالجة غير متزامنة - error handling=معالجة الأخطاء - response time=زمن الاستجابة  
+English: Modern web applications rely heavily on API communication.  
+Arabic: تعتمد تطبيقات الويب الحديثة بشكل كبير على اتصالات واجهات برمجة التطبيقات.  
+
+English: Input sanitization is crucial for security in backend systems.  
+Arabic: يُعد تطهير المدخلات أمرًا بالغ الأهمية لأمن أنظمة الخلفية.  
+
+English: Distributed systems often implement queuing mechanisms to handle operations.  
+Arabic: غالبًا ما تنفذ الأنظمة الموزعة آليات الصفوف لإدارة العمليات.  
+
+English: Proper logging helps diagnose failures in production environments.  
+Arabic: يساعد التسجيل المناسب في تشخيص الأعطال في بيئات التشغيل.  
+
+English: When designing API endpoints, implement request validation for security, use asynchronous processing to improve response time, and include robust error handling.  
+Arabic: عند تصميم واجهات برمجة التطبيقات، نفّذ التحقق من صحة الطلب للأمان، واستخدم المعالجة غير المتزامنة لتحسين زمن الاستجابة، وضُمِّن معالجة قوية للأخطاء.  
+
+Terms: API endpoints=واجهات برمجة التطبيقات - request validation=التحقق من صحة الطلب - asynchronous processing=معالجة غير متزامنة - error handling=معالجة الأخطاء - response time=زمن الاستجابة  
+English: When designing API endpoints, implement request validation for security, use asynchronous processing to improve response time, and include robust error handling.  
+Arabic:","technology"
+"Terms: agile methodology=منهجية أجايل - sprint planning=تخطيط السبرينت - technical debt=الدين التقني - continuous integration=التكامل المستمر - retrospective meeting=اجتماع استعادي  
+English: Many teams adopt iterative development approaches to adapt quickly.  
+Arabic: تعتمد العديد من الفرق منهجيات التطوير التكراري للتكيف السريع.  
+
+English: Breaking work into manageable iterations helps maintain focus.  
+Arabic: يساعد تقسيم العمل إلى تكرارات قابلة للإدارة في الحفاظ على التركيز.  
+
+English: Accumulated shortcuts in code often require refactoring later.  
+Arabic: غالبًا ما تتطلب الاختصارات المتراكمة في التعليمات البرمجية إعادة هيكلة لاحقًا.  
+
+English: Automated testing pipelines enable frequent code merging.  
+Arabic: تمكّن خطوط أنابيب الاختبار الآلي من دمج التعليمات البرمجية بشكل متكرر.  
+
+English: Using agile methodology, our team conducts sprint planning every Monday, manages technical debt through continuous integration, and reviews progress in Friday's retrospective meeting.  
+Arabic: باستخدام منهجية أجايل، يعقد فريقنا تخطيط السبرينت كل يوم اثنين، ويدير الدين التقني عبر التكامل المستمر، ويراجع التقدم في الاجتماع الاستعادي يوم الجمعة.  
+
+Terms: agile methodology=منهجية أجايل - sprint planning=تخطيط السبرينت - technical debt=الدين التقني - continuous integration=التكامل المستمر - retrospective meeting=اجتماع استعادي  
+English: Using agile methodology, our team conducts sprint planning every Monday, manages technical debt through continuous integration, and reviews progress in Friday's retrospective meeting.  
+Arabic:","technology"
+"Terms: cloud infrastructure=البنية التحتية السحابية - auto-scaling=التحجيم التلقائي - microservices architecture=هندسة الخدمات المصغرة - serverless computing=الحوسبة بدون خادم - persistent storage=التخزين الدائم  
+English: Distributed systems require scalable deployment environments.  
+Arabic: تتطلب الأنظمة الموزعة بيئات نشر قابلة للتوسع.  
+
+English: Dynamic resource allocation adjusts to traffic fluctuations.  
+Arabic: يعدل تخصيص الموارد الديناميكي لتقلبات الزيارات.  
+
+English: Decomposing applications into independent components improves maintainability.  
+Arabic: يحسّن تحليل التطبيقات إلى مكونات مستقلة قابليتها للصيانة.  
+
+English: Event-driven execution models optimize resource utilization.  
+Arabic: تحسن نماذج التنفيذ القائمة على الأحداث استخدام الموارد.  
+
+English: Our cloud infrastructure leverages auto-scaling with serverless computing, implements microservices architecture for flexibility, and ensures data durability through persistent storage.  
+Arabic: تستفيد بنيتنا التحتية السحابية من التحجيم التلقائي مع الحوسبة بدون خادم، وتنفذ هندسة الخدمات المصغرة للمرونة، وتضمن متانة البيانات عبر التخزين الدائم.  
+
+Terms: cloud infrastructure=البنية التحتية السحابية - auto-scaling=التحجيم التلقائي - microservices architecture=هندسة الخدمات المصغرة - serverless computing=الحوسبة بدون خادم - persistent storage=التخزين الدائم  
+English: Our cloud infrastructure leverages auto-scaling with serverless computing, implements microservices architecture for flexibility, and ensures data durability through persistent storage.  
+Arabic:","technology"
+"Terms: dependency injection=حقن التبعيات - code maintainability=قابلية صيانة التعليمات البرمجية - loose coupling=الاقتران الضعيف - unit testing=الاختبارات الوحدوية - modular design=التصميم المعياري  
+English: Testable code requires careful management of component relationships.  
+Arabic: تتطلب التعليمات البرمجية القابلة للاختبار إدارة دقيقة لعلاقات المكونات.  
+
+English: Reducing inter-module dependencies simplifies future changes.  
+Arabic: يبسّط تقليل التبعيات بين الوحدات التغييرات المستقبلية.  
+
+English: Isolated functionality enables targeted verification procedures.  
+Arabic: تمكن الوظائف المعزولة إجراءات التحقق المستهدفة.  
+
+English: Self-contained modules promote system extensibility.  
+Arabic: تعزز الوحدات المستقلة قابلية تمديد النظام.  
+
+English: By implementing dependency injection, we enhance code maintainability through loose coupling, support comprehensive unit testing, and achieve modular design.  
+Arabic: من خلال تنفيذ حقن التبعيات، نحسن قابلية صيانة التعليمات البرمجية عبر الاقتران الضعيف، ندعم الاختبارات الوحدوية الشاملة، ونحقق التصميم المعياري.  
+
+Terms: dependency injection=حقن التبعيات - code maintainability=قابلية صيانة التعليمات البرمجية - loose coupling=الاقتران الضعيف - unit testing=الاختبارات الوحدوية - modular design=التصميم المعياري  
+English: By implementing dependency injection, we enhance code maintainability through loose coupling, support comprehensive unit testing, and achieve modular design.  
+Arabic:","technology"
+"Terms: blockchain technology=تكنولوجيا البلوكشين - smart contracts=العقود الذكية - decentralized applications=التطبيقات اللامركزية - cryptographic hashing=التجزئة التشفيرية - consensus mechanisms=آليات الإجماع  
+English: Distributed ledgers enable transparent record-keeping systems.  
+Arabic: تمكن السجلات الموزعة أنظمة حفظ السجلات الشفافة.  
+
+English: Self-executing agreements automate transaction enforcement.  
+Arabic: تؤتمت الاتفاقيات ذاتية التنفيذ تنفيذ المعاملات.  
+
+English: Peer-to-peer networks eliminate single points of control.  
+Arabic: تلغي شبكات الند للند نقاط التحكم المفردة.  
+
+English: Data integrity verification relies on mathematical proofs.  
+Arabic: يعتمد التحقق من سلامة البيانات على البراهين الرياضية.  
+
+English: Blockchain technology powers smart contracts in decentralized applications, secured by cryptographic hashing and validated through consensus mechanisms.  
+Arabic: تشغل تكنولوجيا البلوكشين العقود الذكية في التطبيقات اللامركزية، مؤمّنة بواسطة التجزئة التشفيرية ومصدّقة عبر آليات الإجماع.  
+
+Terms: blockchain technology=تكنولوجيا البلوكشين - smart contracts=العقود الذكية - decentralized applications=التطبيقات اللامركزية - cryptographic hashing=التجزئة التشفيرية - consensus mechanisms=آليات الإجماع  
+English: Blockchain technology powers smart contracts in decentralized applications, secured by cryptographic hashing and validated through consensus mechanisms.  
+Arabic:","technology"
+"Terms: machine learning models=نماذج التعلم الآلي - training datasets=مجموعات بيانات التدريب - neural networks=الشبكات العصبية - feature engineering=هندسة الخصائص - hyperparameter tuning=ضبط المعلمات الفائقة  
+English: Predictive systems require carefully curated input data.  
+Arabic: تتطلب أنظمة التنبؤ بيانات إدخال مختارة بعناية.  
+
+English: Biological cognition principles inspire algorithmic architectures.  
+Arabic: تلهم مبادئ الإدراك البيولوجي البنى الخوارزمية.  
+
+English: Domain-specific data transformations improve relevance.  
+Arabic: تحسّن تحويلات البيانات الخاصة بالمجال الصلة.  
+
+English: Optimal configuration requires systematic experimentation.  
+Arabic: يتطلب التكوين الأمثل التجارب المنهجية.  
+
+English: Developing effective machine learning models depends on quality training datasets, requires proper feature engineering, and employs neural networks with careful hyperparameter tuning.  
+Arabic: يعتمد تطوير نماذج التعلم الآلي الفعالة على مجموعات بيانات تدريب عالية الجودة، ويتطلب هندسة خصائص مناسبة، ويوظف الشبكات العصبية مع ضبط دقيق للمعلمات الفائقة.  
+
+Terms: machine learning models=نماذج التعلم الآلي - training datasets=مجموعات بيانات التدريب - neural networks=الشبكات العصبية - feature engineering=هندسة الخصائص - hyperparameter tuning=ضبط المعلمات الفائقة  
+English: Developing effective machine learning models depends on quality training datasets, requires proper feature engineering, and employs neural networks with careful hyperparameter tuning.  
+Arabic:","technology"
+"Terms: user authentication=مصادقة المستخدم - access control=التحكم في الوصول - encryption protocols=بروتوكولات التشفير - session management=إدارة الجلسات - audit logs=سجلات التدقيق  
+English: Securing applications requires verifying identity credentials.  
+Arabic: يتطلب تأمين التطبيقات التحقق من بيانات اعتماد الهوية.  
+
+English: Permission systems regulate resource availability.  
+Arabic: تنظم أنظمة الأذونات توافر الموارد.  
+
+English: Data transmission protection prevents interception risks.  
+Arabic: يمنع حماية نقل البيانات مخاطر الاعتراض.  
+
+English: Active connection monitoring maintains system integrity.  
+Arabic: يحافظ مراقبة الاتصالات النشطة على سلامة النظام.  
+
+English: Robust user authentication systems implement granular access control, enforce encryption protocols, maintain strict session management, and generate detailed audit logs.  
+Arabic: تنفذ أنظمة مصادقة المستخدم القوية التحكم الدقيق في الوصول، تفرض بروتوكولات التشفير، تحافظ على إدارة جلسات صارمة، وتولد سجلات تدقيق مفصلة.  
+
+Terms: user authentication=مصادقة المستخدم - access control=التحكم في الوصول - encryption protocols=بروتوكولات التشفير - session management=إدارة الجلسات - audit logs=سجلات التدقيق  
+English: Robust user authentication systems implement granular access control, enforce encryption protocols, maintain strict session management, and generate detailed audit logs.  
+Arabic:","technology"
+"Terms: container orchestration=تنسيق الحاويات - service discovery=اكتشاف الخدمة - rolling updates=التحديثات المتتالية - resource quotas=حصص الموارد - health monitoring=مراقبة الحالة  
+English: Managing distributed microservices requires coordination layers.  
+Arabic: تتطلب إدارة الخدمات المصغرة الموزعة طبقات تنسيق.  
+
+English: Automatic component detection simplifies dynamic environments.  
+Arabic: يبسّط الكشف التلقائي عن المكونات البيئات الديناميكية.  
+
+English: Gradual deployment strategies minimize downtime impact.  
+Arabic: تقلّل استراتيجيات النشر التدريجي تأثير وقت التوقف.  
+
+English: Allocation limits prevent resource exhaustion scenarios.  
+Arabic: تمنع حدود التخصيص حالات استنفاد الموارد.  
+
+English: Kubernetes provides container orchestration with automated service discovery, enables rolling updates with configured resource quotas, and includes comprehensive health monitoring.  
+Arabic: يوفر كوبرنيتيز تنسيق الحاويات مع اكتشاف الخدمة الآلي، ويمكّن التحديثات المتتالية مع حصص الموارد المكونة، ويتضمن مراقبة حالة شاملة.  
+
+Terms: container orchestration=تنسيق الحاويات - service discovery=اكتشاف الخدمة - rolling updates=التحديثات المتتالية - resource quotas=حصص الموارد - health monitoring=مراقبة الحالة  
+English: Kubernetes provides container orchestration with automated service discovery, enables rolling updates with configured resource quotas, and includes comprehensive health monitoring.  
+Arabic:","technology"
+"Terms: responsive design=التصميم المتجاوب - cross-browser compatibility=التوافق عبر المتصفحات - user experience=تجربة المستخدم - accessibility standards=معايير إمكانية الوصول - performance optimization=تحسين الأداء  
+English: Modern websites must adapt to various screen dimensions.  
+Arabic: يجب أن تتكيف المواقع الحديثة مع أبعاد الشاشات المختلفة.  
+
+English: Consistent rendering across platforms prevents user frustration.  
+Arabic: يمنع التصيير المتسق عبر المنصات إحباط المستخدمين.  
+
+English: Intuitive interfaces increase engagement and satisfaction.  
+Arabic: تزيد الواجهات البديهية المشاركة والرضا.  
+
+English: Inclusive guidelines support diverse user capabilities.  
+Arabic: تدعم المبادئ التوجيهية الشاملة قدرات المستخدمين المتنوعة.  
+
+English: Implementing responsive design ensures cross-browser compatibility, enhances user experience through accessibility standards, and requires continuous performance optimization.  
+Arabic: يضمن تنفيذ التصميم المتجاوب التوافق عبر المتصفحات، ويعزز تجربة المستخدم عبر معايير إمكانية الوصول، ويتطلب تحسين أداء مستمرًا.  
+
+Terms: responsive design=التصميم المتجاوب - cross-browser compatibility=التوافق عبر المتصفحات - user experience=تجربة المستخدم - accessibility standards=معايير إمكانية الوصول - performance optimization=تحسين الأداء  
+English: Implementing responsive design ensures cross-browser compatibility, enhances user experience through accessibility standards, and requires continuous performance optimization.  
+Arabic:","technology"
+"Terms: relational databases=قواعد البيانات العلائقية - query optimization=تحسين الاستعلامات - ACID compliance=الالتزام بمبادئ ACID - data normalization=تطبيع البيانات - index tuning=ضبط الفهارس  
+English: Structured data storage enables complex relationship mapping.  
+Arabic: تمكن تخزين البيانات المهيكلة رسم علاقات معقدة.  
+
+English: Efficient data retrieval depends on execution plan analysis.  
+Arabic: يعتمد استرجاع البيانات الفعال على تحليل خطة التنفيذ.  
+
+English: Transaction reliability requires atomicity and consistency guarantees.  
+Arabic: تتطلب موثوقية المعاملات ضمانات الذرية والاتساق.  
+
+English: Schema organization reduces redundancy and anomalies.  
+Arabic: يقلل تنظيم المخطط التكرار والشذوذات.  
+
+English: Managing relational databases involves query optimization for speed, maintaining ACID compliance for reliability, applying data normalization techniques, and performing regular index tuning.  
+Arabic: تتضمن إدارة قواعد البيانات العلائقية تحسين الاستعلامات للسرعة، والحفاظ على الالتزام بمبادئ ACID للموثوقية، وتطبيق تقنيات تطبيع البيانات، وإجراء ضبط دوري للفهارس.  
+
+Terms: relational databases=قواعد البيانات العلائقية - query optimization=تحسين الاستعلامات - ACID compliance=الالتزام بمبادئ ACID - data normalization=تطبيع البيانات - index tuning=ضبط الفهارس  
+English: Managing relational databases involves query optimization for speed, maintaining ACID compliance for reliability, applying data normalization techniques, and performing regular index tuning.  
+Arabic:","technology"
+"Terms: blockchain=[سلسلة الكتل] - smart contracts=[العقود الذكية] - Ethereum=[إيثريوم] - gas fees=[رسوم الغاز] - decentralized applications=[التطبيقات اللامركزية]
+
+English: Blockchain technology records transactions in a secure and immutable way.
+Arabic: تقنية سلسلة الكتل تسجل المعاملات بطريقة آمنة وغير قابلة للتغيير.
+
+English: Developers use smart contracts to automate processes without intermediaries.
+Arabic: يستخدم المطورون العقود الذكية لأتمتة العمليات دون وسطاء.
+
+English: Ethereum is a leading platform for building decentralized applications.
+Arabic: إيثريوم هي منصة رائدة لبناء التطبيقات اللامركزية.
+
+English: Users pay gas fees to execute transactions on the Ethereum network.
+Arabic: يدفع المستخدمون رسوم الغاز لتنفيذ المعاملات على شبكة إيثريوم.
+
+English: Blockchain smart contracts on Ethereum power decentralized applications despite high gas fees.
+Arabic: تدفع العقود الذكية على سلسلة الكتل في إيثريوم التطبيقات اللامركزية رغم ارتفاع رسوم الغاز.
+
+Terms: blockchain=[سلسلة الكتل] - smart contracts=[العقود الذكية] - Ethereum=[إيثريوم] - gas fees=[رسوم الغاز] - decentralized applications=[التطبيقات اللامركزية]
+English: Blockchain smart contracts on Ethereum power decentralized applications despite high gas fees.
+Arabic:","technology"
+"Terms: proof of stake=[إثبات الحصة] - consensus mechanism=[آلية الإجماع] - energy efficient=[فعالة من حيث الطاقة] - validators=[المدققين] - network security=[أمان الشبكة]
+
+English: Proof of stake reduces energy consumption compared to proof of work.
+Arabic: إثبات الحصة يقلل من استهلاك الطاقة مقارنة بإثبات العمل.
+
+English: The consensus mechanism ensures all nodes agree on the ledger state.
+Arabic: تضمن آلية الإجماع اتفاق جميع العقد على حالة دفتر الأستاذ.
+
+English: Validators stake their tokens to participate in block validation.
+Arabic: يراهن المدققون رموزهم للمشاركة في التحقق من الكتل.
+
+English: Energy efficient protocols improve network security in blockchain systems.
+Arabic: تحسن بروتوكولات فعالة من حيث الطاقة أمان الشبكة في أنظمة سلسلة الكتل.
+
+English: Proof of stake serves as a consensus mechanism that is energy efficient for validators and enhances network security.
+Arabic: يعمل إثبات الحصة كآلية إجماع فعالة من حيث الطاقة للمدققين ويعزز أمان الشبكة.
+
+Terms: proof of stake=[إثبات الحصة] - consensus mechanism=[آلية الإجماع] - energy efficient=[فعالة من حيث الطاقة] - validators=[المدققين] - network security=[أمان الشبكة]
+English: Proof of stake serves as a consensus mechanism that is energy efficient for validators and enhances network security.
+Arabic:","technology"
+"Terms: decentralized finance=[التمويل اللامركزي] - DeFi protocols=[بروتوكولات ديفاي] - yield farming=[زراعة العوائد] - liquidity pools=[برك السيولة] - impermanent loss=[الخسارة المؤقتة]
+
+English: Decentralized finance offers financial services without traditional banks.
+Arabic: يقدم التمويل اللامركزي خدمات مالية دون البنوك التقليدية.
+
+English: DeFi protocols run on blockchain for transparent lending and borrowing.
+Arabic: تعمل بروتوكولات ديفاي على سلسلة الكتل للإقراض والاقتراض الشفافين.
+
+English: Yield farming allows users to earn rewards by providing liquidity.
+Arabic: تسمح زراعة العوائد للمستخدمين بكسب المكافآت من خلال توفير السيولة.
+
+English: Liquidity pools enable automated market makers in DeFi ecosystems.
+Arabic: تمكن برك السيولة صانعي السوق الآليين في أنظمة ديفاي.
+
+English: Decentralized finance DeFi protocols use yield farming in liquidity pools but risk impermanent loss.
+Arabic: تستخدم بروتوكولات التمويل اللامركزي ديفاي زراعة العوائد في برك السيولة لكنها تخاطر بخسارة مؤقتة.
+
+Terms: decentralized finance=[التمويل اللامركزي] - DeFi protocols=[بروتوكولات ديفاي] - yield farming=[زراعة العوائد] - liquidity pools=[برك السيولة] - impermanent loss=[الخسارة المؤقتة]
+English: Decentralized finance DeFi protocols use yield farming in liquidity pools but risk impermanent loss.
+Arabic:","technology"
+"Terms: non-fungible tokens=[الرموز غير القابلة للاستبدال] - NFTs=[إن إف تيز] - digital collectibles=[المجموعات الرقمية] - blockchain marketplaces=[أسواق سلسلة الكتل] - royalty fees=[رسوم الملكية]
+
+English: Non-fungible tokens represent unique digital assets on the blockchain.
+Arabic: تمثل الرموز غير القابلة للاستبدال أصولاً رقمية فريدة على سلسلة الكتل.
+
+English: NFTs are used for art, music, and virtual real estate.
+Arabic: تُستخدم إن إف تيز في الفن والموسيقى والعقارات الافتراضية.
+
+English: Digital collectibles gain value through scarcity and provenance.
+Arabic: تكتسب المجموعات الرقمية قيمة من خلال الندرة والأصالة.
+
+English: Blockchain marketplaces like OpenSea facilitate NFT trading.
+Arabic: تسهل أسواق سلسلة الكتل مثل أوبن سي ترادينغ لإن إف تيز.
+
+English: Non-fungible tokens NFTs as digital collectibles thrive on blockchain marketplaces with built-in royalty fees.
+Arabic: تزدهر الرموز غير القابلة للاستبدال إن إف تيز كمجموعات رقمية على أسواق سلسلة الكتل مع رسوم ملكية مدمجة.
+
+Terms: non-fungible tokens=[الرموز غير القابلة للاستبدال] - NFTs=[إن إف تيز] - digital collectibles=[المجموعات الرقمية] - blockchain marketplaces=[أسواق سلسلة الكتل] - royalty fees=[رسوم الملكية]
+English: Non-fungible tokens NFTs as digital collectibles thrive on blockchain marketplaces with built-in royalty fees.
+Arabic:","technology"
+"Terms: layer 2 solutions=[حلول الطبقة الثانية] - scalability issues=[مشكلات القابلية للتوسع] - rollups=[التلخيصات] - transaction throughput=[معدل تدفق المعاملات] - Ethereum scaling=[توسيع إيثريوم]
+
+English: Layer 2 solutions address congestion on main blockchain networks.
+Arabic: تعالج حلول الطبقة الثانية الازدحام على الشبكات الرئيسية لسلسلة الكتل.
+
+English: Scalability issues limit the number of transactions per second.
+Arabic: تحد مشكلات القابلية للتوسع عدد المعاملات في الثانية.
+
+English: Rollups bundle multiple transactions off-chain for efficiency.
+Arabic: تقوم التلخيصات بتجميع معاملات متعددة خارج السلسلة للكفاءة.
+
+English: Higher transaction throughput improves user experience in DeFi.
+Arabic: يحسن معدل تدفق المعاملات الأعلى تجربة المستخدم في التمويل اللامركزي.
+
+English: Layer 2 solutions like rollups solve Ethereum scaling scalability issues by boosting transaction throughput.
+Arabic: تحل حلول الطبقة الثانية مثل التلخيصات مشكلات توسيع إيثريوم القابلية للتوسع من خلال تعزيز معدل تدفق المعاملات.
+
+Terms: layer 2 solutions=[حلول الطبقة الثانية] - scalability issues=[مشكلات القابلية للتوسع] - rollups=[التلخيصات] - transaction throughput=[معدل تدفق المعاملات] - Ethereum scaling=[توسيع إيثريوم]
+English: Layer 2 solutions like rollups solve Ethereum scaling scalability issues by boosting transaction throughput.
+Arabic:","technology"
+"Terms: zero-knowledge proofs=[إثباتات المعرفة الصفرية] - privacy enhancing=[تعزيز الخصوصية] - zk-SNARKs=[زيكا سناركس] - succinct verification=[التحقق الموجز] - data confidentiality=[سرية البيانات]
+
+English: Zero-knowledge proofs allow verification without revealing underlying data.
+Arabic: تسمح إثباتات المعرفة الصفرية بالتحقق دون الكشف عن البيانات الأساسية.
+
+English: Privacy enhancing technologies are crucial for blockchain adoption.
+Arabic: أساسية تقنيات تعزيز الخصوصية لاعتماد سلسلة الكتل.
+
+English: Zk-SNARKs enable compact proofs for complex computations.
+Arabic: تمكن زيكا سناركس إثباتات مدمجة لحسابات معقدة.
+
+English: Succinct verification speeds up blockchain transaction confirmations.
+Arabic: يسرع التحقق الموجز تأكيدات معاملات سلسلة الكتل.
+
+English: Zero-knowledge proofs such as zk-SNARKs provide privacy enhancing succinct verification while maintaining data confidentiality.
+Arabic: توفر إثباتات المعرفة الصفرية مثل زيكا سناركس تعزيز الخصوصية والتحقق الموجز مع الحفاظ على سرية البيانات.
+
+Terms: zero-knowledge proofs=[إثباتات المعرفة الصفرية] - privacy enhancing=[تعزيز الخصوصية] - zk-SNARKs=[زيكا سناركس] - succinct verification=[التحقق الموجز] - data confidentiality=[سرية البيانات]
+English: Zero-knowledge proofs such as zk-SNARKs provide privacy enhancing succinct verification while maintaining data confidentiality.
+Arabic:","technology"
+"Terms: cross-chain bridges=[جسور السلاسل المتقاطعة] - interoperability=[التكاملية] - asset transfers=[نقل الأصول] - wrapped tokens=[الرموز المغلفة] - security risks=[مخاطر الأمان]
+
+English: Cross-chain bridges connect different blockchain networks.
+Arabic: تربط جسور السلاسل المتقاطعة شبكات سلسلة الكتل المختلفة.
+
+English: Interoperability allows seamless communication between blockchains.
+Arabic: تسمح التكاملية بالتواصل السلس بين سلاسل الكتل.
+
+English: Asset transfers via bridges enable multi-chain DeFi strategies.
+Arabic: يمكن نقل الأصول عبر الجسور استراتيجيات ديفاي متعددة السلاسل.
+
+English: Wrapped tokens represent native assets on foreign chains.
+Arabic: تمثل الرموز المغلفة الأصول الأصلية على سلاسل أجنبية.
+
+English: Cross-chain bridges enhance interoperability for asset transfers using wrapped tokens but introduce security risks.
+Arabic: تعزز جسور السلاسل المتقاطعة التكاملية لنقل الأصول باستخدام الرموز المغلفة لكنها تُدخل مخاطر أمان.
+
+Terms: cross-chain bridges=[جسور السلاسل المتقاطعة] - interoperability=[التكاملية] - asset transfers=[نقل الأصول] - wrapped tokens=[الرموز المغلفة] - security risks=[مخاطر الأمان]
+English: Cross-chain bridges enhance interoperability for asset transfers using wrapped tokens but introduce security risks.
+Arabic:","technology"
+"Terms: sharding=[التجزئة] - horizontal scaling=[التوسع الأفقي] - data shards=[شظايا البيانات] - parallel processing=[المعالجة المتوازية] - throughput capacity=[سعة الإنتاجية]
+
+English: Sharding divides the blockchain into smaller partitions for efficiency.
+Arabic: تقسم التجزئة سلسلة الكتل إلى أجزاء أصغر للكفاءة.
+
+English: Horizontal scaling increases capacity without changing core architecture.
+Arabic: يزيد التوسع الأفقي السعة دون تغيير الهيكل الأساسي.
+
+English: Data shards distribute storage across multiple nodes.
+Arabic: توزع شظايا البيانات التخزين عبر عقد متعددة.
+
+English: Parallel processing accelerates transaction finality in sharded networks.
+Arabic: تسرع المعالجة المتوازية النهائية للمعاملات في الشبكات المجزأة.
+
+English: Sharding enables horizontal scaling through data shards and parallel processing to boost throughput capacity.
+Arabic: تمكن التجزئة التوسع الأفقي من خلال شظايا البيانات والمعالجة المتوازية لتعزيز سعة الإنتاجية.
+
+Terms: sharding=[التجزئة] - horizontal scaling=[التوسع الأفقي] - data shards=[شظايا البيانات] - parallel processing=[المعالجة المتوازية] - throughput capacity=[سعة الإنتاجية]
+English: Sharding enables horizontal scaling through data shards and parallel processing to boost throughput capacity.
+Arabic:","technology"
+"Terms: oracle networks=[شبكات الأوراكل] - off-chain data=[بيانات خارج السلسلة] - price feeds=[تغذيات الأسعار] - Chainlink=[تشينلينك] - real-world integration=[التكامل مع العالم الحقيقي]
+
+English: Oracle networks bring external data into smart contracts.
+Arabic: تجلب شبكات الأوراكل بيانات خارجية إلى العقود الذكية.
+
+English: Off-chain data sources ensure accurate inputs for DeFi.
+Arabic: تضمن مصادر بيانات خارج السلسلة مدخلات دقيقة لديفاي.
+
+English: Price feeds from oracles power decentralized exchanges.
+Arabic: تدفع تغذيات الأسعار من الأوراكل المنصات اللامركزية للتبادل.
+
+English: Chainlink is a leading decentralized oracle service.
+Arabic: تشينلينك هي خدمة أوراكل لامركزية رائدة.
+
+English: Oracle networks like Chainlink deliver off-chain data price feeds for real-world integration in blockchain.
+Arabic: تقدم شبكات الأوراكل مثل تشينلينك بيانات خارج السلسلة وتغذيات الأسعار للتكامل مع العالم الحقيقي في سلسلة الكتل.
+
+Terms: oracle networks=[شبكات الأوراكل] - off-chain data=[بيانات خارج السلسلة] - price feeds=[تغذيات الأسعار] - Chainlink=[تشينلينك] - real-world integration=[التكامل مع العالم الحقيقي]
+English: Oracle networks like Chainlink deliver off-chain data price feeds for real-world integration in blockchain.
+Arabic:","technology"
+"Terms: governance tokens=[رموز الحوكمة] - decentralized autonomous organizations=[المنظمات اللامركزية الذاتية الحكم] - DAO voting=[تصويت الـداو] - proposal submission=[تقديم الاقتراحات] - community decisions=[قرارات المجتمع]
+
+English: Governance tokens give holders voting rights in protocols.
+Arabic: تمنح رموز الحوكمة حقوق التصويت للحاملين في البروتوكولات.
+
+English: Decentralized autonomous organizations manage projects collectively.
+Arabic: تدير المنظمات اللامركزية الذاتية الحكم المشاريع جماعياً.
+
+English: DAO voting determines protocol upgrades and treasury usage.
+Arabic: يحدد تصويت الـداو ترقيات البروتوكول واستخدام الخزانة.
+
+English: Proposal submission requires staking governance tokens.
+Arabic: يتطلب تقديم الاقتراحات راهن رموز الحوكمة.
+
+English: Governance tokens empower decentralized autonomous organizations through DAO voting and proposal submission for community decisions.
+Arabic: تمكن رموز الحوكمة المنظمات اللامركزية الذاتية الحكم من خلال تصويت الـداو وتقديم الاقتراحات لقرارات المجتمع.
+
+Terms: governance tokens=[رموز الحوكمة] - decentralized autonomous organizations=[المنظمات اللامركزية الذاتية الحكم] - DAO voting=[تصويت الـداو] - proposal submission=[تقديم الاقتراحات] - community decisions=[قرارات المجتمع]
+English: Governance tokens empower decentralized autonomous organizations through DAO voting and proposal submission for community decisions.
+Arabic:","technology"
+"Terms: smart sensors=المستشعرات الذكية - data analytics=تحليلات البيانات - cloud platform=منصة سحابية - energy efficiency=كفاءة الطاقة - predictive maintenance=الصيانة التنبؤية  
+English: Smart sensors enable continuous monitoring in IoT systems.  
+Arabic: تتيح المستشعرات الذكية المراقبة المستمرة في أنظمة إنترنت الأشياء.  
+
+English: Data analytics transforms raw information into actionable insights.  
+Arabic: تحول تحليلات البيانات المعلومات الخام إلى رؤى قابلة للتنفيذ.  
+
+English: A reliable cloud platform stores IoT device data securely.  
+Arabic: تخزن المنصة السحابية الموثوقة بيانات أجهزة إنترنت الأشياء بأمان.  
+
+English: Energy efficiency remains crucial for sustainable IoT deployments.  
+Arabic: تظل كفاءة الطاقة حاسمة لنشر إنترنت الأشياء المستدام.  
+
+English: Smart sensors feed data analytics to our cloud platform, improving energy efficiency through predictive maintenance.  
+Arabic: تغذي المستشعرات الذكية تحليلات البيانات لمنصتنا السحابية، مما يعزز كفاءة الطاقة عبر الصيانة التنبؤية.","technology"
+"Terms:smart sensors=المستشعرات الذكية - data analytics=تحليلات البيانات - cloud platform=منصة سحابية - energy efficiency=كفاءة الطاقة - predictive maintenance=الصيانة التنبؤية  
+English: Smart sensors feed data analytics to our cloud platform, improving energy efficiency through predictive maintenance.  
+Arabic:","technology"
+"Terms:device authentication=مصادقة الأجهزة - encryption protocols=بروتوكولات التشفير - cyber threats=التهديدات الإلكترونية - vulnerability assessment=تقييم الثغرات - access control=التحكم في الوصول  
+English: Strong device authentication prevents unauthorized IoT network access.  
+Arabic: تمنع مصادقة الأجهزة القوية الوصول غير المصرح به إلى شبكة إنترنت الأشياء.  
+
+English: Modern encryption protocols safeguard sensitive IoT communications.  
+Arabic: تحمي بروتوكولات التشفير الحديثة اتصالات إنترنت الأشياء الحساسة.  
+
+English: Enterprises must prepare for emerging cyber threats targeting IoT infrastructure.  
+Arabic: يجب على المؤسسات الاستعداد للتهديدات الإلكترونية الناشئة التي تستهدف بنية إنترنت الأشياء.  
+
+English: Regular vulnerability assessment is essential for industrial IoT security.  
+Arabic: يعد تقييم الثغرات المنتظم ضروريًا لأمن إنترنت الأشياء الصناعي.  
+
+English: Device authentication combined with encryption protocols mitigates cyber threats through vulnerability assessment and strict access control.  
+Arabic: تقلل مصادقة الأجهزة المدمجة مع بروتوكولات التشفير التهديدات الإلكترونية عبر تقييم الثغرات والتحكم الصارم في الوصول.","technology"
+"Terms:device authentication=مصادقة الأجهزة - encryption protocols=بروتوكولات التشفير - cyber threats=التهديدات الإلكترونية - vulnerability assessment=تقييم الثغرات - access control=التحكم في الوصول  
+English: Device authentication combined with encryption protocols mitigates cyber threats through vulnerability assessment and strict access control.  
+Arabic:","technology"
+"Terms:industrial automation=الأتمتة الصناعية - machine learning=التعلم الآلي - operational efficiency=الكفاءة التشغيلية - sensor calibration=معايرة المستشعرات - anomaly detection=كشف الشذوذ  
+English: IoT drives industrial automation through connected machinery.  
+Arabic: يقود إنترنت الأشياء الأتمتة الصناعية عبر الآلات المتصلة.  
+
+English: Machine learning algorithms optimize IoT network performance.  
+Arabic: تحسّن خوارزميات التعلم الآلي أداء شبكة إنترنت الأشياء.  
+
+English: Achieving operational efficiency requires precise IoT system tuning.  
+Arabic: تحقيق الكفاءة التشغيلية يتطلب ضبطًا دقيقًا لنظام إنترنت الأشياء.  
+
+English: Regular sensor calibration ensures measurement accuracy in smart factories.  
+Arabic: تضمن معايرة المستشعرات المنتظمة دقة القياس في المصانع الذكية.  
+
+English: Industrial automation with machine learning enhances operational efficiency via sensor calibration and real-time anomaly detection.  
+Arabic: تعزز الأتمتة الصناعية مع التعلم الآلي الكفاءة التشغيلية عبر معايرة المستشعرات وكشف الشذوذ في الوقت الفعلي.","technology"
+"Terms:industrial automation=الأتمتة الصناعية - machine learning=التعلم الآلي - operational efficiency=الكفاءة التشغيلية - sensor calibration=معايرة المستشعرات - anomaly detection=كشف الشذوذ  
+English: Industrial automation with machine learning enhances operational efficiency via sensor calibration and real-time anomaly detection.  
+Arabic:","technology"
+"Terms:edge computing=الحوسبة الطرفية - latency reduction=تقليل الكمون - bandwidth optimization=تحسين النطاق الترددي - fog nodes=عقد الضباب - data preprocessing=المعالجة المسبقة للبيانات  
+English: Edge computing processes IoT data closer to the source.  
+Arabic: تعالج الحوسبة الطرفية بيانات إنترنت الأشياء بالقرب من المصدر.  
+
+English: Latency reduction is critical for autonomous vehicle communication.  
+Arabic: يعد تقليل الكمون أمرًا بالغ الأهمية لاتصال المركبات الذاتية القيادة.  
+
+English: Bandwidth optimization preserves network capacity in smart cities.  
+Arabic: يحافظ تحسين النطاق الترددي على سعة الشبكة في المدن الذكية.  
+
+English: Strategic fog nodes deployment enhances IoT infrastructure reliability.  
+Arabic: يعزز نشر عقد الضباب الاستراتيجي موثوقية بنية إنترنت الأشياء.  
+
+English: Edge computing enables latency reduction and bandwidth optimization through fog nodes for efficient data preprocessing.  
+Arabic: تتيح الحوسبة الطرفية تقليل الكمون وتحسين النطاق الترددي عبر عقد الضباب من أجل المعالجة المسبقة الفعالة للبيانات.","technology"
+"Terms:edge computing=الحوسبة الطرفية - latency reduction=تقليل الكمون - bandwidth optimization=تحسين النطاق الترددي - fog nodes=عقد الضباب - data preprocessing=المعالجة المسبقة للبيانات  
+English: Edge computing enables latency reduction and bandwidth optimization through fog nodes for efficient data preprocessing.  
+Arabic:","technology"
+"Terms:wearable devices=الأجهزة القابلة للارتداء - patient monitoring=مراقبة المرضى - health data=البيانات الصحية - interoperability=التشغيل البيني - telehealth platforms=منصات التطبيب عن بعد  
+English: Wearable devices continuously track vital signs in healthcare IoT.  
+Arabic: تتعقب الأجهزة القابلة للارتداء العلامات الحيوية باستمرار في إنترنت الأشياء الطبي.  
+
+English: Advanced patient monitoring systems alert caregivers automatically.  
+Arabic: تنبه أنظمة مراقبة المرضى المتقدمة مقدمي الرعاية تلقائيًا.  
+
+English: Securing sensitive health data remains a top IoT priority.  
+Arabic: يظل تأمين البيانات الصحية الحساسة أولوية قصوى في إنترنت الأشياء.  
+
+English: System interoperability enables seamless integration across medical devices.  
+Arabic: يتيح التشغيل البيني للنظام التكامل السلس عبر الأجهزة الطبية.  
+
+English: Wearable devices enhance patient monitoring by transmitting health data to telehealth platforms with full interoperability.  
+Arabic: تعزز الأجهزة القابلة للارتداء مراقبة المرضى عن طريق نقل البيانات الصحية إلى منصات التطبيب عن بعد مع تشغيل شامل متبادل.","technology"
+"Terms:wearable devices=الأجهزة القابلة للارتداء - patient monitoring=مراقبة المرضى - health data=البيانات الصحية - interoperability=التشغيل البيني - telehealth platforms=منصات التطبيب عن بعد  
+English: Wearable devices enhance patient monitoring by transmitting health data to telehealth platforms with full interoperability.  
+Arabic:","technology"
+"Terms: mobile app=[تطبيق جوال] - push notifications=[إشعارات الدفع] - Firebase SDK=[مجموعة أدوات فيبريس] - backend server=[خادم خلفي] - real-time updates=[تحديثات في الوقت الفعلي]
+English: Push notifications are essential for engaging users in mobile applications.
+Arabic: إشعارات الدفع أساسية لجذب المستخدمين في التطبيقات الجوالة.
+
+English: Firebase provides a robust platform for handling notifications in mobile development.
+Arabic: يوفر فيبريس منصة قوية للتعامل مع الإشعارات في تطوير الجوال.
+
+English: The backend server processes incoming messages before sending them to devices.
+Arabic: يعالج الخادم الخلفي الرسائل الواردة قبل إرسالها إلى الأجهزة.
+
+English: Real-time updates ensure users receive information instantly without refreshing.
+Arabic: تضمن التحديثات في الوقت الفعلي وصول المستخدمين إلى المعلومات فوراً دون تحديث.
+
+English: Implementing push notifications in a mobile app involves integrating the Firebase SDK with the backend server for real-time updates.
+Arabic: يتضمن تنفيذ إشعارات الدفع في تطبيق جوال دمج مجموعة أدوات فيبريس مع الخادم الخلفي للتحديثات في الوقت الفعلي.
+
+Terms: mobile app=[تطبيق جوال] - push notifications=[إشعارات الدفع] - Firebase SDK=[مجموعة أدوات فيبريس] - backend server=[خادم خلفي] - real-time updates=[تحديثات في الوقت الفعلي]
+English: Implementing push notifications in a mobile app involves integrating the Firebase SDK with the backend server for real-time updates.
+Arabic:","technology"
+"Terms: React Native=[رياكت نيتيف] - cross-platform development=[تطوير عابر للمنصات] - native components=[مكونات أصلية] - code reuse=[إعادة استخدام الكود] - single codebase=[قاعدة كود واحدة]
+English: React Native enables developers to build apps for both iOS and Android.
+Arabic: يمكن رياكت نيتيف المطورين من بناء تطبيقات لكل من آي أو إس وأندرويد.
+
+English: Cross-platform development reduces time and costs compared to native apps.
+Arabic: يقلل تطوير عابر للمنصات من الوقت والتكاليف مقارنة بالتطبيقات الأصلية.
+
+English: Native components ensure high performance in React Native applications.
+Arabic: تضمن المكونات الأصلية أداءً عالياً في تطبيقات رياكت نيتيف.
+
+English: Code reuse across platforms is a key advantage of modern frameworks.
+Arabic: إعادة استخدام الكود عبر المنصات ميزة رئيسية للإطارات الحديثة.
+
+English: React Native supports cross-platform development using native components for maximum code reuse from a single codebase.
+Arabic: يدعم رياكت نيتيف تطوير عابر للمنصات باستخدام مكونات أصلية لأقصى إعادة استخدام الكود من قاعدة كود واحدة.
+
+Terms: React Native=[رياكت نيتيف] - cross-platform development=[تطوير عابر للمنصات] - native components=[مكونات أصلية] - code reuse=[إعادة استخدام الكود] - single codebase=[قاعدة كود واحدة]
+English: React Native supports cross-platform development using native components for maximum code reuse from a single codebase.
+Arabic:","technology"
+"Terms: Kotlin language=[لغة كوتلين] - Android development=[تطوير أندرويد] - null safety=[سلامة من القيم الفارغة] - coroutines support=[دعم الكوروتينز] - Jetpack Compose=[جيتباك كومبوز]
+English: Kotlin has become the preferred language for Android development.
+Arabic: أصبحت لغة كوتلين اللغة المفضلة لتطوير أندرويد.
+
+English: Null safety in Kotlin prevents common runtime errors.
+Arabic: تمنع سلامة من القيم الفارغة في كوتلين الأخطاء الشائعة أثناء التشغيل.
+
+English: Coroutines support makes asynchronous programming easier in mobile apps.
+Arabic: يجعل دعم الكوروتينز البرمجة غير المتزامنة أسهل في التطبيقات الجوالة.
+
+English: Jetpack Compose simplifies UI development on Android.
+Arabic: يبسط جيتباك كومبوز تطوير واجهة المستخدم على أندرويد.
+
+English: The Kotlin language enhances Android development with null safety, coroutines support, and Jetpack Compose integration.
+Arabic: تعزز لغة كوتلين تطوير أندرويد بسلامة من القيم الفارغة، ودعم الكوروتينز، ودمج جيتباك كومبوز.
+
+Terms: Kotlin language=[لغة كوتلين] - Android development=[تطوير أندرويد] - null safety=[سلامة من القيم الفارغة] - coroutines support=[دعم الكوروتينز] - Jetpack Compose=[جيتباك كومبوز]
+English: The Kotlin language enhances Android development with null safety, coroutines support, and Jetpack Compose integration.
+Arabic:","technology"
+"Terms: SwiftUI framework=[إطار سويفت يو آي] - declarative UI=[واجهة مستخدم تصريحية] - iOS apps=[تطبيقات آي أو إس] - live previews=[معاينات حية] - state management=[إدارة الحالة]
+English: SwiftUI is Apple's modern framework for building iOS user interfaces.
+Arabic: سويفت يو آي هو إطار أبل الحديث لبناء واجهات مستخدم آي أو إس.
+
+English: Declarative UI allows developers to describe what the interface should look like.
+Arabic: تسمح واجهة المستخدم التصريحية للمطورين بوصف شكل الواجهة.
+
+English: Live previews speed up the design process in Xcode.
+Arabic: تسرع المعاينات الحية عملية التصميم في إكس كود.
+
+English: State management in SwiftUI is reactive and efficient.
+Arabic: إدارة الحالة في سويفت يو آي تفاعلية وفعالة.
+
+English: The SwiftUI framework revolutionizes declarative UI for iOS apps with live previews and advanced state management.
+Arabic: يحدث إطار سويفت يو آي ثورة في واجهة المستخدم التصريحية لتطبيقات آي أو إس بمعاينات حية وإدارة حالة متقدمة.
+
+Terms: SwiftUI framework=[إطار سويفت يو آي] - declarative UI=[واجهة مستخدم تصريحية] - iOS apps=[تطبيقات آي أو إس] - live previews=[معاينات حية] - state management=[إدارة الحالة]
+English: The SwiftUI framework revolutionizes declarative UI for iOS apps with live previews and advanced state management.
+Arabic:","technology"
+"Terms: RESTful API=[واجهة برمجة تطبيقات ريستفول] - HTTP requests=[طلبات إتش تي تي بي] - JSON responses=[استجابات جيسون] - authentication tokens=[رموز مصادقة] - mobile integration=[دمج جوال]
+English: RESTful APIs are widely used in mobile backend communication.
+Arabic: تستخدم واجهات برمجة التطبيقات الريستفول على نطاق واسع في الاتصال بخادم الجوال.
+
+English: HTTP requests handle data exchange between apps and servers.
+Arabic: تتعامل طلبات إتش تي تي بي مع تبادل البيانات بين التطبيقات والخوادم.
+
+English: JSON responses are lightweight and easy to parse in mobile code.
+Arabic: استجابات جيسون خفيفة الوزن وسهلة التحليل في كود الجوال.
+
+English: Authentication tokens secure API access for users.
+Arabic: تحمي رموز المصادقة الوصول إلى واجهة البرمجة للمستخدمين.
+
+English: Integrating a RESTful API into mobile apps requires handling HTTP requests, JSON responses, and authentication tokens.
+Arabic: يتطلب دمج واجهة برمجة تطبيقات ريستفول في تطبيقات الجوال التعامل مع طلبات إتش تي تي بي، واستجابات جيسون، و رموز مصادقة.
+
+Terms: RESTful API=[واجهة برمجة تطبيقات ريستفول] - HTTP requests=[طلبات إتش تي تي بي] - JSON responses=[استجابات جيسون] - authentication tokens=[رموز مصادقة] - mobile integration=[دمج جوال]
+English: Integrating a RESTful API into mobile apps requires handling HTTP requests, JSON responses, and authentication tokens.
+Arabic:","technology"
+"Terms: Flutter framework=[إطار فلاتر] - state management=[إدارة الحالة] - Provider package=[حزمة بروفايدر] - widget tree=[شجرة الويدجت] - hot reload=[إعادة تحميل ساخنة]
+English: Flutter is Google's UI toolkit for cross-platform mobile apps.
+Arabic: فلاتر هو أداة واجهة المستخدم من جوجل لتطبيقات الجوال عابرة المنصات.
+
+English: State management solutions like Provider simplify app logic.
+Arabic: تبسط حلول إدارة الحالة مثل بروفايدر منطق التطبيق.
+
+English: The widget tree structure enables composable UIs in Flutter.
+Arabic: تتيح هيكل شجرة الويدجت واجهات مستخدم مركبة في فلاتر.
+
+English: Hot reload accelerates development by instantly showing changes.
+Arabic: تسرع إعادة التحميل الساخنة التطوير بعرض التغييرات فوراً.
+
+English: In the Flutter framework, state management with the Provider package optimizes the widget tree during hot reload.
+Arabic: في إطار فلاتر، تحسن إدارة الحالة بحزمة بروفايدر شجرة الويدجت أثناء إعادة التحميل الساخنة.
+
+Terms: Flutter framework=[إطار فلاتر] - state management=[إدارة الحالة] - Provider package=[حزمة بروفايدر] - widget tree=[شجرة الويدجت] - hot reload=[إعادة تحميل ساخنة]
+English: In the Flutter framework, state management with the Provider package optimizes the widget tree during hot reload.
+Arabic:","technology"
+"Terms: app performance=[أداء التطبيق] - memory leaks=[تسريبات الذاكرة] - profiling tools=[أدوات التحليل] - garbage collection=[جمع القمامة] - battery optimization=[تحسين استهلاك البطارية]
+English: App performance is critical for user retention in mobile development.
+Arabic: أداء التطبيق حاسم للاحتفاظ بالمستخدمين في تطوير الجوال.
+
+English: Memory leaks can cause apps to crash over time.
+Arabic: يمكن أن تؤدي تسريبات الذاكرة إلى تعطل التطبيقات مع الوقت.
+
+English: Profiling tools help identify bottlenecks in code.
+Arabic: تساعد أدوات التحليل في تحديد عنق الزجاجة في الكود.
+
+English: Garbage collection manages memory automatically in modern runtimes.
+Arabic: يدير جمع القمامة الذاكرة تلقائياً في بيئات التشغيل الحديثة.
+
+English: Improving app performance involves fixing memory leaks using profiling tools, garbage collection, and battery optimization techniques.
+Arabic: يتضمن تحسين أداء التطبيق إصلاح تسريبات الذاكرة باستخدام أدوات التحليل، وجمع القمامة، وتقنيات تحسين استهلاك البطارية.
+
+Terms: app performance=[أداء التطبيق] - memory leaks=[تسريبات الذاكرة] - profiling tools=[أدوات التحليل] - garbage collection=[جمع القمامة] - battery optimization=[تحسين استهلاك البطارية]
+English: Improving app performance involves fixing memory leaks using profiling tools, garbage collection, and battery optimization techniques.
+Arabic:","technology"
+"Terms: CI/CD pipeline=[خط أنابيب سي آي/سي دي] - automated testing=[اختبار آلي] - Fastlane tool=[أداة فاستلين] - app deployment=[نشر التطبيق] - code integration=[دمج الكود]
+English: CI/CD pipelines streamline mobile app release processes.
+Arabic: تبسط خطوط أنابيب سي آي/سي دي عمليات إصدار تطبيقات الجوال.
+
+English: Automated testing ensures code quality before deployment.
+Arabic: يضمن الاختبار الآلي جودة الكود قبل النشر.
+
+English: Fastlane automates building and signing mobile apps.
+Arabic: تؤتمت أداة فاستلين بناء وتوقيع تطبيقات الجوال.
+
+English: Code integration happens continuously in modern DevOps.
+Arabic: يحدث دمج الكود باستمرار في ديف أوبس الحديث.
+
+English: A CI/CD pipeline for mobile apps includes automated testing, Fastlane tool for app deployment, and continuous code integration.
+Arabic: تشمل خط أنابيب سي آي/سي دي لتطبيقات الجوال اختبار آلي، وأداة فاستلين لنشر التطبيق، ودمج كود مستمر.
+
+Terms: CI/CD pipeline=[خط أنابيب سي آي/سي دي] - automated testing=[اختبار آلي] - Fastlane tool=[أداة فاستلين] - app deployment=[نشر التطبيق] - code integration=[دمج الكود]
+English: A CI/CD pipeline for mobile apps includes automated testing, Fastlane tool for app deployment, and continuous code integration.
+Arabic:","technology"
+"Terms: unit testing=[اختبار الوحدة] - XCTest framework=[إطار إكس تيست] - code coverage=[تغطية الكود] - mock objects=[كائنات وهمية] - Espresso library=[مكتبة إسبresso]
+English: Unit testing verifies individual components in mobile code.
+Arabic: يتحقق اختبار الوحدة من المكونات الفردية في كود الجوال.
+
+English: XCTest is the standard framework for iOS testing.
+Arabic: إكس تيست هو الإطار القياسي لاختبار آي أو إس.
+
+English: Code coverage metrics guide testing completeness.
+Arabic: تقيس تغطية الكود كمال الاختبار.
+
+English: Mock objects simulate dependencies during tests.
+Arabic: تحاكي الكائنات الوهمية التبعيات أثناء الاختبارات.
+
+English: In Android and iOS development, unit testing with XCTest framework, mock objects, and Espresso library achieves high code coverage.
+Arabic: في تطوير أندرويد وآي أو إس، يحقق اختبار الوحدة بإطار إكس تيست، والكائنات الوهمية، ومكتبة إسبresso تغطية كود عالية.
+
+Terms: unit testing=[اختبار الوحدة] - XCTest framework=[إطار إكس تيست] - code coverage=[تغطية الكود] - mock objects=[كائنات وهمية] - Espresso library=[مكتبة إسبresso]
+English: In Android and iOS development, unit testing with XCTest framework, mock objects, and Espresso library achieves high code coverage.
+Arabic:","technology"
+"Terms: App Store=[متجر التطبيقات] - submission process=[عملية التقديم] - review guidelines=[إرشادات المراجعة] - TestFlight beta=[بيتا تيست فلایت] - metadata optimization=[تحسين البيانات الوصفية]
+English: App Store submission requires careful preparation of assets.
+Arabic: يتطلب تقديم متجر التطبيقات إعداداً دقيقاً للأصول.
+
+English: The review process checks compliance with Apple's policies.
+Arabic: تتحقق عملية المراجعة من الامتثال لسياسات أبل.
+
+English: TestFlight enables beta testing with real users.
+Arabic: يتيح تيست فلایت اختبار بيتا مع مستخدمين حقيقيين.
+
+English: Metadata optimization improves discoverability in stores.
+Arabic: يحسن تحسين البيانات الوصفية اكتشاف التطبيقات في المتاجر.
+
+English: Preparing for App Store submission involves following review guidelines, using TestFlight beta, and metadata optimization throughout the process.
+Arabic: يتضمن التحضير لتقديم متجر التطبيقات اتباع إرشادات المراجعة، واستخدام بيتا تيست فلایت، وتحسين البيانات الوصفية طوال عملية التقديم.
+
+Terms: App Store=[متجر التطبيقات] - submission process=[عملية التقديم] - review guidelines=[إرشادات المراجعة] - TestFlight beta=[بيتا تيست فلایت] - metadata optimization=[تحسين البيانات الوصفية]
+English: Preparing for App Store submission involves following review guidelines, using TestFlight beta, and metadata optimization throughout the process.
+Arabic:","technology"
+
+"Terms: relational database=قاعدة بيانات علائقية - primary key=المفتاح الأساسي - data redundancy=ازدواجية البيانات - SQL queries=استعلامات SQL - index optimization=تحسين الفهارس
+English: Database administrators often work with structured data models.
+Arabic: غالبًا ما يعمل مدراء قواعد البيانات مع نماذج البيانات الهيكلية.
+
+English: Effective database design minimizes storage overheads.
+Arabic: يقلل تصميم قاعدة البيانات الفعال من النفقات التخزينية.
+
+English: Maintaining referential integrity is crucial for consistent relationships.
+Arabic: يعد الحفاظ على سلامة الإشارة أمرًا بالغ الأهمية للعلاقات المتسقة.
+
+English: Data retrieval speed directly impacts user experience.
+Arabic: تؤثر سرعة استرداد البيانات مباشرة على تجربة المستخدم.
+
+English: The relational database uses a primary key to prevent data redundancy while optimizing SQL queries through index optimization.
+Arabic: تستخدم قاعدة البيانات العلائقية المفتاح الأساسي لمنع ازدواجية البيانات مع تحسين استعلامات SQL عبر تحسين الفهارس.
+
+Terms: relational database=قاعدة بيانات علائقية - primary key=المفتاح الأساسي - data redundancy=ازدواجية البيانات - SQL queries=استعلامات SQL - index optimization=تحسين الفهارس
+English: The relational database uses a primary key to prevent data redundancy while optimizing SQL queries through index optimization.
+Arabic:","technology"
+"Terms: distributed transaction=معاملة موزعة - consensus algorithm=خوارزمية إجماع - conflict resolution=حل النزاعات - replication latency=كمون التكرار - sharding architecture=هندسة التقسيم
+English: Modern systems require handling concurrent operations globally.
+Arabic: تتطلب الأنظمة الحديثة التعامل مع العمليات المتزامنة على مستوى العالم.
+
+English: Achieving synchronization across nodes presents unique challenges.
+Arabic: يمثل تحقيق التزامن بين العقد تحديات فريدة.
+
+English: Blockchain technology heavily relies on agreement protocols.
+Arabic: تعتمد تقنية البلوكتشين بشكل كبير على بروتوكولات الاتفاق.
+
+English: Data consistency remains critical in decentralized environments.
+Arabic: تظل اتساق البيانات أمرًا بالغ الأهمية في البيئات اللامركزية.
+
+English: Managing a distributed transaction requires robust consensus algorithms, immediate conflict resolution, low replication latency, and efficient sharding architecture.
+Arabic: تتطلب إدارة معاملة موزعة خوارزميات إجماع قوية وحلاً فوريًا للنزاعات وكمون تكرار منخفض وهندسة تقسيم فعالة.
+
+Terms: distributed transaction=معاملة موزعة - consensus algorithm=خوارزمية إجماع - conflict resolution=حل النزاعات - replication latency=كمون التكرار - sharding architecture=هندسة التقسيم
+English: Managing a distributed transaction requires robust consensus algorithms, immediate conflict resolution, low replication latency, and efficient sharding architecture.
+Arabic:","technology"
+"Terms: backup retention policy=سياسة الاحتفاظ بالنسخ الاحتياطية - disaster recovery=استعادة الكوارث - incremental backups=النسخ الاحتياطية التزايدية - encryption at rest=التشفير في حالة السكون - audit trails=مسارات التدقيق
+English: Regulatory compliance often dictates data handling procedures.
+Arabic: غالبًا ما تملي الامتثال التنظيمي إجراءات التعامل مع البيانات.
+
+English: Cybersecurity threats make data protection paramount.
+Arabic: تجعل التهديدات الأمنية الإلكترونية حماية البيانات أمرًا بالغ الأهمية.
+
+English: Many organizations prioritize business continuity planning.
+Arabic: تعطي العديد من المنظمات الأولوية لتخطيط استمرارية الأعمال.
+
+English: Unauthorized access attempts must be logged comprehensively.
+Arabic: يجب تسجيل محاولات الوصول غير المصرح بها بشكل شامل.
+
+English: Our backup retention policy ensures disaster recovery capabilities using incremental backups with encryption at rest and comprehensive audit trails.
+Arabic: تضمن سياسة الاحتفاظ بالنسخ الاحتياطية لدينا إمكانات استعادة الكوارث باستخدام نسخ احتياطية تزايدية مع تشفير في حالة السكون ومسارات تدقيق شاملة.
+
+Terms: backup retention policy=سياسة الاحتفاظ بالنسخ الاحتياطية - disaster recovery=استعادة الكوارث - incremental backups=النسخ الاحتياطية التزايدية - encryption at rest=التشفير في حالة السكون - audit trails=مسارات التدقيق
+English: Our backup retention policy ensures disaster recovery capabilities using incremental backups with encryption at rest and comprehensive audit trails.
+Arabic:","technology"
+"Terms: query execution plan=خطة تنفيذ الاستعلام - join operations=عمليات الربط - cost-based optimizer=محسن قائم على التكلفة - cached results=النتائج المخزنة مؤقتًا - table partitioning=تقسيم الجداول
+English: Analyzing performance bottlenecks requires deep system insights.
+Arabic: يتطلب تحليل اختناقات الأداء رؤى نظامية عميقة.
+
+English: Database engines employ various optimization techniques.
+Arabic: تستخدم محركات قواعد البيانات تقنيات تحسين متنوعة.
+
+English: Efficient resource utilization reduces operational costs.
+Arabic: يقلل الاستخدام الفعال للموارد من التكاليف التشغيلية.
+
+English: Complex joins can significantly impact response times.
+Arabic: يمكن أن تؤثر عمليات الربط المعقدة بشكل كبير على أوقات الاستجابة.
+
+English: The query execution plan details join operations, leverages a cost-based optimizer, utilizes cached results, and benefits from table partitioning.
+Arabic: توضح خطة تنفيذ الاستعلام عمليات الربط، وتستفيد من محسن قائم على التكلفة، وتستخدم النتائج المخزنة مؤقتًا، وتستفيد من تقسيم الجداول.
+
+Terms: query execution plan=خطة تنفيذ الاستعلام - join operations=عمليات الربط - cost-based optimizer=محسن قائم على التكلفة - cached results=النتائج المخزنة مؤقتًا - table partitioning=تقسيم الجداول
+English: The query execution plan details join operations, leverages a cost-based optimizer, utilizes cached results, and benefits from table partitioning.
+Arabic:","technology"
+"Terms: columnar storage=التخزين العمودي - data compression=ضغط البيانات - analytical workloads=أحمال العمل التحليلية - parallel processing=المعالجة المتوازية - memory optimization=تحسين الذاكرة
+English: Traditional row-based systems struggle with large-scale analytics.
+Arabic: تعاني الأنظمة التقليدية القائمة على الصفوف مع التحليلات واسعة النطاق.
+
+English: Decision support systems require specialized data structures.
+Arabic: تتطلب أنظمة دعم القرار هياكل بيانات متخصصة.
+
+English: Modern BI tools process billions of records efficiently.
+Arabic: تعالج أدوات ذكاء الأعمال الحديثة مليارات السجلات بكفاءة.
+
+English: Resource allocation becomes critical in real-time analysis.
+Arabic: يصبح تخصيص الموارد أمرًا بالغ الأهمية في التحليل في الوقت الفعلي.
+
+English: Columnar storage enables superior data compression for analytical workloads through parallel processing and memory optimization.
+Arabic: يتميز التخزين العمودي بتمكين ضغط بيانات فائق لأحمال العمل التحليلية عبر المعالجة المتوازية وتحسين الذاكرة.
+
+Terms: columnar storage=التخزين العمودي - data compression=ضغط البيانات - analytical workloads=أحمال العمل التحليلية - parallel processing=المعالجة المتوازية - memory optimization=تحسين الذاكرة
+English: Columnar storage enables superior data compression for analytical workloads through parallel processing and memory optimization.
+Arabic:","technology"
+"Terms: concurrency control=التحكم في التزامن - isolation levels=مستويات العزل - deadlock detection=كشف الاختناقات - optimistic locking=القفل المتفائل - rollback segments=قطاعات التراجع
+English: Multi-user environments demand sophisticated transaction management.
+Arabic: تتطلب البيئات متعددة المستخدمين إدارة معاملات متطورة.
+
+English: System engineers must balance performance and consistency.
+Arabic: يجب على مهندسي النظام الموازنة بين الأداء والاتساق.
+
+English: Resource contention increases with transaction volume.
+Arabic: يزداد تنافس الموارد مع حجم المعاملات.
+
+English: Transaction logs maintain atomic operation records.
+Arabic: تحتفظ سجلات المعاملات بسجلات العمليات الذرية.
+
+English: Concurrency control implements isolation levels, employs deadlock detection mechanisms, uses optimistic locking strategies, and maintains rollback segments.
+Arabic: ينفذ التحكم في التزامن مستويات العزل، ويستخدم آليات كشف الاختناقات، ويستعمل استراتيجيات القفل المتفائل، ويحافظ على قطاعات التراجع.
+
+Terms: concurrency control=التحكم في التزامن - isolation levels=مستويات العزل - deadlock detection=كشف الاختناقات - optimistic locking=القفل المتفائل - rollback segments=قطاعات التراجع
+English: Concurrency control implements isolation levels, employs deadlock detection mechanisms, uses optimistic locking strategies, and maintains rollback segments.
+Arabic:","technology"
+"Terms: NoSQL database=قاعدة بيانات NoSQL - horizontal scaling=التوسع الأفقي - eventual consistency=الاتساق النهائي - document store=مستند التخزين - graph traversal=اجتياز الرسم البياني
+English: Unstructured data requires flexible schema approaches.
+Arabic: تتطلب البيانات غير المهيكلة نهج مخطط مرن.
+
+English: Web-scale applications often prioritize availability over strict consistency.
+Arabic: غالبًا ما تفضل التطبيقات على نطاق الويب التوفر على الاتساق الصارم.
+
+English: Social networks heavily utilize relationship mapping techniques.
+Arabic: تستخدم الشبكات الاجتماعية تقنيات رسم العلاقات بشكل مكثف.
+
+English: Dynamic content management benefits from non-relational paradigms.
+Arabic: يستفيد إدارة المحتوى الديناميكي من النماذج غير العلائقية.
+
+English: The NoSQL database supports horizontal scaling with eventual consistency, implements a document store model, and enables efficient graph traversal.
+Arabic: تدعم قاعدة بيانات NoSQL التوسع الأفقي مع الاتساق النهائي، وتنفذ نموذج مستند التخزين، وتمكن من اجتياز الرسم البياني بكفاءة.
+
+Terms: NoSQL database=قاعدة بيانات NoSQL - horizontal scaling=التوسع الأفقي - eventual consistency=الاتساق النهائي - document store=مستند التخزين - graph traversal=اجتياز الرسم البياني
+English: The NoSQL database supports horizontal scaling with eventual consistency, implements a document store model, and enables efficient graph traversal.
+Arabic:","technology"
+"Terms: ETL pipeline=خط أنابيب ETL - data quality rules=قواعد جودة البيانات - batch processing=المعالجة الدفعية - change data capture=التقاط بيانات التغيير - star schema=المخطط النجمي
+English: Data warehousing integrates information from multiple sources.
+Arabic: تتكامل مستودعات البيانات مع المعلومات من مصادر متعددة.
+
+English: Transformation logic cleanses and standardizes raw inputs.
+Arabic: ينظف منطق التحويل المدخلات الأولية ويوحِّدها.
+
+English: Historical analysis requires temporal data preservation.
+Arabic: يتطلب التحليل التاريخي الحفاظ المؤقت على البيانات.
+
+English: Business intelligence relies on dimensional modeling techniques.
+Arabic: يعتمد ذكاء الأعمال على تقنيات النمذجة الأبعادية.
+
+English: Our ETL pipeline enforces data quality rules during batch processing, incorporates change data capture, and populates a star schema.
+Arabic: ينفذ خط أنابيب ETL لدينا قواعد جودة البيانات خلال المعالجة الدفعية، ويضمِّن التقاط بيانات التغيير، ويملأ المخطط النجمي.
+
+Terms: ETL pipeline=خط أنابيب ETL - data quality rules=قواعد جودة البيانات - batch processing=المعالجة الدفعية - change data capture=التقاط بيانات التغيير - star schema=المخطط النجمي
+English: Our ETL pipeline enforces data quality rules during batch processing, incorporates change data capture, and populates a star schema.
+Arabic:","technology"
+"Terms: cloud database=قاعدة بيانات سحابية - auto-scaling group=مجموعة التحجيم التلقائي - read replicas=نسخ القراءة - managed service=الخدمة المدارة - multi-tenant isolation=عزل متعدد المستأجرين
+English: Elastic infrastructure adapts to fluctuating workloads.
+Arabic: تتكيف البنية التحتية المرنة مع أعباء العمل المتقلبة.
+
+English: Service providers handle routine maintenance operations.
+Arabic: تتعامل مقدمي الخدمة مع عمليات الصيانة الروتينية.
+
+English: Geographic distribution improves global access speeds.
+Arabic: يحسن التوزيع الجغرافي سرعات الوصول العالمية.
+
+English: Resource pooling maximizes hardware utilization rates.
+Arabic: تعزز مشاركة الموارد معدلات استخدام الأجهزة.
+
+English: The cloud database leverages auto-scaling groups, provisions read replicas, operates as a fully managed service, and ensures strict multi-tenant isolation.
+Arabic: تستفيد قاعدة البيانات السحابية من مجموعات التحجيم التلقائي، وتوفر نسخ القراءة، وتعمل كخدمة مدارة بالكامل، وتضمن عزلًا صارمًا متعدد المستأجرين.
+
+Terms: cloud database=قاعدة بيانات سحابية - auto-scaling group=مجموعة التحجيم التلقائي - read replicas=نسخ القراءة - managed service=الخدمة المدارة - multi-tenant isolation=عزل متعدد المستأجرين
+English: The cloud database leverages auto-scaling groups, provisions read replicas, operates as a fully managed service, and ensures strict multi-tenant isolation.
+Arabic:","technology"
+"Terms: time-series data=البيانات الزمنية - retention policies=سياسات الاحتفاظ - continuous ingestion=الاستيعاب المستمر - anomaly detection=كشف الشذوذ - data downsampling=اختزال البيانات
+English: IoT devices generate timestamped measurements constantly.
+Arabic: تولد أجهزة إنترنت الأشياء قياسات مختومة زمنياً باستمرار.
+
+English: Storage efficiency becomes critical with perpetual data streams.
+Arabic: تصبح كفاءة التخزين أمرًا بالغ الأهمية مع تدفقات البيانات الدائمة.
+
+English: Predictive maintenance relies on pattern recognition algorithms.
+Arabic: يعتمد الصيانة التنبؤية على خوارزميات التعرف على الأنماط.
+
+English: Historical trend analysis requires efficient data aggregation.
+Arabic: يتطلب تحليل الاتجاهات التاريخية تجميع بيانات فعال.
+
+English: Managing time-series data involves defining retention policies, enabling continuous ingestion, implementing anomaly detection, and applying data downsampling.
+Arabic: تتضمن إدارة البيانات الزمنية تحديد سياسات الاحتفاظ، وتمكين الاستيعاب المستمر، وتنفيذ كشف الشذوذ، وتطبيق اختزال البيانات.
+
+Terms: time-series data=البيانات الزمنية - retention policies=سياسات الاحتفاظ - continuous ingestion=الاستيعاب المستمر - anomaly detection=كشف الشذوذ - data downsampling=اختزال البيانات
+English: Managing time-series data involves defining retention policies, enabling continuous ingestion, implementing anomaly detection, and applying data downsampling.
+Arabic:","technology"
+"Terms: IoT sensors=[أجهزة استشعار إنترنت الأشياء] - smart homes=[المنازل الذكية] - real-time data=[بيانات الوقت الفعلي] - energy efficiency=[كفاءة الطاقة] - cloud platform=[منصة سحابية]
+
+English: The Internet of Things revolutionizes home automation by connecting devices seamlessly.
+Arabic: يُحدث إنترنت الأشياء ثورة في أتمتة المنزل من خلال ربط الأجهزة بسلاسة.
+
+English: Sensors in IoT systems collect environmental data continuously.
+Arabic: تجمع أجهزة الاستشعار في أنظمة إنترنت الأشياء بيانات البيئة باستمرار.
+
+English: Smart homes optimize lighting and heating based on user behavior.
+Arabic: تُحسّن المنازل الذكية الإضاءة والتدفئة بناءً على سلوك المستخدم.
+
+English: Real-time monitoring is essential for efficient resource management.
+Arabic: الرصد في الوقت الفعلي أمر أساسي لإدارة الموارد بكفاءة.
+
+English: IoT sensors in smart homes provide real-time data to improve energy efficiency via a cloud platform.
+Arabic: توفر أجهزة استشعار إنترنت الأشياء في المنازل الذكية بيانات الوقت الفعلي لتحسين كفاءة الطاقة عبر منصة سحابية.
+
+Terms: IoT sensors=[أجهزة استشعار إنترنت الأشياء] - smart homes=[المنازل الذكية] - real-time data=[بيانات الوقت الفعلي] - energy efficiency=[كفاءة الطاقة] - cloud platform=[منصة سحابية]
+English: IoT sensors in smart homes provide real-time data to improve energy efficiency via a cloud platform.
+Arabic:","technology"
+"Terms: edge computing=[الحوسبة الحافية] - IoT gateways=[بوابات إنترنت الأشياء] - data processing=[معالجة البيانات] - low latency=[انخفاض التأخير] - industrial IoT=[إنترنت الأشياء الصناعي]
+
+English: Gateways serve as intermediaries between IoT devices and the cloud.
+Arabic: تعمل البوابات كوسيط بين أجهزة إنترنت الأشياء والسحابة.
+
+English: Industrial IoT enhances manufacturing with connected machinery.
+Arabic: يعزز إنترنت الأشياء الصناعي التصنيع باستخدام الآلات المتصلة.
+
+English: Low latency ensures quick responses in critical applications.
+Arabic: يضمن انخفاض التأخير استجابات سريعة في التطبيقات الحرجة.
+
+English: Data processing at the edge reduces bandwidth usage significantly.
+Arabic: تقلل معالجة البيانات على الحافة من استخدام عرض النطاق بشكل كبير.
+
+English: Edge computing in IoT gateways enables fast data processing with low latency for industrial IoT deployments.
+Arabic: تمكّن الحوسبة الحافية في بوابات إنترنت الأشياء من معالجة البيانات السريعة بانخفاض التأخير لنشر إنترنت الأشياء الصناعي.
+
+Terms: edge computing=[الحوسبة الحافية] - IoT gateways=[بوابات إنترنت الأشياء] - data processing=[معالجة البيانات] - low latency=[انخفاض التأخير] - industrial IoT=[إنترنت الأشياء الصناعي]
+English: Edge computing in IoT gateways enables fast data processing with low latency for industrial IoT deployments.
+Arabic:","technology"
+"Terms: predictive maintenance=[الصيانة التنبؤية] - machine learning=[التعلم الآلي] - vibration sensors=[أجهزة استشعار الاهتزاز] - IoT platforms=[منصات إنترنت الأشياء] - asset management=[إدارة الأصول]
+
+English: Vibration sensors detect anomalies in rotating equipment early.
+Arabic: تكتشف أجهزة استشعار الاهتزاز الشذوذ في المعدات الدوارة مبكراً.
+
+English: IoT platforms integrate data from multiple sources seamlessly.
+Arabic: تدمج منصات إنترنت الأشياء البيانات من مصادر متعددة بسلاسة.
+
+English: Asset management improves with real-time insights from connected devices.
+Arabic: تتحسن إدارة الأصول بفضل الرؤى في الوقت الفعلي من الأجهزة المتصلة.
+
+English: Machine learning models analyze patterns to forecast failures.
+Arabic: تحلل نماذج التعلم الآلي الأنماط للتنبؤ بالأعطال.
+
+English: Predictive maintenance uses machine learning on vibration sensors data via IoT platforms for better asset management.
+Arabic: تستخدم الصيانة التنبؤية التعلم الآلي على بيانات أجهزة استشعار الاهتزاز عبر منصات إنترنت الأشياء لتحسين إدارة الأصول.
+
+Terms: predictive maintenance=[الصيانة التنبؤية] - machine learning=[التعلم الآلي] - vibration sensors=[أجهزة استشعار الاهتزاز] - IoT platforms=[منصات إنترنت الأشياء] - asset management=[إدارة الأصول]
+English: Predictive maintenance uses machine learning on vibration sensors data via IoT platforms for better asset management.
+Arabic:","technology"
+"Terms: MQTT protocol=[بروتوكول MQTT] - publish-subscribe model=[نموذج النشر والاشتراك] - lightweight messaging=[رسائل خفيفة الوزن] - IoT networks=[شبكات إنترنت الأشياء] - resource-constrained devices=[أجهزة مقيدة الموارد]
+
+English: IoT networks require efficient communication protocols for scalability.
+Arabic: تتطلب شبكات إنترنت الأشياء بروتوكولات اتصال فعالة للتوسعية.
+
+English: Resource-constrained devices need protocols with minimal overhead.
+Arabic: تحتاج الأجهزة مقيدة الموارد بروتوكولات ذات حمل زائد أدنى.
+
+English: Lightweight messaging supports billions of connected devices.
+Arabic: تدعم الرسائل خفيفة الوزن مليارات الأجهزة المتصلة.
+
+English: The publish-subscribe model decouples producers and consumers effectively.
+Arabic: يفصل نمذج النشر والاشتراك بين المنتجين والمستهلكين بفعالية.
+
+English: The MQTT protocol employs a publish-subscribe model for lightweight messaging in IoT networks on resource-constrained devices.
+Arabic: يستخدم بروتوكول MQTT نموذج النشر والاشتراك للرسائل خفيفة الوزن في شبكات إنترنت الأشياء على أجهزة مقيدة الموارد.
+
+Terms: MQTT protocol=[بروتوكول MQTT] - publish-subscribe model=[نموذج النشر والاشتراك] - lightweight messaging=[رسائل خفيفة الوزن] - IoT networks=[شبكات إنترنت الأشياء] - resource-constrained devices=[أجهزة مقيدة الموارد]
+English: The MQTT protocol employs a publish-subscribe model for lightweight messaging in IoT networks on resource-constrained devices.
+Arabic:","technology"
+"Terms: blockchain integration=[دمج البلوكشين] - IoT security=[أمان إنترنت الأشياء] - decentralized ledger=[سجل لامركزي] - tamper-proof transactions=[معاملات مقاومة للتلاعب] - supply chain=[سلسلة التوريد]
+
+English: IoT security is paramount in protecting connected ecosystems.
+Arabic: أمان إنترنت الأشياء أمر حاسم في حماية النظم المتصلة.
+
+English: Supply chain transparency reduces fraud through traceability.
+Arabic: يقلل الشفافية في سلسلة التوريد من الاحتيال من خلال التتبع.
+
+English: Decentralized systems eliminate single points of failure.
+Arabic: تُزيل الأنظمة اللامركزية النقاط الوحيدة للفشل.
+
+English: Tamper-proof mechanisms ensure data integrity across networks.
+Arabic: تضمن آليات مقاومة للتلاعب سلامة البيانات عبر الشبكات.
+
+English: Blockchain integration enhances IoT security with a decentralized ledger for tamper-proof transactions in supply chain applications.
+Arabic: يعزز دمج البلوكشين أمان إنترنت الأشياء بسجل لامركزي للمعاملات مقاومة للتلاعب في تطبيقات سلسلة التوريد.
+
+Terms: blockchain integration=[دمج البلوكشين] - IoT security=[أمان إنترنت الأشياء] - decentralized ledger=[سجل لامركزي] - tamper-proof transactions=[معاملات مقاومة للتلاعب] - supply chain=[سلسلة التوريد]
+English: Blockchain integration enhances IoT security with a decentralized ledger for tamper-proof transactions in supply chain applications.
+Arabic:","technology"
+"Terms: wearable devices=[أجهزة قابلة للارتداء] - health monitoring=[رصد الصحة] - biometric data=[بيانات حيوية] - IoT ecosystem=[نظام إنترنت الأشياء] - continuous tracking=[التتبع المستمر]
+
+English: The IoT ecosystem includes wearables for personal health insights.
+Arabic: يشمل نظام إنترنت الأشياء الأجهزة القابلة للارتداء لرؤى الصحة الشخصية.
+
+English: Biometric data from sensors enables personalized medicine.
+Arabic: تمكّن البيانات الحيوية من أجهزة الاستشعار من الطب الشخصي.
+
+English: Continuous tracking of vital signs prevents emergencies.
+Arabic: يمنع التتبع المستمر للعلامات الحيوية الطوارئ.
+
+English: Health monitoring apps integrate with smartwatches seamlessly.
+Arabic: تدمج تطبيقات رصد الصحة مع الساعات الذكية بسلاسة.
+
+English: Wearable devices in the IoT ecosystem facilitate health monitoring through biometric data for continuous tracking.
+Arabic: تسهّل أجهزة قابلة للارتداء في نظام إنترنت الأشياء رصد الصحة من خلال البيانات الحيوية للتتبع المستمر.
+
+Terms: wearable devices=[أجهزة قابلة للارتداء] - health monitoring=[رصد الصحة] - biometric data=[بيانات حيوية] - IoT ecosystem=[نظام إنترنت الأشياء] - continuous tracking=[التتبع المستمر]
+English: Wearable devices in the IoT ecosystem facilitate health monitoring through biometric data for continuous tracking.
+Arabic:","technology"
+"Terms: 5G connectivity=[اتصال 5G] - massive IoT=[إنترنت الأشياء الضخم] - ultra-reliable communication=[اتصال فائق الموثوقية] - smart cities=[المدن الذكية] - vehicle-to-everything=[الاتصال من المركبة إلى كل شيء]
+
+English: Smart cities leverage IoT for traffic and waste management.
+Arabic: تستفيد المدن الذكية من إنترنت الأشياء لإدارة المرور والنفايات.
+
+English: Massive IoT deployments require high-density device support.
+Arabic: تتطلب نشرات إنترنت الأشياء الضخمة دعماً لكثافة عالية من الأجهزة.
+
+English: Ultra-reliable communication is vital for autonomous vehicles.
+Arabic: الاتصال فائق الموثوقية حيوي للمركبات الذاتية القيادة.
+
+English: Vehicle-to-everything enables safer transportation networks.
+Arabic: يُمكّن الاتصال من المركبة إلى كل شيء شبكات نقل أكثر أماناً.
+
+English: 5G connectivity supports massive IoT in smart cities with ultra-reliable communication for vehicle-to-everything applications.
+Arabic: يدعم اتصال 5G إنترنت الأشياء الضخم في المدن الذكية باتصال فائق الموثوقية لتطبيقات الاتصال من المركبة إلى كل شيء.
+
+Terms: 5G connectivity=[اتصال 5G] - massive IoT=[إنترنت الأشياء الضخم] - ultra-reliable communication=[اتصال فائق الموثوقية] - smart cities=[المدن الذكية] - vehicle-to-everything=[الاتصال من المركبة إلى كل شيء]
+English: 5G connectivity supports massive IoT in smart cities with ultra-reliable communication for vehicle-to-everything applications.
+Arabic:","technology"
+"Terms: firmware updates=[تحديثات البرمجيات الثابتة] - over-the-air=[عبر الهواء] - device management=[إدارة الأجهزة] - IoT fleets=[أساطيل إنترنت الأشياء] - security patches=[تصحيحات الأمان]
+
+English: Device management platforms centralize control over IoT deployments.
+Arabic: تُركّز منصات إدارة الأجهزة السيطرة على نشرات إنترنت الأشياء.
+
+English: Security patches mitigate vulnerabilities in connected systems.
+Arabic: تُخفّف تصحيحات الأمان الثغرات في الأنظمة المتصلة.
+
+English: IoT fleets span millions of devices worldwide.
+Arabic: تمتد أساطيل إنترنت الأشياء إلى ملايين الأجهزة حول العالم.
+
+English: Over-the-air updates simplify remote maintenance.
+Arabic: تُبسّط التحديثات عبر الهواء الصيانة عن بعد.
+
+English: Firmware updates over-the-air enable efficient device management for large IoT fleets with timely security patches.
+Arabic: تمكّن تحديثات البرمجيات الثابتة عبر الهواء من إدارة الأجهزة الفعالة لأساطيل إنترنت الأشياء الكبيرة بتصحيحات أمان في الوقت المناسب.
+
+Terms: firmware updates=[تحديثات البرمجيات الثابتة] - over-the-air=[عبر الهواء] - device management=[إدارة الأجهزة] - IoT fleets=[أساطيل إنترنت الأشياء] - security patches=[تصحيحات الأمان]
+English: Firmware updates over-the-air enable efficient device management for large IoT fleets with timely security patches.
+Arabic:","technology"
+"Terms: digital twins=[التوائم الرقمية] - simulation models=[نماذج المحاكاة] - IoT data streams=[تدفقات بيانات إنترنت الأشياء] - predictive analytics=[التحليلات التنبؤية] - operational efficiency=[الكفاءة التشغيلية]
+
+English: IoT data streams feed real-time information into analytics engines.
+Arabic: تُغذي تدفقات بيانات إنترنت الأشياء معلومات في الوقت الفعلي إلى محركات التحليلات.
+
+English: Predictive analytics forecast equipment downtime accurately.
+Arabic: تتنبأ التحليلات التنبؤية بوقت التوقف للمعدات بدقة.
+
+English: Operational efficiency improves through optimized processes.
+Arabic: تتحسن الكفاءة التشغيلية من خلال العمليات المُحسّنة.
+
+English: Simulation models test scenarios without physical risks.
+Arabic: تختبر نماذج المحاكاة السيناريوهات دون مخاطر مادية.
+
+English: Digital twins leverage simulation models and IoT data streams for predictive analytics to boost operational efficiency.
+Arabic: تستفيد التوائم الرقمية من نماذج المحاكاة وتدفقات بيانات إنترنت الأشياء للتحليلات التنبؤية لتعزيز الكفاءة التشغيلية.
+
+Terms: digital twins=[التوائم الرقمية] - simulation models=[نماذج المحاكاة] - IoT data streams=[تدفقات بيانات إنترنت الأشياء] - predictive analytics=[التحليلات التنبؤية] - operational efficiency=[الكفاءة التشغيلية]
+English: Digital twins leverage simulation models and IoT data streams for predictive analytics to boost operational efficiency.
+Arabic:","technology"
+"Terms: zero-trust architecture=[هندسة صفر الثقة] - IoT endpoints=[نقاط نهاية إنترنت الأشياء] - continuous authentication=[المصادقة المستمرة] - micro-segmentation=[التجزئة الدقيقة] - threat detection=[كشف التهديدات]
+
+English: IoT endpoints demand robust security in distributed environments.
+Arabic: تتطلب نقاط نهاية إنترنت الأشياء أماناً قوياً في البيئات الموزعة.
+
+English: Threat detection uses AI to identify anomalies swiftly.
+Arabic: يستخدم كشف التهديدات الذكاء الاصطناعي لتحديد الشذوذ بسرعة.
+
+English: Continuous authentication verifies identities in real time.
+Arabic: تتحقق المصادقة المستمرة من الهويات في الوقت الفعلي.
+
+English: Micro-segmentation limits breach propagation effectively.
+Arabic: تُحدّ التجزئة الدقيقة من انتشار الاختراقات بفعالية.
+
+English: Zero-trust architecture secures IoT endpoints with continuous authentication and micro-segmentation for advanced threat detection.
+Arabic: تُأمّن هندسة صفر الثقة نقاط نهاية إنترنت الأشياء بالمصادقة المستمرة والتجزئة الدقيقة لكشف التهديدات المتقدم.
+
+Terms: zero-trust architecture=[هندسة صفر الثقة] - IoT endpoints=[نقاط نهاية إنترنت الأشياء] - continuous authentication=[المصادقة المستمرة] - micro-segmentation=[التجزئة الدقيقة] - threat detection=[كشف التهديدات]
+English: Zero-trust architecture secures IoT endpoints with continuous authentication and micro-segmentation for advanced threat detection.
+Arabic:","technology"
+"Terms: advanced neural networks=شبكات عصبية متقدمة - machine learning models=نماذج تعلم الآلة - natural language processing=معالجة اللغة الطبيعية - deep learning frameworks=أطر التعلم العميق - AI-driven solutions=حلول مدعومة بالذكاء الاصطناعي  
+English: The field of artificial intelligence continues to evolve rapidly.  
+Arabic: يستمر مجال الذكاء الاصطناعي في التطور بسرعة.  
+
+English: Researchers are developing more sophisticated algorithms.  
+Arabic: يعمل الباحثون على تطوير خوارزميات أكثر تطوراً.  
+
+English: Language technologies have seen significant breakthroughs.  
+Arabic: شهدت تكنولوجيا اللغات تطورات كبيرة.  
+
+English: Modern AI systems require robust computational structures.  
+Arabic: تتطلب أنظمة الذكاء الاصطناعي الحديثة هياكل حسابية قوية.  
+
+English: Advanced neural networks power modern machine learning models, enabling breakthroughs in natural language processing through deep learning frameworks and AI-driven solutions.  
+Arabic: تشغل الشبكات العصبية المتقدمة نماذج تعلم الآلة الحديثة، مما يمكن من تحقيق طفرات في معالجة اللغة الطبيعية عبر أطر التعلم العميق والحلول المدعومة بالذكاء الاصطناعي.  
+
+Terms: advanced neural networks=شبكات عصبية متقدمة - machine learning models=نماذج تعلم الآلة - natural language processing=معالجة اللغة الطبيعية - deep learning frameworks=أطر التعلم العميق - AI-driven solutions=حلول مدعومة بالذكاء الاصطناعي  
+English: Advanced neural networks power modern machine learning models, enabling breakthroughs in natural language processing through deep learning frameworks and AI-driven solutions.  
+Arabic:","technology"
+"Terms: computer vision systems=أنظمة الرؤية الحاسوبية - convolutional neural networks=الشبكات العصبية التلافيفية - real-time object detection=كشف الأشياء في الوقت الحقيقي - image recognition accuracy=دقة التعرف على الصور - autonomous vehicles=مركبات ذاتية القيادة  
+English: AI applications are transforming transportation infrastructure.  
+Arabic: تطبيقات الذكاء الاصطناعي تحول البنية التحتية للنقل.  
+
+English: Visual perception technologies have become increasingly precise.  
+Arabic: أصبحت تكنولوجيا الإدراك البصري أكثر دقة.  
+
+English: Complex pattern recognition requires specialized network architectures.  
+Arabic: يتطلب التعرف على الأنماط المعقدة هياكل شبكات متخصصة.  
+
+English: Instant data processing is critical for safety systems.  
+Arabic: معالجة البيانات الفورية أمر بالغ الأهمية لأنظمة السلامة.  
+
+English: Modern computer vision systems using convolutional neural networks achieve real-time object detection with unprecedented image recognition accuracy, especially in autonomous vehicles.  
+Arabic: تحقق أنظمة الرؤية الحاسوبية الحديثة باستخدام الشبكات العصبية التلافيفية كشف الأشياء في الوقت الحقيقي بدقة غير مسبوقة في التعرف على الصور، خاصة في المركبات ذاتية القيادة.  
+
+Terms: computer vision systems=أنظمة الرؤية الحاسوبية - convolutional neural networks=الشبكات العصبية التلافيفية - real-time object detection=كشف الأشياء في الوقت الحقيقي - image recognition accuracy=دقة التعرف على الصور - autonomous vehicles=مركبات ذاتية القيادة  
+English: Modern computer vision systems using convolutional neural networks achieve real-time object detection with unprecedented image recognition accuracy, especially in autonomous vehicles.  
+Arabic:","technology"
+"Terms: generative adversarial networks=الشبكات الخصومية التوليدية - synthetic data generation=توليد البيانات الاصطناعية - training dataset=مجموعة بيانات التدريب - latent space manipulation=التلاعب بالفضاء الكامن - photorealistic outputs=مخرجات فوتوغرافية الواقعية  
+English: AI creativity techniques are pushing technological boundaries.  
+Arabic: تقنيات الإبداع بالذكاء الاصطناعي تدفع حدود التكنولوجيا.  
+
+English: Data augmentation methods enhance model generalization.  
+Arabic: تعزز طرق زيادة البيانات تعميم النموذج.  
+
+English: Feature representation learning enables complex transformations.  
+Arabic: تمكّن تعلّم تمثيل الميزات التحولات المعقدة.  
+
+English: Digital content creation has entered a new era.  
+Arabic: دخل إنشاء المحتوى الرقمي عصراً جديداً.  
+
+English: Generative adversarial networks facilitate synthetic data generation that enriches training datasets through latent space manipulation, producing photorealistic outputs for various applications.  
+Arabic: تسهل الشبكات الخصومية التوليدية توليد البيانات الاصطناعية التي تثري مجموعات بيانات التدريب عبر التلاعب بالفضاء الكامن، منتجة مخرجات فوتوغرافية الواقعية لتطبيقات متنوعة.  
+
+Terms: generative adversarial networks=الشبكات الخصومية التوليدية - synthetic data generation=توليد البيانات الاصطناعية - training dataset=مجموعة بيانات التدريب - latent space manipulation=التلاعب بالفضاء الكامن - photorealistic outputs=مخرجات فوتوغرافية الواقعية  
+English: Generative adversarial networks facilitate synthetic data generation that enriches training datasets through latent space manipulation, producing photorealistic outputs for various applications.  
+Arabic:","technology"
+"Terms: reinforcement learning algorithms=خوارزميات التعلم المعزز - dynamic environments=البيئات الديناميكية - decision-making policies=سياسات صنع القرار - reward optimization=تحسين المكافآت - robotic control systems=أنظمة التحكم الروبوتية  
+English: Autonomous systems require adaptive learning mechanisms.  
+Arabic: تتطلب الأنظمة الذاتية آليات تعلم تكيفية.  
+
+English: Complex interactions demand sophisticated planning strategies.  
+Arabic: تتفاعل التفاعلات المعقدة تتطلب استراتيجيات تخطيط متطورة.  
+
+English: Outcome-based training improves system performance.  
+Arabic: يحسن التدريب القائم على النتائج أداء النظام.  
+
+English: Mechanical automation benefits greatly from intelligent protocols.  
+Arabic: تستفيد الأتمتة الميكانيكية بشكل كبير من البروتوكولات الذكية.  
+
+English: Reinforcement learning algorithms excel in dynamic environments by developing optimal decision-making policies through reward optimization, particularly in robotic control systems.  
+Arabic: تتفوق خوارزميات التعلم المعزز في البيئات الديناميكية من خلال تطوير سياسات صنع قرار مثالية عبر تحسين المكافآت، خاصة في أنظمة التحكم الروبوتية.  
+
+Terms: reinforcement learning algorithms=خوارزميات التعلم المعزز - dynamic environments=البيئات الديناميكية - decision-making policies=سياسات صنع القرار - reward optimization=تحسين المكافآت - robotic control systems=أنظمة التحكم الروبوتية  
+English: Reinforcement learning algorithms excel in dynamic environments by developing optimal decision-making policies through reward optimization, particularly in robotic control systems.  
+Arabic:","technology"
+"Terms: transformer architecture=هندسة المحولات - attention mechanisms=آليات الانتباه - multilingual embeddings=التضمينات متعددة اللغات - contextual understanding=الفهم السياقي - semantic similarity=التشابه الدلالي  
+English: Language models have revolutionized computational linguistics.  
+Arabic: أحدثت نماذج اللغة ثورة في اللسانيات الحاسوبية.  
+
+English: Sequence modeling requires sophisticated weighting approaches.  
+Arabic: يتطلب نمذجة التسلسل طريقات ترجيح متطورة.  
+
+English: Cross-lingual representations enable better translation systems.  
+Arabic: التمثيلات عبر اللغات تمكن أنظمة ترجمة أفضل.  
+
+English: Meaning extraction depends on nuanced interpretation layers.  
+Arabic: يعتمد استخراج المعنى على طبقات تفسيرية دقيقة.  
+
+English: The transformer architecture utilizes attention mechanisms to create multilingual embeddings that enhance contextual understanding and improve semantic similarity measurements.  
+Arabic: تستخدم هندسة المحولات آليات الانتباه لإنشاء تضمينات متعددة اللغات تعزز الفهم السياقي وتحسن قياسات التشابه الدلالي.  
+
+Terms: transformer architecture=هندسة المحولات - attention mechanisms=آليات الانتباه - multilingual embeddings=التضمينات متعددة اللغات - contextual understanding=الفهم السياقي - semantic similarity=التشابه الدلالي  
+English: The transformer architecture utilizes attention mechanisms to create multilingual embeddings that enhance contextual understanding and improve semantic similarity measurements.  
+Arabic:","technology"
+"Terms: federated learning approach=نهج التعلم الموحد - decentralized data storage=تخزين البيانات اللامركزي - privacy-preserving techniques=تقنيات الحفاظ على الخصوصية - collaborative model training=تدريب النموذج التعاوني - personal information protection=حماية المعلومات الشخصية  
+English: Data security concerns drive innovative AI methodologies.  
+Arabic: تدفع مخاوف أمان البيانات منهجيات الذكاء الاصطناعي المبتكرة.  
+
+English: Distribution computing paradigms address confidentiality challenges.  
+Arabic: تتناول نماذج الحوسبة الموزعة تحديات السرية.  
+
+English: Sensitive information requires specialized handling protocols.  
+Arabic: تتطلب المعلومات الحساسة بروتوكولات معالجة متخصصة.  
+
+English: Collective intelligence systems must balance utility with security.  
+Arabic: يجب أن توازن أنظمة الذكاء الجماعي بين المنفعة والأمان.  
+
+English: The federated learning approach employs decentralized data storage and privacy-preserving techniques during collaborative model training to ensure personal information protection.  
+Arabic: يستخدم نهج التعلم الموحد تخزين البيانات اللامركزي وتقنيات الحفاظ على الخصوصية أثناء تدريب النموذج التعاوني لضمان حماية المعلومات الشخصية.  
+
+Terms: federated learning approach=نهج التعلم الموحد - decentralized data storage=تخزين البيانات اللامركزي - privacy-preserving techniques=تقنيات الحفاظ على الخصوصية - collaborative model training=تدريب النموذج التعاوني - personal information protection=حماية المعلومات الشخصية  
+English: The federated learning approach employs decentralized data storage and privacy-preserving techniques during collaborative model training to ensure personal information protection.  
+Arabic:","technology"
+"Terms: edge AI deployment=نشر الذكاء الاصطناعي على الحافة - local processing units=وحدات المعالجة المحلية - low-latency inference=استدلال منخفض الكمون - energy-efficient computation=حوسبة موفرة للطاقة - IoT devices=أجهزة إنترنت الأشياء  
+English: Real-time applications demand localized computing resources.  
+Arabic: تتطلب التطبيقات الفورية موارد حوسبة محلية.  
+
+English: Speed optimization is critical for responsive systems.  
+Arabic: تحسين السرعة أمر بالغ الأهمية للأنظمة المستجيبة.  
+
+English: Power consumption constraints shape hardware development.  
+Arabic: تشكل قيود استهلاك الطاقة تطور الأجهزة.  
+
+English: Ubiquitous connectivity enables smart embedded systems.  
+Arabic: تمكن الاتصال في كل مكان من أنظمة مضمنة ذكية.  
+
+English: Edge AI deployment leverages local processing units for low-latency inference and energy-efficient computation in IoT devices.  
+Arabic: يعتمد نشر الذكاء الاصطناعي على الحافة وحدات المعالجة المحلية للاستدلال منخفض الكمون والحوسبة الموفرة للطاقة في أجهزة إنترنت الأشياء.  
+
+Terms: edge AI deployment=نشر الذكاء الاصطناعي على الحافة - local processing units=وحدات المعالجة المحلية - low-latency inference=استدلال منخفض الكمون - energy-efficient computation=حوسبة موفرة للطاقة - IoT devices=أجهزة إنترنت الأشياء  
+English: Edge AI deployment leverages local processing units for low-latency inference and energy-efficient computation in IoT devices.  
+Arabic:","technology"
+"Terms: explainable AI frameworks=أطر الذكاء الاصطناعي القابلة للتفسير - model interpretability=قابلية تفسير النموذج - decision transparency=شفافية القرار - regulatory compliance=الامتثال التنظيمي - trustworthiness assessment=تقييم الجدارة بالثقة  
+English: Accountability requirements shape AI system development.  
+Arabic: تشكل متطلبات المساءلة تطوير أنظمة الذكاء الاصطناعي.  
+
+English: Understanding algorithm behavior is crucial for adoption.  
+Arabic: فهم سلوك الخوارزمية أمر بالغ الأهمية للاعتماد.  
+
+English: Auditable processes meet industry standards and regulations.  
+Arabic: تلبي العمليات القابلة للتدقيق معايير الصناعة واللوائح.  
+
+English: Reliability verification builds user confidence.  
+Arabic: يبني التحقق من الموثوقية ثقة المستخدم.  
+
+English: Explainable AI frameworks enhance model interpretability and decision transparency to ensure regulatory compliance and thorough trustworthiness assessment.  
+Arabic: تعزز أطر الذكاء الاصطناعي القابلة للتفسير قابلية تفسير النموذج وشفافية القرار لضمان الامتثال التنظيمي وتقييم الجدارة بالثقة الشامل.  
+
+Terms: explainable AI frameworks=أطر الذكاء الاصطناعي القابلة للتفسير - model interpretability=قابلية تفسير النموذج - decision transparency=شفافية القرار - regulatory compliance=الامتثال التنظيمي - trustworthiness assessment=تقييم الجدارة بالثقة  
+English: Explainable AI frameworks enhance model interpretability and decision transparency to ensure regulatory compliance and thorough trustworthiness assessment.  
+Arabic:","technology"
+"Terms: quantum machine learning=التعلم الآلي الكمي - superposition principles=مبادئ التراكيب الكمية - optimization acceleration=تسريع التحسين - qubit operations=عمليات الكيوبت - computational advantages=مزايا حسابية  
+English: Emerging technologies create novel computing paradigms.  
+Arabic: تخلق التكنولوجيات الناشئة نماذج حوسبة جديدة.  
+
+English: Quantum phenomena enable unprecedented processing capabilities.  
+Arabic: تمكن الظواهر الكمية قدرات معالجة غير مسبوقة.  
+
+English: Solving complex problems requires specialized hardware.  
+Arabic: يتطلب حل المشكلات المعقدة أجهزة متخصصة.  
+
+English: Performance improvements redefine algorithmic possibilities.  
+Arabic: تعيد التحسينات في الأداء تعريف الاحتمالات الخوارزمية.  
+
+English: Quantum machine learning harnesses superposition principles for optimization acceleration via qubit operations, unlocking computational advantages for complex tasks.  
+Arabic: يستغل التعلم الآلي الكمي مبادئ التراكيب الكمية لتسريع التحسين عبر عمليات الكيوبت، مطلقاً مزايا حسابية للمهام المعقدة.  
+
+Terms: quantum machine learning=التعلم الآلي الكمي - superposition principles=مبادئ التراكيب الكمية - optimization acceleration=تسريع التحسين - qubit operations=عمليات الكيوبت - computational advantages=مزايا حسابية  
+English: Quantum machine learning harnesses superposition principles for optimization acceleration via qubit operations, unlocking computational advantages for complex tasks.  
+Arabic:","technology"
+"Terms: multimodal AI systems=أنظمة الذكاء الاصطناعي متعددة الوسائط - sensory fusion=دمج الحواس - cross-modal learning=التعلم عبر الوسائط - embodied cognition=الإدراك المتجسد - human-computer interaction=التفاعل بين الإنسان والحاسوب  
+English: Integrated perception systems mimic biological intelligence.  
+Arabic: تحاكي أنظمة الإدراك المتكاملة الذكاء البيولوجي.  
+
+English: Combining input streams creates richer representations.  
+Arabic: يؤدي الجمع بين تدفقات المدخلات إلى تمثيلات أغنى.  
+
+English: Whole-system understanding requires unified processing cores.  
+Arabic: يتطلب فهم النظام بأكمله نوى معالجة موحدة.  
+
+English: Natural interfaces depend on seamless integration mechanisms.  
+Arabic: تعتمد الواجهات الطبيعية على آليات تكامل سلسة.  
+
+English: Multimodal AI systems implement sensory fusion and cross-modal learning to achieve embodied cognition, revolutionizing human-computer interaction paradigms.  
+Arabic: تنفذ أنظمة الذكاء الاصطناعي متعددة الوسائط دمج الحواس والتعلم عبر الوسائط لتحقيق الإدراك المتجسد، مما يحدث ثورة في نماذج التفاعل بين الإنسان والحاسوب.  
+
+Terms: multimodal AI systems=أنظمة الذكاء الاصطناعي متعددة الوسائط - sensory fusion=دمج الحواس - cross-modal learning=التعلم عبر الوسائط - embodied cognition=الإدراك المتجسد - human-computer interaction=التفاعل بين الإنسان والحاسوب  
+English: Multimodal AI systems implement sensory fusion and cross-modal learning to achieve embodied cognition, revolutionizing human-computer interaction paradigms.  
+Arabic:","technology"
+"Terms: central processing unit=وحدة المعالجة المركزية - random access memory=ذاكرة الوصول العشوائي - solid state drive=قرص الحالة الصلبة - motherboard chipset=مجموعة رقائق اللوحة الأم - thermal paste=معجون حراري
+
+English: The CPU handles all computational tasks in a computer system.
+Arabic: تقوم وحدة المعالجة المركزية بمعالجة جميع المهام الحسابية في نظام الكمبيوتر.
+
+English: RAM allows quick data access for running applications.
+Arabic: تتيح ذاكرة الوصول العشوائي الوصول السريع إلى البيانات لتشغيل التطبيقات.
+
+English: SSDs provide faster boot times compared to traditional HDDs.
+Arabic: توفر أقراص الحالة الصلبة أوقات تشغيل أسرع مقارنة بأقراص HDD التقليدية.
+
+English: Chipsets on motherboards manage data flow between components.
+Arabic: تدير مجموعات رقائق اللوحة الأم تدفق البيانات بين المكونات.
+
+English: Applying thermal paste improves heat transfer from the CPU to the heatsink.
+Arabic: يحسن وضع المعجون الحراري نقل الحرارة من وحدة المعالجة المركزية إلى المشتت الحراري.","technology"
+"Terms: central processing unit=وحدة المعالجة المركزية - random access memory=ذاكرة الوصول العشوائي - solid state drive=قرص الحالة الصلبة - motherboard chipset=مجموعة رقائق اللوحة الأم - thermal paste=معجون حراري
+English: The motherboard chipset links the central processing unit to random access memory and solid state drive with thermal paste ensuring optimal cooling.
+Arabic:","technology"
+"Terms: graphics processing unit=وحدة معالجة الرسوميات - heat sink=مشتت حراري - power supply unit=وحدة الطاقة - fan speed=سرعة المروحة - voltage regulator=منظم الجهد
+
+English: GPUs accelerate rendering for gaming and video editing.
+Arabic: تسرع وحدات معالجة الرسوميات عملية التصيير للألعاب وتحرير الفيديو.
+
+English: A heat sink dissipates heat from hot components like CPUs.
+Arabic: يبدد المشتت الحراري الحرارة من المكونات الساخنة مثل وحدات المعالجة المركزية.
+
+English: PSUs convert AC power to DC for computer hardware.
+Arabic: تحول وحدات الطاقة طاقة التيار المتردد إلى تيار مستمر لأجهزة الكمبيوتر.
+
+English: Adjusting fan speed helps maintain safe temperatures.
+Arabic: يساعد تعديل سرعة المروحة في الحفاظ على درجات حرارة آمنة.
+
+English: Voltage regulators stabilize power delivery to sensitive parts.
+Arabic: تستقر منظمات الجهد تسليم الطاقة إلى الأجزاء الحساسة.","technology"
+"Terms: graphics processing unit=وحدة معالجة الرسوميات - heat sink=مشتت حراري - power supply unit=وحدة الطاقة - fan speed=سرعة المروحة - voltage regulator=منظم الجهد
+English: The graphics processing unit requires a robust heat sink, power supply unit with adjustable fan speed, and voltage regulator for stability.
+Arabic:","technology"
+"Terms: peripheral component interconnect=اتصال المكونات الطرفية - serial ATA=سيرفل ATA - non-volatile memory=ذاكرة غير متطايرة - bus interface=واجهة الحافلة - cache controller=وحدة تحكم التخزين المؤقت
+
+English: PCIe enables high-speed connections for GPUs and SSDs.
+Arabic: يمكن اتصال PCIe السريع لـ GPUs و SSDs.
+
+English: SATA cables connect storage drives to the motherboard.
+Arabic: تربط كابلات SATA أجهزة التخزين باللوحة الأم.
+
+English: NVM retains data without power supply.
+Arabic: تحتفظ ذاكرة غير المتطايرة بالبيانات بدون مصدر طاقة.
+
+English: Bus interfaces manage data transfer rates.
+Arabic: تدير واجهات الحافلة معدلات نقل البيانات.
+
+English: Cache controllers optimize data access speeds.
+Arabic: تحسن وحدات تحكم التخزين المؤقت سرعات الوصول إلى البيانات.","technology"
+"Terms: peripheral component interconnect=اتصال المكونات الطرفية - serial ATA=سيرفل ATA - non-volatile memory=ذاكرة غير متطايرة - bus interface=واجهة الحافلة - cache controller=وحدة تحكم التخزين المؤقت
+English: Modern SSDs use peripheral component interconnect express, serial ATA for legacy, non-volatile memory with bus interface and cache controller.
+Arabic:","technology"
+"Terms: liquid cooling system=نظام تبريد سائل - overclocking mode=وضع التسريع الزائد - phase change material=مادة تغير الطور - pump resonator=مضخة الرنين - radiator fins=زعانف المدفأة
+
+English: Liquid cooling outperforms air cooling for high-end CPUs.
+Arabic: يتفوق نظام التبريد السائل على التبريد الهوائي لوحدات المعالجة المركزية عالية الأداء.
+
+English: Overclocking boosts CPU performance beyond stock speeds.
+Arabic: يعزز وضع التسريع الزائد أداء وحدة المعالجة المركزية خارج السرعات القياسية.
+
+English: PCM absorbs heat during phase transitions.
+Arabic: تمتص مادة تغير الطور الحرارة أثناء التحولات الطورية.
+
+English: Pumps circulate coolant in closed loops.
+Arabic: تدور المضخات سائل التبريد في حلقات مغلقة.
+
+English: Radiator fins increase surface area for heat dissipation.
+Arabic: تزيد زعانف المدفأة من مساحة السطح لتبديد الحرارة.","technology"
+"Terms: liquid cooling system=نظام تبريد سائل - overclocking mode=وضع التسريع الزائد - phase change material=مادة تغير الطور - pump resonator=مضخة الرنين - radiator fins=زعانف المدفأة
+English: Enthusiasts prefer liquid cooling system in overclocking mode using phase change material, pump resonator, and radiator fins.
+Arabic:","technology"
+"Terms: universal serial bus=حافلة الشريط المتسلسل العامة - thunderbolt port=منفذ ثندرbolt - near field communication=الاتصال ميدان قريب - docking station=محطة ربط - expansion card=بطاقة توسعة
+
+English: USB ports support data transfer and charging.
+Arabic: تدعم منافذ حافلة الشريط المتسلسل العامة نقل البيانات والشحن.
+
+English: Thunderbolt offers high bandwidth for external displays.
+Arabic: يوفر منفذ ثندرbolt عرض نطاق ترددي عالي للشاشات الخارجية.
+
+English: NFC enables quick pairing of peripherals.
+Arabic: يمكن الاتصال ميدان قريب الاقتران السريع للأجهزة الطرفية.
+
+English: Docking stations expand laptop connectivity.
+Arabic: توسع محطات الربط خيارات الاتصال للحواسيب المحمولة.
+
+English: Expansion cards add features like extra ports.
+Arabic: تضيف بطاقات التوسعة ميزات مثل منافذ إضافية.","technology"
+"Terms: universal serial bus=حافلة الشريط المتسلسل العامة - thunderbolt port=منفذ ثندرbolt - near field communication=الاتصال ميدان قريب - docking station=محطة ربط - expansion card=بطاقة توسعة
+English: Laptops integrate universal serial bus type-C, thunderbolt port, near field communication via docking station and expansion card.
+Arabic:","technology"
+"Terms: list comprehension=فهم القوائم - nested loop=حلقة متداخلة - dictionary comprehension=فهم القواميس - concise syntax=بناء جملة موجز - performance optimization=تحسين الأداء
+English: Python offers elegant ways to transform data structures efficiently.
+Arabic: تقدم لغة بايثون طرقًا أنيقة لتحويل هياكل البيانات بكفاءة.
+
+English: Developers often need to handle complex data transformations in their code.
+Arabic: يحتاج المطورون غالبًا للتعامل مع تحويلات البيانات المعقدة في شفراتهم.
+
+English: Iterating over multiple data dimensions requires careful implementation.
+Arabic: يتطلب التكرار عبر أبعاد بيانات متعددة تنفيذًا دقيقًا.
+
+English: Readable code with optimized execution speed is crucial for large datasets.
+Arabic: تعتبر الشفرة المقروءة مع سرعة تنفيذ مثلى أمرًا حاسمًا لمجموعات البيانات الكبيرة.
+
+English: Using list comprehension instead of nested loops in dictionary comprehension provides concise syntax and improves performance optimization.
+Arabic: يوفر استخدام فهم القوائم بدلاً من الحلقات المتداخلة في فهم القواميس بناء جملة موجزًا ويحسن تحسين الأداء.
+
+Terms: list comprehension=فهم القوائم - nested loop=حلقة متداخلة - dictionary comprehension=فهم القواميس - concise syntax=بناء جملة موجز - performance optimization=تحسين الأداء
+English: Using list comprehension instead of nested loops in dictionary comprehension provides concise syntax and improves performance optimization.
+Arabic:","technology"
+"Terms: virtual environment=بيئة افتراضية - dependency management=إدارة التبعيات - PyPI=بايباي (مستودع حزم بايثون) - pip tool=أداة بايب - package version=إصدار الحزمة
+English: Isolating project dependencies is essential in Python development.
+Arabic: يعتبر عزل تبعيات المشروع ضروريًا في تطوير تطبيقات بايثون.
+
+English: Different projects may require conflicting library versions.
+Arabic: قد تتطلب المشاريع المختلفة إصدارات متعارضة من المكتبات.
+
+English: Python provides tools to maintain clean workspace configurations.
+Arabic: توفر بايثون أدوات للحفاظ على تكوينات مساحات العمل نظيفة.
+
+English: Centralized repositories host thousands of Python libraries for developers.
+Arabic: تستضيف المستودعات المركزية آلاف مكتبات بايثون للمطورين.
+
+English: Create a virtual environment with pip tool to handle PyPI package version conflicts during dependency management.
+Arabic: أنشئ بيئة افتراضية باستخدام أداة بايب للتعامل مع تعارضات إصدار حزم بايباي أثناء إدارة التبعيات.
+
+Terms: virtual environment=بيئة افتراضية - dependency management=إدارة التبعيات - PyPI=بايباي (مستودع حزم بايثون) - pip tool=أداة بايب - package version=إصدار الحزمة
+English: Create a virtual environment with pip tool to handle PyPI package version conflicts during dependency management.
+Arabic:","technology"
+"Terms: decorator=ديكوراتور - function wrapper=غلاف الدالة - @ syntax=بناء @ - reusable components=مكونات قابلة لإعادة الاستخدام - logging mechanism=آلية التسجيل
+English: Python allows modification of function behavior without changing their source code.
+Arabic: تسمح بايثون بتعديل سلوك الدوال دون تغيير شيفرتها المصدرية.
+
+English: Wrapping functions provides a clean approach to add extra functionality.
+Arabic: يوفر تغليف الدوال نهجًا نظيفًا لإضافة وظائف إضافية.
+
+English: Special syntax symbols enable declarative programming patterns.
+Arabic: تمكن رموز بناء الجملة الخاصة أنماط البرمجة التقريرية.
+
+English: Audit trails help track program execution flow in complex systems.
+Arabic: تساعد مسارات التدقيق في تتبع تدفق تنفيذ البرامج في الأنظمة المعقدة.
+
+English: The decorator acts as a function wrapper using @ syntax to create reusable components and implement logging mechanism.
+Arabic: يعمل الديكوراتور كغلاف للدالة باستخدام بناء @ لإنشاء مكونات قابلة لإعادة الاستخدام وتنفيذ آلية التسجيل.
+
+Terms: decorator=ديكوراتور - function wrapper=غلاف الدالة - @ syntax=بناء @ - reusable components=مكونات قابلة لإعادة الاستخدام - logging mechanism=آلية التسجيل
+English: The decorator acts as a function wrapper using @ syntax to create reusable components and implement logging mechanism.
+Arabic:","technology"
+"Terms: async coroutines=روتينات غير متزامنة - await keyword=كلمة await - event loop=حلقة الأحداث - non-blocking I/O=إدخال/إخراج غير معطل - concurrency model=نموذج التزامن
+English: Modern applications require efficient handling of multiple simultaneous operations.
+Arabic: تتطلب التطبيقات الحديثة معالجة فعالة للعمليات المتزامنة المتعددة.
+
+English: Python's asynchronous paradigm differs from traditional threading approaches.
+Arabic: يختلف النموذج غير المتزامن في بايثون عن مقاربات الخيوط التقليدية.
+
+English: Special control structures manage execution flow in networked applications.
+Arabic: تدير هياكل التحكم الخاصة تدفق التنفيذ في التطبيقات الشبكية.
+
+English: Responsive systems must avoid operations that freeze program execution.
+Arabic: يجب على الأنظمة المستجيبة تجنب العمليات التي تعطل تنفيذ البرنامج.
+
+English: Implementing async coroutines with await keyword utilizes an event loop for non-blocking I/O in Python's concurrency model.
+Arabic: يستخدم تنفيذ الروتينات غير المتزامنة مع كلمة await حلقة أحداث للإدخال/الإخراج غير المعطل في نموذج التزامن بايثون.
+
+Terms: async coroutines=روتينات غير متزامنة - await keyword=كلمة await - event loop=حلقة الأحداث - non-blocking I/O=إدخال/إخراج غير معطل - concurrency model=نموذج التزامن
+English: Implementing async coroutines with await keyword utilizes an event loop for non-blocking I/O in Python's concurrency model.
+Arabic:","technology"
+"Terms: type hinting=تلميحات النوع - PEP 8=بيب 8 (دليل أسلوب بايثون) - static analysis=التحليل الثابت - IDE support=دعم بيئة التطوير - runtime checks=الفحوصات وقت التشغيل
+English: Code maintainability improves with explicit declaration of variable purposes.
+Arabic: تتحسن صيانة الشفرة مع الإعلان الصريح لأهداف المتغيرات.
+
+English: Python style guides establish standardized coding conventions.
+Arabic: تحدد أدلة أسلوب بايثون اتفاقيات الترميز الموحدة.
+
+English: Pre-execution code inspection helps detect potential issues early.
+Arabic: يساعد فحص الشفرة قبل التنفيذ في اكتشاف المشكلات المحتملة مبكرًا.
+
+English: Development environments provide real-time assistance during programming.
+Arabic: توفر بيئات التطوير مساعدة فورية أثناء البرمجة.
+
+English: Apply type hinting compliant with PEP 8 for better static analysis, enhanced IDE support, and comprehensive runtime checks.
+Arabic: طبق تلميحات النوع الممتثلة لبيب 8 لتحليل ثابت أفضل، ودعم معزز لبيئة التطوير، وفحوصات شاملة وقت التشغيل.
+
+Terms: type hinting=تلميحات النوع - PEP 8=بيب 8 (دليل أسلوب بايثون) - static analysis=التحليل الثابت - IDE support=دعم بيئة التطوير - runtime checks=الفحوصات وقت التشغيل
+English: Apply type hinting compliant with PEP 8 for better static analysis, enhanced IDE support, and comprehensive runtime checks.
+Arabic:","technology"
+"Terms: pytest framework=إطار اختبار باي-تست - test fixtures=التركيبات الاختبارية - parameterized tests=اختبارات معلمة - coverage report=تقرير التغطية - edge cases=الحالات الحدية
+English: Automated testing is integral to professional Python development workflows.
+Arabic: يعد الاختبار الآلي جزءًا لا يتجزأ من سير عمل تطوير بايثون الاحترافي.
+
+English: Reusable setup components streamline the testing process.
+Arabic: توفر مكونات الإعداد القابلة لإعادة الاستخدام تدفقًا سلسًا لعملية الاختبار.
+
+English: Running multiple data scenarios through single test definitions increases efficiency.
+Arabic: يزيد تشغيل سيناريوهات بيانات متعددة من خلال تعريفات اختبار واحدة من الكفاءة.
+
+English: Quality assurance metrics determine code validation thoroughness.
+Arabic: تحدد مقاييس ضمان الجودة شمولية التحقق من صحة الشفرة.
+
+English: Structure tests using pytest framework with test fixtures and parameterized tests to validate edge cases through detailed coverage reports.
+Arabic: هيكل الاختبارات باستخدام إطار اختبار باي-تست مع التركيبات الاختبارية والاختبارات المعلمة للتحقق من الحالات الحدية من خلال تقارير التغطية التفصيلية.
+
+Terms: pytest framework=إطار اختبار باي-تست - test fixtures=التركيبات الاختبارية - parameterized tests=اختبارات معلمة - coverage report=تقرير التغطية - edge cases=الحالات الحدية
+English: Structure tests using pytest framework with test fixtures and parameterized tests to validate edge cases through detailed coverage reports.
+Arabic:","technology"
+"Terms: context manager=مدير السياق - resource cleanup=تنظيف الموارد - with statement=عبارة with - exception handling=معالجة الاستثناءات - file operations=عمليات الملف
+English: System resources require proper allocation and release patterns.
+Arabic: تتطلب موارد النظام أنماط تخصيص وإصدار صحيحة.
+
+English: Python simplifies cleanup tasks through specific control structures.
+Arabic: تبسط بايثون مهام التنظيف من خلال هياكل تحكم محددة.
+
+English: The block-based approach ensures reliability in critical operations.
+Arabic: يضمن النهج القائم على الكتل الموثوقية في العمليات الحرجة.
+
+English: Error recovery mechanisms prevent resource leaks during failures.
+Arabic: تمنع آليات استعادة الأخطاء تسرب الموارد أثناء الأعطال.
+
+English: Implement a context manager using the with statement for automatic resource cleanup during file operations with robust exception handling.
+Arabic: نفذ مدير سياق باستخدام عبارة with للتنظيف التلقائي للموارد أثناء عمليات الملف مع معالجة استثناءات قوية.
+
+Terms: context manager=مدير السياق - resource cleanup=تنظيف الموارد - with statement=عبارة with - exception handling=معالجة الاستثناءات - file operations=عمليات الملف
+English: Implement a context manager using the with statement for automatic resource cleanup during file operations with robust exception handling.
+Arabic:","technology"
+"Terms: data class=فئة بيانات - boilerplate code=شيفرة روتينية - @dataclass decorator=ديكوراتور @dataclass - type annotations=تعليقات النوع - member variables=المتغيرات العضوية
+English: Reducing repetitive code improves development velocity in Python.
+Arabic: يحسن تقليل الشيفرة المتكررة سرعة التطوير في بايثون.
+
+English: Specialized class structures automate common programming patterns.
+Arabic: تؤتمت هياكل الفئات المتخصصة أنماط البرمجة الشائعة.
+
+English: Modern Python versions introduced syntax enhancements for type declarations.
+Arabic: قدمت إصدارات بايثون الحديثة تحسينات بناء جملة للإعلانات النوعية.
+
+English: Object attributes demand proper initialization and representation methods.
+Arabic: تتطلب سمات الكائنات طرق تهيئة وتمثيل مناسبة.
+
+English: The data class minimizes boilerplate code via @dataclass decorator with type annotations for all member variables.
+Arabic: تقلل فئة البيانات الشيفرة الروتينية عبر ديكوراتور @dataclass مع تعليقات النوع لجميع المتغيرات العضوية.
+
+Terms: data class=فئة بيانات - boilerplate code=شيفرة روتينية - @dataclass decorator=ديكوراتور @dataclass - type annotations=تعليقات النوع - member variables=المتغيرات العضوية
+English: The data class minimizes boilerplate code via @dataclass decorator with type annotations for all member variables.
+Arabic:","technology"
+"Terms: NumPy arrays=مصفوفات نومباي - vectorized operations=عمليات متجهة - broadcasting rules=قواعد البث - mathematical computations=الحسابات الرياضية - memory efficiency=كفاءة الذاكرة
+English: Scientific computing in Python relies heavily on optimized numerical structures.
+Arabic: يعتمد الحوسبة العلمية في بايثون بشكل كبير على هياكل عددية مثلى.
+
+English: Element-wise processing outperforms traditional loop-based approaches.
+Arabic: يتفوق المعالجة العنصرية على المقاربات القائمة على الحلقات التقليدية.
+
+English: Automatic dimension handling simplifies matrix manipulations.
+Arabic: يبسط التعامل البعدي التلقائي معالجات المصفوفات.
+
+English: Complex calculations require both precision and resource consciousness.
+Arabic: تتطلب الحسابات المعقدة الدقة والوعي بالموارد.
+
+English: NumPy arrays enable vectorized operations using broadcasting rules for accelerated mathematical computations with superior memory efficiency.
+Arabic: تمكن مصفوفات نومباي عمليات متجهة باستخدام قواعد البث للحسابات الرياضية المعجلة بكفاءة ذاكرة فائقة.
+
+Terms: NumPy arrays=مصفوفات نومباي - vectorized operations=عمليات متجهة - broadcasting rules=قواعد البث - mathematical computations=الحسابات الرياضية - memory efficiency=كفاءة الذاكرة
+English: NumPy arrays enable vectorized operations using broadcasting rules for accelerated mathematical computations with superior memory efficiency.
+Arabic:","technology"
+"Terms: metaclass=فئة شاملة - class behavior=سلوك الفئة - __new__ method=طريقة __new__ - instance creation=إنشاء المثيلات - design patterns=أنماط التصميم
+English: Advanced Python developers sometimes manipulate core object mechanisms.
+Arabic: يتحكم مطورو بايثون المتقدمون أحيانًا في آليات الكائن الأساسية.
+
+English: Customizing how classes generate instances requires deep understanding.
+Arabic: يتطلب تخصيص كيفية توليد الفئات للمثيلات فهمًا عميقًا.
+
+English: The instantiation process begins before __init__ is called.
+Arabic: تبدأ عملية التمثيل قبل استدعاء __init__.
+
+English: Architectural decisions influence entire project ecosystems.
+Arabic: تؤثر القرارات المعمارية على أنظمة المشروع بأكملها.
+
+English: The metaclass controls class behavior through its __new__ method during instance creation following specific design patterns.
+Arabic: تتحكم الفئة الشاملة في سلوك الفئة عبر طريقها __new__ أثناء إنشاء المثيلات وفقًا لأنماط تصميم محددة.
+
+Terms: metaclass=فئة شاملة - class behavior=سلوك الفئة - __new__ method=طريقة __new__ - instance creation=إنشاء المثيلات - design patterns=أنماط التصميم
+English: The metaclass controls class behavior through its __new__ method during instance creation following specific design patterns.
+Arabic:","technology"
