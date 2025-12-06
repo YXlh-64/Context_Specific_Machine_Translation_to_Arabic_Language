@@ -1,0 +1,7 @@
+{
+  "total_pairs": 32,
+  "avg_margin": 0.05620314992025521,
+  "avg_chosen_score": 0.29361111111111116,
+  "avg_rejected_score": 0.23740796119085594,
+  "num_sources": 25
+}
