@@ -1,0 +1,53 @@
+# Large data files (exceed GitHub's 100MB limit)
+*.csv
+*.json
+!config.json
+!package.json
+
+# Large input files
+**/english_inputs.json
+**/french_inputs.json
+**/economic*.csv
+
+# Model files and checkpoints
+models/
+*.bin
+*.pt
+*.pth
+*.safetensors
+*.ckpt
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+venv/
+.venv/
+env/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Data outputs (can be regenerated)
+**/generated_candidates.jsonl
+**/synthetic_preferences_checkpoint.jsonl
+
+# Vector databases
+vector_db/
+*.index
+chroma.sqlite3
