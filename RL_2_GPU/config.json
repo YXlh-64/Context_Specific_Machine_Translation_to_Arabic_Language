@@ -1,0 +1,17 @@
+{
+  "sft_model_path": "models/GemmaX2-28-9B",
+  "reward_base_model": "google/gemma-2-2b",
+  "num_candidates": 4,
+  "metric_weights": {
+    "comet": 0.7,
+    "length": 0.15,
+    "arabic": 0.15
+  },
+  "rm_learning_rate": 1e-05,
+  "rm_batch_size": 32,
+  "rm_epochs": 3,
+  "ppo_learning_rate": 1.41e-05,
+  "ppo_steps": 1000,
+  "kl_penalty_coef": 0.15,
+  "seed": 42
+}
