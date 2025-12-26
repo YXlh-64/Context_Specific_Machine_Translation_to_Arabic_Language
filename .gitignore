@@ -51,3 +51,7 @@ logs/
 vector_db/
 *.index
 chroma.sqlite3
+
+# Local preference submissions (do not track)
+**/api/data/*.jsonl
+**/api/preferences.jsonl
