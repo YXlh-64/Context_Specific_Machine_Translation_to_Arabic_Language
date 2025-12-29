@@ -1,0 +1,69 @@
+# Phase 2: Semantic Translation Memory System
+# Dependencies
+
+# Vector Database
+# qdrant-client==1.7.0
+
+# # Embeddings
+# sentence-transformers==2.2.2
+# torch==2.1.0
+
+# # Data Processing
+# numpy==1.24.3
+# pandas==2.0.3
+# tqdm==4.66.1
+
+# # Caching
+# redis==5.0.0
+
+# # ML Utilities
+# scikit-learn==1.3.0
+
+# # Error Handling
+# tenacity==8.2.3
+
+# # API Framework
+# fastapi==0.104.1
+# uvicorn==0.24.0
+# python-multipart==0.0.6
+
+# # Testing
+# pytest==7.4.3
+# pytest-asyncio==0.21.1
+
+# # Utilities
+# python-dotenv==1.0.0
+
+
+# Vector Database
+qdrant-client
+
+# Embeddings
+sentence-transformers
+torch
+
+# Data Processing
+numpy
+pandas
+tqdm
+
+# Caching
+redis
+
+# ML Utilities
+scikit-learn
+
+# Error Handling
+tenacity
+
+# API Framework
+fastapi
+uvicorn
+python-multipart
+
+# Testing
+pytest
+pytest-asyncio
+
+# Utilities
+python-dotenv
