@@ -17,18 +17,34 @@ interface FileUploadProps {
   disabled?: boolean;
 }
 
-// Mock text extraction - simulates extracting text from different file types
-const mockExtractText = async (file: File): Promise<string> => {
-  await new Promise(resolve => setTimeout(resolve, 500));
-  
-  const mockTexts: Record<string, string> = {
-    pdf: `This is extracted text from the PDF document "${file.name}". It contains professional content that needs to be translated. The document discusses various topics including business communications, technical specifications, and general correspondence.`,
-    docx: `This is extracted text from the Word document "${file.name}". It includes formatted paragraphs, headings, and body text that require translation services. The content covers meeting notes, project updates, and action items.`,
-    txt: `This is the content of the text file "${file.name}". Plain text files are straightforward to process. This sample includes multiple sentences that demonstrate the translation workflow.`,
-  };
+// Upload file to backend for real text extraction
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5002/api';
 
-  const ext = file.name.split('.').pop()?.toLowerCase() || 'txt';
-  return mockTexts[ext] || mockTexts.txt;
+const uploadAndExtractText = async (file: File): Promise<string> => {
+  const formData = new FormData();
+  formData.append('file', file);
+
+  const resp = await fetch(`${API_BASE}/upload-file`, {
+    method: 'POST',
+    body: formData,
+    // Ensure we allow cross-origin requests if running on a different origin
+    mode: 'cors',
+  });
+
+  if (!resp.ok) {
+    let msg = 'Upload failed';
+    try {
+      const err = await resp.json();
+      const detail = err.detail ? `: ${err.detail}` : '';
+      msg = (err.error || msg) + detail;
+    } catch (e) {
+      msg = `${resp.status} ${resp.statusText}`;
+    }
+    throw new Error(msg);
+  }
+
+  const data = await resp.json();
+  return data.text || '';
 };
 
 export const FileUpload = ({ onFileUpload, uploadedFile, disabled }: FileUploadProps) => {
@@ -56,19 +72,37 @@ export const FileUpload = ({ onFileUpload, uploadedFile, disabled }: FileUploadP
   }, []);
 
   const processFile = async (file: File) => {
-    if (!acceptedMimeTypes.includes(file.type) && !acceptedTypes.some(ext => file.name.endsWith(ext))) {
+    const isAccepted = acceptedMimeTypes.includes(file.type) || acceptedTypes.some(ext => file.name.toLowerCase().endsWith(ext.toLowerCase()));
+    if (!isAccepted) {
+      const msg = 'Unsupported file type. Please upload PDF, DOCX, or TXT files.';
+      try {
+        const { toast } = await import('@/hooks/use-toast');
+        toast({ title: 'Invalid file', description: msg });
+      } catch (_) {
+        alert(msg);
+      }
       return;
     }
 
     setIsProcessing(true);
     try {
-      const extractedText = await mockExtractText(file);
+      const extractedText = await uploadAndExtractText(file);
       onFileUpload({
         name: file.name,
         type: file.type,
         size: file.size,
         extractedText,
       });
+    } catch (e: any) {
+      console.error('File extraction failed', e);
+      const msg = e?.message || 'Failed to extract text from file';
+      try {
+        const { toast } = await import('@/hooks/use-toast');
+        toast({ title: 'Upload failed', description: msg });
+      } catch (_) {
+        alert(msg);
+      }
+      onFileUpload(null);
     } finally {
       setIsProcessing(false);
     }

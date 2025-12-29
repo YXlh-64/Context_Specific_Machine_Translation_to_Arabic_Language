@@ -142,6 +142,117 @@ def translate():
         logger.error(f"Translation endpoint error: {e}", exc_info=True)
         return jsonify({'error': f'Internal server error: {str(e)}'}), 500
 
+@api_bp.route('/upload-file', methods=['POST'])
+def upload_file():
+    """Accepts a single file upload (multipart/form-data) and extracts text from it.
+
+    Supported types: .txt, .pdf, .docx
+    Returns: { filename, content_type, text }
+    """
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file part in the request'}), 400
+
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({'error': 'No file selected'}), 400
+
+        filename = file.filename
+        content_type = file.content_type or ''
+        ext = filename.rsplit('.', 1)[-1].lower() if '.' in filename else ''
+
+        # Read bytes so we can reuse for different parsers
+        file_bytes = file.read()
+
+        text = ''
+        if ext in ('txt', 'md', 'csv'):
+            try:
+                text = file_bytes.decode('utf-8')
+            except Exception:
+                text = file_bytes.decode('latin-1', errors='ignore')
+
+        elif ext == 'pdf':
+            # Quick sanity checks on the uploaded bytes
+            if len(file_bytes) < 100 or b'%PDF' not in file_bytes[:1024]:
+                logger.warning('Uploaded file does not appear to be a valid PDF (too small or missing %PDF header)')
+                return jsonify({'error': 'Invalid or empty PDF file', 'detail': 'Uploaded file is too small or missing a %PDF header; it may be corrupt.'}), 422
+
+            # Try PyMuPDF first (prefer import of 'pymupdf' to avoid naming conflicts with other 'fitz' packages)
+            try:
+                import pymupdf as fitz  # prefer the proper pymupdf package
+
+                try:
+                    # Try opening; catch errors to return clear response
+                    doc = fitz.open(stream=file_bytes, filetype='pdf')
+                except Exception as open_err:
+                    logger.error(f'fitz failed to open PDF: {open_err}', exc_info=True)
+                    return jsonify({'error': 'Failed to open PDF', 'detail': str(open_err)}), 400
+
+                pages_text = []
+                for i, page in enumerate(doc):
+                    try:
+                        p_text = page.get_text('text') or ''
+                    except Exception as perr:
+                        logger.debug(f'page.get_text error on page {i+1}: {perr}')
+                        p_text = ''
+                    pages_text.append(p_text)
+                    logger.debug(f'Page {i+1}: extracted {len(p_text)} chars')
+
+                text = '\n'.join(pages_text)
+                logger.info(f'Extracted total {len(text)} characters from PDF using PyMuPDF/fitz (pages: {getattr(doc, "page_count", len(pages_text))})')
+
+                if not text.strip():
+                    logger.warning('PDF parsed successfully but no extractable text found (fitz)')
+                    return jsonify({
+                        'error': 'No extractable text found in PDF',
+                        'detail': 'The PDF may be a scanned image without embedded text. Consider performing OCR (e.g., Tesseract) or uploading a text/Word file.'
+                    }), 422
+
+            except Exception as fitz_err:
+                logger.debug(f'PyMuPDF/fitz not usable or failed: {fitz_err}', exc_info=True)
+                # Try pypdf fallback if available
+                try:
+                    from pypdf import PdfReader
+                    import io
+                    reader = PdfReader(io.BytesIO(file_bytes))
+                    pages = [p.extract_text() or '' for p in reader.pages]
+                    text = '\n'.join(pages)
+
+                    if not text.strip():
+                        logger.warning('PDF parsed successfully but no extractable text found (pypdf fallback)')
+                        return jsonify({
+                            'error': 'No extractable text found in PDF',
+                            'detail': 'The PDF may be a scanned image without embedded text. Consider performing OCR (e.g., Tesseract) or uploading a text/Word file.'
+                        }), 422
+
+                except Exception as pypdf_err:
+                    logger.error(f'PDF extraction failed (both PyMuPDF and pypdf attempts failed): fitz_err={fitz_err}, pypdf_err={pypdf_err}', exc_info=True)
+                    # If no libraries are available or both failed, return actionable error
+                    return jsonify({
+                        'error': 'Failed to extract text from PDF',
+                        'detail': 'Could not extract text. Ensure PyMuPDF (recommended) or pypdf is installed in the Python environment. See README for setup.'
+                    }), 500
+
+        elif ext in ('docx', 'doc'):
+            try:
+                from docx import Document
+                import io
+                doc = Document(io.BytesIO(file_bytes))
+                paragraphs = [p.text for p in doc.paragraphs if p.text]
+                text = '\n'.join(paragraphs)
+            except Exception as e:
+                logger.error(f'DOCX extraction failed: {e}', exc_info=True)
+                return jsonify({'error': 'Failed to extract text from Word document'}), 500
+
+        else:
+            return jsonify({'error': f'Unsupported file type: {ext}'}), 400
+
+        return jsonify({'filename': filename, 'content_type': content_type, 'text': text}), 200
+
+    except Exception as e:
+        logger.error(f'File upload/extract error: {e}', exc_info=True)
+        return jsonify({'error': 'Internal server error while extracting file'}), 500
+
 @api_bp.route('/detect-language', methods=['POST'])
 def detect_language():
     """Language detection endpoint"""

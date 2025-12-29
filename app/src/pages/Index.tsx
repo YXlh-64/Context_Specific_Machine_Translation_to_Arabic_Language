@@ -18,7 +18,7 @@ import { UploadedFile } from '@/components/FileUpload';
 import { cn } from '@/lib/utils';
 
 const LANGUAGE_STORAGE_KEY = 'linguist-bridge-language-prefs';
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5002/api';
 
 interface LanguagePrefs {
   sourceLanguage: SourceLanguage;
