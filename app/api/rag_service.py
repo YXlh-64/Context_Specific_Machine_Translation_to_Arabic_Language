@@ -1,0 +1,540 @@
+"""
+Simple Prompting Service for Translation
+Uses OpenRouter API directly for translation without RAG.
+"""
+
+import os
+import logging
+import requests
+from typing import Dict, List, Optional
+from datetime import datetime
+
+logger = logging.getLogger(__name__)
+
+# OpenRouter API Configuration
+OPENROUTER_API_KEY = os.getenv('OPENROUTER_API_KEY')
+OPENROUTER_API_URL = 'https://openrouter.ai/api/v1/chat/completions'
+# Using GPT-4 Turbo for high-quality translations (excellent for EN/FR to AR)
+# Alternative models: 'anthropic/claude-3.5-sonnet', 'openai/gpt-4o', 'google/gemini-pro-1.5'
+# Free fallback: 'meta-llama/llama-3.2-3b-instruct:free' (known working free model)
+OPENROUTER_MODEL = os.getenv('OPENROUTER_MODEL', 'openai/gpt-4-turbo')
+OPENROUTER_FALLBACK_MODEL = os.getenv('OPENROUTER_FALLBACK_MODEL', 'meta-llama/llama-3.2-3b-instruct:free')
+
+class PromptingTranslationService:
+    """Service to handle translations using a simple prompt with OpenRouter"""
+    
+    def __init__(self):
+        self.openrouter_key = OPENROUTER_API_KEY
+        self.openrouter_url = OPENROUTER_API_URL
+        self.openrouter_model = OPENROUTER_MODEL
+        self.fallback_model = OPENROUTER_FALLBACK_MODEL
+        
+        if not self.openrouter_key:
+            logger.error("OPENROUTER_API_KEY is not set. The service will not work.")
+            # We don't raise an error here to allow the app to start, but calls will fail.
+
+    def _clean_translation(self, text: str) -> str:
+        """Clean translation text to remove explanatory prefixes and extract only the translation"""
+        if not text:
+            return ""
+        
+        text = text.strip()
+        
+        # Remove common explanatory prefixes
+        prefixes_to_remove = [
+            "here are three translation variants",
+            "here are translation variants",
+            "here is the translation",
+            "the translation is",
+            "translations:",
+            "translation:",
+            "variant",
+            "here are",
+            "here is",
+        ]
+        
+        text_lower = text.lower()
+        for prefix in prefixes_to_remove:
+            if text_lower.startswith(prefix):
+                # Find where the actual translation starts (after colon or newline)
+                for sep in [":", "\n", "-", "—"]:
+                    if sep in text:
+                        parts = text.split(sep, 1)
+                        if len(parts) > 1:
+                            text = parts[1].strip()
+                            break
+                else:
+                    # If no separator, try to find first meaningful word
+                    words = text.split()
+                    # Skip first few words that might be explanatory
+                    if len(words) > 3:
+                        text = " ".join(words[3:])
+                break
+        
+        # Remove any remaining explanatory text at the start
+        lines = text.split('\n')
+        cleaned_lines = []
+        for line in lines:
+            line = line.strip()
+            if line and not line.lower().startswith(('here', 'the translation', 'variant', 'style')):
+                cleaned_lines.append(line)
+        
+        result = '\n'.join(cleaned_lines) if cleaned_lines else text
+        return result.strip()
+
+    def _calculate_max_tokens(self, text: str, is_fallback: bool = False) -> int:
+        """Calculate max_tokens based on input text length and available credits"""
+        # For users with limited credits (23 tokens), we need to be very conservative
+        # Estimate: Arabic translations are typically 1.2-1.5x the length of English
+        base_length = len(text)
+        
+        if is_fallback:
+            # For free models, be more conservative - use a simple multiplier
+            # Cap at 20 tokens to ensure it works with limited credits
+            estimated_tokens = max(10, min(base_length * 2, 20))
+        else:
+            # For paid models, can be more generous but still conservative
+            # Cap at 20 tokens since user can only afford 23
+            estimated_tokens = max(10, min(base_length * 2, 20))
+        
+        return estimated_tokens
+
+    def _call_openrouter(self, system_message: str, prompt: str, num_variants: int = 1, 
+                        temperature: float = 0.7, model: Optional[str] = None, 
+                        max_tokens: Optional[int] = None) -> List[str]:
+        """Call OpenRouter API to get translation variants"""
+        model_to_use = model or self.openrouter_model
+        is_fallback = model is not None and model == self.fallback_model
+        print(f"--- Calling OpenRouter API (model: {model_to_use}) ---")
+        
+        if not self.openrouter_key:
+            print("Error: OPENROUTER_API_KEY is not set.")
+            logger.error("Attempted to call OpenRouter without an API key.")
+            raise Exception("OpenRouter API key is missing.")
+
+        # Calculate max_tokens if not provided
+        if max_tokens is None:
+            max_tokens = self._calculate_max_tokens(prompt, is_fallback=is_fallback)
+
+        try:
+            payload = {
+                "model": model_to_use,
+                "messages": [
+                    {"role": "system", "content": system_message},
+                    {"role": "user", "content": prompt}
+                ],
+                "temperature": temperature,
+                "n": num_variants,
+                "max_tokens": max_tokens
+            }
+            
+            headers = {
+                "Authorization": f"Bearer {self.openrouter_key}",
+                "Content-Type": "application/json",
+                "HTTP-Referer": "http://localhost:5000", # Optional, but good practice
+                "X-Title": "Context-Specific Translation" # Optional
+            }
+            
+            print(f"[OpenRouter] Requesting {num_variants} translation(s) for model: {model_to_use} (max_tokens: {max_tokens})")
+            response = requests.post(self.openrouter_url, json=payload, headers=headers, timeout=120)
+            response.raise_for_status()
+            
+            result = response.json()
+            raw_translations = [choice['message']['content'].strip() for choice in result.get('choices', [])]
+            
+            # Clean translations to remove explanatory text
+            translations = [self._clean_translation(t) for t in raw_translations]
+            
+            print(f"[OpenRouter] Success! Received {len(translations)} translation(s).")
+            if translations:
+                print(f"[OpenRouter] First translation preview: {translations[0][:100]}...")
+
+            return translations
+            
+        except requests.exceptions.HTTPError as e:
+            # Check if it's a payment/credit error (402) or model not found (404)
+            if e.response:
+                status_code = e.response.status_code
+                error_detail = {}
+                try:
+                    error_detail = e.response.json()
+                except Exception:
+                    pass
+                
+                error_msg = str(e)
+                
+                if status_code == 402:
+                    # Payment required
+                    if 'credits' in str(error_detail).lower() or 'payment' in str(error_detail).lower():
+                        logger.warning(f"Payment required for {model_to_use}, will try fallback model")
+                        print(f"[OpenRouter] Payment required for {model_to_use}. Trying fallback model: {self.fallback_model}")
+                        raise Exception("PAYMENT_REQUIRED")  # Special exception for fallback
+                    else:
+                        logger.error(f"OpenRouter API HTTP error: {e}")
+                        raise Exception(f"Translation API error: {error_msg}")
+                elif status_code == 404:
+                    # Model not found
+                    logger.warning(f"Model {model_to_use} not found (404), will try fallback model")
+                    print(f"[OpenRouter] Model {model_to_use} not found. Trying fallback model: {self.fallback_model}")
+                    raise Exception("MODEL_NOT_FOUND")  # Special exception for fallback
+                else:
+                    logger.error(f"OpenRouter API HTTP error: {e}")
+                    print(f"Error calling OpenRouter: {e}")
+                    if hasattr(e, 'response') and e.response is not None:
+                        try:
+                            error_detail = e.response.json()
+                            logger.error(f"OpenRouter error details: {error_detail}")
+                            print(f"OpenRouter error details: {error_detail}")
+                        except Exception:
+                            logger.error(f"OpenRouter error response: {e.response.text}")
+                            print(f"OpenRouter error response: {e.response.text}")
+                    raise Exception(f"Translation API error: {error_msg}")
+            else:
+                logger.error(f"OpenRouter API error: {e}")
+                print(f"Error calling OpenRouter: {e}")
+                if hasattr(e, 'response') and e.response is not None:
+                    try:
+                        error_detail = e.response.json()
+                        logger.error(f"OpenRouter error details: {error_detail}")
+                        print(f"OpenRouter error details: {error_detail}")
+                    except Exception:
+                        logger.error(f"OpenRouter error response: {e.response.text}")
+                        print(f"OpenRouter error response: {e.response.text}")
+                raise Exception(f"Translation API error: {str(e)}")
+        except requests.exceptions.RequestException as e:
+            logger.error(f"OpenRouter API error: {e}")
+            print(f"Error calling OpenRouter: {e}")
+            raise Exception(f"Translation API error: {str(e)}")
+
+    def translate(self, text: str, source_lang: str, target_lang: str, 
+                  domain: Optional[str] = 'general', num_variants: int = 3) -> Dict:
+        """
+        Generates multiple diverse, high-quality translations using OpenRouter.
+        For 3 variants, we make separate calls with different prompts/temperatures to ensure diversity.
+        """
+        logger.info(f"Starting translation for: '{text[:50]}...' ({source_lang} -> {target_lang})")
+        print(f"\n===== Translation Request =====")
+        print(f"Text: {text!r}")
+        print(f"Source: {source_lang}, Target: {target_lang}, Domain: {domain}")
+        print(f"Requesting {num_variants} diverse translation variants")
+
+        translations = []
+        
+        # For multiple variants, we'll make separate calls with different approaches
+        # to ensure true diversity rather than just sampling variations
+        if num_variants > 1:
+            # Variant 1: Standard formal translation
+            system_message_1 = (
+                f"You are an expert professional translator. Translate from {source_lang} to {target_lang}. "
+                f"Output ONLY the translation in {target_lang}, nothing else. No explanations, no comments, just the translation."
+            )
+            prompt_1 = f"Translate this text to {target_lang} (formal style):\n\n{text}"
+            
+            # Variant 2: Natural, conversational translation
+            system_message_2 = (
+                f"You are an expert translator. Translate from {source_lang} to {target_lang}. "
+                f"Output ONLY the translation in {target_lang}, nothing else. No explanations, no comments, just the translation."
+            )
+            prompt_2 = f"Translate this text to {target_lang} (natural, conversational style):\n\n{text}"
+            
+            # Variant 3: Concise, clear translation
+            system_message_3 = (
+                f"You are an expert translator. Translate from {source_lang} to {target_lang}. "
+                f"Output ONLY the translation in {target_lang}, nothing else. No explanations, no comments, just the translation."
+            )
+            prompt_3 = f"Translate this text to {target_lang} (concise style):\n\n{text}"
+            
+            # Make parallel calls with different temperatures for additional diversity
+            try:
+                # Use slightly different temperatures to encourage diversity
+                variant_1 = self._call_openrouter(system_message_1, prompt_1, num_variants=1, temperature=0.3)
+                variant_2 = self._call_openrouter(system_message_2, prompt_2, num_variants=1, temperature=0.7)
+                variant_3 = self._call_openrouter(system_message_3, prompt_3, num_variants=1, temperature=0.9)
+                
+                # Log what we got from each call
+                print(f"[Translation] Variant 1 result: {len(variant_1) if variant_1 else 0} translation(s)")
+                print(f"[Translation] Variant 2 result: {len(variant_2) if variant_2 else 0} translation(s)")
+                print(f"[Translation] Variant 3 result: {len(variant_3) if variant_3 else 0} translation(s)")
+                
+                # Collect all translations
+                all_variants = []
+                if variant_1:
+                    all_variants.extend(variant_1)
+                if variant_2:
+                    all_variants.extend(variant_2)
+                if variant_3:
+                    all_variants.extend(variant_3)
+                
+                # Filter out non-translation text and empty strings
+                filtered_translations = []
+                for trans in all_variants:
+                    trans_clean = trans.strip()
+                    # Filter out responses that look like instructions/explanations
+                    if (len(trans_clean) > 0 and 
+                        not trans_clean.lower().startswith(('here are', 'here is', 'the translation', 'translations:')) and
+                        len(trans_clean) < 500):  # Reasonable length check
+                        filtered_translations.append(trans_clean)
+                
+                # Remove exact duplicates (case-sensitive) but keep similar ones for diversity
+                seen_exact = set()
+                unique_translations = []
+                for trans in filtered_translations:
+                    # Only remove exact duplicates, not normalized ones
+                    if trans not in seen_exact:
+                        seen_exact.add(trans)
+                        unique_translations.append(trans)
+                
+                # If we have fewer than requested, try to get more by being less strict
+                if len(unique_translations) < num_variants and len(filtered_translations) >= num_variants:
+                    # Use filtered translations directly if we have enough
+                    unique_translations = filtered_translations[:num_variants]
+                elif len(unique_translations) < num_variants:
+                    # If still not enough, pad with what we have (even if duplicates)
+                    while len(unique_translations) < num_variants and len(filtered_translations) > 0:
+                        # Add from filtered if we haven't used it yet
+                        for trans in filtered_translations:
+                            if trans not in unique_translations:
+                                unique_translations.append(trans)
+                                break
+                        else:
+                            # If all are duplicates, add them anyway to reach 3
+                            if filtered_translations:
+                                unique_translations.append(filtered_translations[0])
+                            break
+                
+                translations = unique_translations[:num_variants]
+                print(f"[Translation] Final count: {len(translations)} translation(s) after filtering")
+                
+                # If we still don't have enough translations, make additional calls
+                if len(translations) < num_variants:
+                    logger.warning(f"Only got {len(translations)} translations, need {num_variants}. Making additional calls...")
+                    # Try making additional calls with different temperatures
+                    additional_temps = [0.5, 0.6, 0.8]
+                    for i, temp in enumerate(additional_temps):
+                        if len(translations) >= num_variants:
+                            break
+                        try:
+                            # Use a different system message style for diversity
+                            additional_system = (
+                                f"You are an expert translator. Translate from {source_lang} to {target_lang}. "
+                                f"Output ONLY the translation in {target_lang}, nothing else."
+                            )
+                            additional_prompt = f"Translate to {target_lang}:\n\n{text}"
+                            additional_variant = self._call_openrouter(additional_system, additional_prompt, num_variants=1, temperature=temp)
+                            if additional_variant:
+                                for trans in additional_variant:
+                                    trans_clean = trans.strip()
+                                    if (len(trans_clean) > 0 and 
+                                        not trans_clean.lower().startswith(('here are', 'here is', 'the translation', 'translations:')) and
+                                        len(trans_clean) < 500 and
+                                        trans_clean not in translations):
+                                        translations.append(trans_clean)
+                                        if len(translations) >= num_variants:
+                                            break
+                        except Exception as e:
+                            logger.warning(f"Additional call {i+1} failed: {e}")
+                            continue
+                    
+                    translations = translations[:num_variants]
+                    print(f"[Translation] After additional calls: {len(translations)} translation(s)")
+                
+            except Exception as e:
+                error_str = str(e)
+                # Check if it's a payment error or model not found, then try fallback model
+                if "PAYMENT_REQUIRED" in error_str or "402" in error_str or "MODEL_NOT_FOUND" in error_str or "404" in error_str:
+                    logger.warning(f"Primary model failed, switching to free fallback model: {self.fallback_model}")
+                    print(f"[Translation] Switching to free model: {self.fallback_model}")
+                    try:
+                        # Try with fallback model using individual calls (more reliable than single call)
+                        # This ensures we get actual translations, not explanatory text
+                        variant_1_fallback = self._call_openrouter(system_message_1, prompt_1, num_variants=1, temperature=0.3, model=self.fallback_model)
+                        variant_2_fallback = self._call_openrouter(system_message_2, prompt_2, num_variants=1, temperature=0.7, model=self.fallback_model)
+                        variant_3_fallback = self._call_openrouter(system_message_3, prompt_3, num_variants=1, temperature=0.9, model=self.fallback_model)
+                        
+                        print(f"[Translation] Fallback Variant 1: {len(variant_1_fallback) if variant_1_fallback else 0}")
+                        print(f"[Translation] Fallback Variant 2: {len(variant_2_fallback) if variant_2_fallback else 0}")
+                        print(f"[Translation] Fallback Variant 3: {len(variant_3_fallback) if variant_3_fallback else 0}")
+                        
+                        # Collect all translations
+                        all_variants = []
+                        if variant_1_fallback:
+                            all_variants.extend(variant_1_fallback)
+                        if variant_2_fallback:
+                            all_variants.extend(variant_2_fallback)
+                        if variant_3_fallback:
+                            all_variants.extend(variant_3_fallback)
+                        
+                        # Filter and deduplicate
+                        filtered_translations = []
+                        for trans in all_variants:
+                            trans_clean = trans.strip()
+                            if (len(trans_clean) > 0 and 
+                                not trans_clean.lower().startswith(('here are', 'here is', 'the translation', 'translations:')) and
+                                len(trans_clean) < 500):
+                                filtered_translations.append(trans_clean)
+                        
+                        # Remove exact duplicates only
+                        seen_exact = set()
+                        unique_translations = []
+                        for trans in filtered_translations:
+                            if trans not in seen_exact:
+                                seen_exact.add(trans)
+                                unique_translations.append(trans)
+                        
+                        # Ensure we have at least num_variants
+                        if len(unique_translations) < num_variants:
+                            # Add from filtered if needed
+                            for trans in filtered_translations:
+                                if len(unique_translations) >= num_variants:
+                                    break
+                                if trans not in unique_translations:
+                                    unique_translations.append(trans)
+                        
+                        translations = unique_translations[:num_variants]
+                        print(f"[Translation] Fallback final count: {len(translations)} translation(s)")
+                        logger.info(f"Successfully used fallback model: {self.fallback_model}")
+                    except Exception as fallback_error:
+                        logger.error(f"Fallback model also failed: {fallback_error}")
+                        # Try individual calls with fallback model (retry)
+                        try:
+                            variant_1 = self._call_openrouter(system_message_1, prompt_1, num_variants=1, temperature=0.3, model=self.fallback_model)
+                            variant_2 = self._call_openrouter(system_message_2, prompt_2, num_variants=1, temperature=0.7, model=self.fallback_model)
+                            variant_3 = self._call_openrouter(system_message_3, prompt_3, num_variants=1, temperature=0.9, model=self.fallback_model)
+                            
+                            all_variants = []
+                            if variant_1:
+                                all_variants.extend(variant_1)
+                            if variant_2:
+                                all_variants.extend(variant_2)
+                            if variant_3:
+                                all_variants.extend(variant_3)
+                            
+                            # Filter
+                            filtered_translations = []
+                            for trans in all_variants:
+                                trans_clean = trans.strip()
+                                if (len(trans_clean) > 0 and 
+                                    not trans_clean.lower().startswith(('here are', 'here is', 'the translation', 'translations:')) and
+                                    len(trans_clean) < 500):
+                                    filtered_translations.append(trans_clean)
+                            
+                            # Remove exact duplicates only
+                            seen_exact = set()
+                            unique_translations = []
+                            for trans in filtered_translations:
+                                if trans not in seen_exact:
+                                    seen_exact.add(trans)
+                                    unique_translations.append(trans)
+                            
+                            # Ensure we have enough
+                            if len(unique_translations) < num_variants:
+                                for trans in filtered_translations:
+                                    if len(unique_translations) >= num_variants:
+                                        break
+                                    if trans not in unique_translations:
+                                        unique_translations.append(trans)
+                            
+                            translations = unique_translations[:num_variants]
+                        except Exception as final_error:
+                            logger.error(f"All translation attempts failed: {final_error}")
+                            translations = []
+                else:
+                    logger.error(f"Failed to get diverse translations: {e}")
+                    # Fallback: try individual calls with original prompts
+                    try:
+                        variant_1 = self._call_openrouter(system_message_1, prompt_1, num_variants=1, temperature=0.3)
+                        variant_2 = self._call_openrouter(system_message_2, prompt_2, num_variants=1, temperature=0.7)
+                        variant_3 = self._call_openrouter(system_message_3, prompt_3, num_variants=1, temperature=0.9)
+                        
+                        all_variants = []
+                        if variant_1:
+                            all_variants.extend(variant_1)
+                        if variant_2:
+                            all_variants.extend(variant_2)
+                        if variant_3:
+                            all_variants.extend(variant_3)
+                        
+                        # Filter
+                        filtered_translations = []
+                        for trans in all_variants:
+                            trans_clean = trans.strip()
+                            if (len(trans_clean) > 0 and 
+                                not trans_clean.lower().startswith(('here are', 'here is', 'the translation', 'translations:')) and
+                                len(trans_clean) < 500):
+                                filtered_translations.append(trans_clean)
+                        
+                        # Remove exact duplicates only
+                        seen_exact = set()
+                        unique_translations = []
+                        for trans in filtered_translations:
+                            if trans not in seen_exact:
+                                seen_exact.add(trans)
+                                unique_translations.append(trans)
+                        
+                        # Ensure we have enough
+                        if len(unique_translations) < num_variants:
+                            for trans in filtered_translations:
+                                if len(unique_translations) >= num_variants:
+                                    break
+                                if trans not in unique_translations:
+                                    unique_translations.append(trans)
+                        
+                        translations = unique_translations[:num_variants]
+                    except Exception as fallback_error:
+                        logger.error(f"Fallback translation also failed: {fallback_error}")
+                        translations = []
+        else:
+            # Single translation
+            system_message = (
+                f"You are an expert translator. Translate from {source_lang} to {target_lang}. "
+                f"Output ONLY the translation in {target_lang}, nothing else. No explanations, no comments, just the translation."
+            )
+            prompt = f"Translate this text to {target_lang}:\n\n{text}"
+            
+            try:
+                translations = self._call_openrouter(
+                    system_message=system_message,
+                    prompt=prompt,
+                    num_variants=1,
+                    temperature=0.5
+                )
+            except Exception as e:
+                error_str = str(e)
+                # Check if it's a payment error or model not found, then try fallback model
+                if "PAYMENT_REQUIRED" in error_str or "402" in error_str or "MODEL_NOT_FOUND" in error_str or "404" in error_str:
+                    logger.warning(f"Primary model failed, trying fallback model: {self.fallback_model}")
+                    try:
+                        translations = self._call_openrouter(
+                            system_message=system_message,
+                            prompt=prompt,
+                            num_variants=1,
+                            temperature=0.5,
+                            model=self.fallback_model
+                        )
+                    except Exception as fallback_error:
+                        logger.error(f"Fallback model also failed: {fallback_error}")
+                        translations = []
+                else:
+                    logger.error(f"Failed to get translation from OpenRouter: {e}")
+                    translations = []
+
+        print(f"===== Translation Finished: {len(translations)} variant(s) =====\n")
+        
+        return {
+            "translations": translations,
+            "original_text": text,
+            "source_language": source_lang,
+            "target_language": target_lang,
+            "domain": domain,
+            "timestamp": datetime.utcnow().isoformat()
+        }
+
+# Global service instance
+_prompting_service = None
+
+def get_prompting_service() -> PromptingTranslationService:
+    """Get or create the simple prompting service instance"""
+    global _prompting_service
+    if _prompting_service is None:
+        _prompting_service = PromptingTranslationService()
+    return _prompting_service

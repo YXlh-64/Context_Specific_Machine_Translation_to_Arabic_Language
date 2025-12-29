@@ -1,14 +1,19 @@
+
 from flask import Blueprint, request, jsonify
 import requests
 from datetime import datetime
+import logging
 
+from app.api.rag_service import get_prompting_service
+
+logger = logging.getLogger(__name__)
 api_bp = Blueprint('api', __name__)
 
-# Mock translation function - replace with actual LLM calls later
+# Mock translation function - kept as fallback
 def mock_translate(text, source_lang, target_lang, n=3):
     """Return a list of up to `n` mock translation variants.
 
-    In production this would call LLMs and return multiple hypotheses.
+    Used as fallback when RAG services are unavailable.
     """
     mock_translations_base = {
         'en-ar': [
@@ -66,7 +71,7 @@ def health_check():
 
 @api_bp.route('/translate', methods=['POST'])
 def translate():
-    """Main translation endpoint"""
+    """Main translation endpoint - integrates with RAG pipeline and OpenRouter"""
     try:
         data = request.get_json()
 
@@ -76,6 +81,7 @@ def translate():
         text = data.get('text', '').strip()
         source_language = data.get('source_language', 'en')
         target_language = data.get('target_language', 'ar')
+        domain = data.get('domain', 'general')  # Optional domain parameter
 
         if not text:
             return jsonify({'error': 'Text is required'}), 400
@@ -83,24 +89,57 @@ def translate():
         if len(text) > 10000:  # Reasonable limit
             return jsonify({'error': 'Text too long (max 10000 characters)'}), 400
 
-        # Get translations (multiple variants)
-        translations = mock_translate(text, source_language, target_language, n=3)
-        translation = translations[0] if translations else ''
-
-        # Return primary translation plus variants
-        response = {
-            'original_text': text,
-            'translation': translation,
-            'translations': translations,  # primary first
-            'source_language': source_language,
-            'target_language': target_language,
-            'timestamp': datetime.utcnow().isoformat(),
-            'variants': translations
-        }
-
-        return jsonify(response)
+        # Use the new Prompting translation service
+        try:
+            translation_service = get_prompting_service()
+            result = translation_service.translate(
+                text=text,
+                source_lang=source_language,
+                target_lang=target_language,
+                domain=domain,
+                num_variants=3  # Generate 3 diverse, high-quality translations
+            )
+            
+            translations = result.get('translations', [])
+            translation = translations[0] if translations else ''
+            
+            # Return the translation response
+            response = {
+                'original_text': text,
+                'translation': translation,
+                'translations': translations,
+                'source_language': source_language,
+                'target_language': target_language,
+                'domain': domain,
+                'timestamp': datetime.utcnow().isoformat(),
+                'variants': translations, # Kept for frontend compatibility
+                'metadata': {}
+            }
+            
+            logger.info(f"Translation successful: {len(translations)} variant(s) generated")
+            return jsonify(response)
+            
+        except Exception as service_error:
+            logger.error(f"Translation service failed: {service_error}, falling back to mock")
+            # Fallback to mock translation if the service is unavailable
+            translations = mock_translate(text, source_language, target_language, n=3)
+            translation = translations[0] if translations else ''
+            
+            response = {
+                'original_text': text,
+                'translation': translation,
+                'translations': translations,
+                'source_language': source_language,
+                'target_language': target_language,
+                'timestamp': datetime.utcnow().isoformat(),
+                'variants': translations,
+                'warning': 'Translation service unavailable, using fallback mock translation.'
+            }
+            
+            return jsonify(response)
 
     except Exception as e:
+        logger.error(f"Translation endpoint error: {e}", exc_info=True)
         return jsonify({'error': f'Internal server error: {str(e)}'}), 500
 
 @api_bp.route('/detect-language', methods=['POST'])

@@ -11,13 +11,14 @@ import { InputPane } from '@/components/InputPane';
 import { OutputPane } from '@/components/OutputPane';
 import { LanguageBar, SourceLanguage, TargetLanguage } from '@/components/LanguageBar';
 import { User, TranslationSession, TranslationVariant } from '@/types/translation';
-import { mockTranslate } from '@/lib/mockTranslation';
+// import { mockTranslate } from '@/lib/mockTranslation'; // We will replace this with a real API call
 import { toast } from '@/hooks/use-toast';
 import { useI18n } from '@/contexts/I18nContext';
 import { UploadedFile } from '@/components/FileUpload';
 import { cn } from '@/lib/utils';
 
 const LANGUAGE_STORAGE_KEY = 'linguist-bridge-language-prefs';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 interface LanguagePrefs {
   sourceLanguage: SourceLanguage;
@@ -159,16 +160,40 @@ const Index = () => {
       const effectiveSourceLang = isSwapped ? 'ar' : sourceLanguage;
       const textToTranslate = uploadedFile ? uploadedFile.extractedText : inputText;
 
-      const translatedVariants = await mockTranslate(textToTranslate, effectiveSourceLang);
+      const response = await fetch(`${API_URL}/translate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text: textToTranslate,
+          source_language: effectiveSourceLang,
+          target_language: isSwapped ? targetLanguage : 'ar',
+          domain: 'general', // You can make this dynamic later
+        }),
+      });
 
-      setVariants(translatedVariants);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+
+      // The backend returns a list of strings. We need to convert them to TranslationVariant objects.
+      const backendVariants: TranslationVariant[] = data.translations.map((text: string, index: number) => ({
+        id: `variant-${Date.now()}-${index}`,
+        text,
+        rank: index + 1,
+      }));
+
+      setVariants(backendVariants);
 
       // Create new session
       const newSession: TranslationSession = {
         id: `session-${Date.now()}`,
         sourceText: textToTranslate,
         sourceLanguage: effectiveSourceLang,
-        variants: translatedVariants,
+        variants: backendVariants,
         timestamp: new Date(),
         isFromFile: !!uploadedFile,
         fileName: uploadedFile?.name,
@@ -179,7 +204,7 @@ const Index = () => {
 
       toast({
         title: t.translationComplete,
-        description: `3 ${targetLanguageLabel} ${t.variationsGenerated}`,
+        description: `${backendVariants.length} ${targetLanguageLabel} ${t.variationsGenerated}`,
       });
     } catch (error) {
       toast({

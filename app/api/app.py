@@ -1,8 +1,9 @@
 from flask import Flask, redirect
 from flask_cors import CORS
-from api.config import config
-from api.routes import api_bp
+from app.api.config import config
+from app.api.routes import api_bp
 import os
+import logging
 
 def create_app(config_name=None):
     if config_name is None:
@@ -13,11 +14,24 @@ def create_app(config_name=None):
     # Load configuration
     app.config.from_object(config[config_name])
 
-    # Configure CORS
-    # Allow configured origins; in development also accept all localhost ports
-    cors_origins = app.config.get('CORS_ORIGINS')
-    # If a comma-separated list, pass it directly (flask-cors accepts list or string)
-    CORS(app, origins=cors_origins)
+    # Enable CORS
+    CORS(app, resources={r"/api/*": {"origins": "http://localhost:8080"}})
+
+    # Configure logging
+    if app.config['DEBUG']:
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+            handlers=[
+                logging.StreamHandler(),  # Print to console
+            ]
+        )
+    else:
+        logging.basicConfig(
+            level=logging.WARNING,
+            format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+        )
+
 
     # Register blueprints
     app.register_blueprint(api_bp, url_prefix='/api')

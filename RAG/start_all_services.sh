@@ -16,15 +16,17 @@ YELLOW='\033[1;33m'
 RED='\033[0;31m'
 NC='\033[0m'
 
-# Check if virtual environment is activated
-if [ -z "$VIRTUAL_ENV" ]; then
-    if [ -d "venv" ]; then
-        echo -e "${YELLOW}Activating virtual environment...${NC}"
-        source venv/bin/activate
-    else
-        echo -e "${RED}Virtual environment not found. Please run quick_start.sh first.${NC}"
-        exit 1
-    fi
+# Check if virtual environment exists
+if [ ! -d "venv" ]; then
+    echo -e "${RED}Virtual environment not found. Please run quick_start.sh first.${NC}"
+    exit 1
+fi
+
+# Use venv Python directly (works better with background processes)
+UVICORN_CMD="venv/bin/uvicorn"
+if [ ! -f "$UVICORN_CMD" ]; then
+    echo -e "${RED}uvicorn not found in venv. Please run quick_start.sh first.${NC}"
+    exit 1
 fi
 
 # Create logs directory
@@ -58,7 +60,7 @@ fi
 # Start Glossary System
 echo -e "${GREEN}Starting Glossary System on port 8001...${NC}"
 cd glossary-system
-nohup uvicorn app.main:app --host 0.0.0.0 --port 8001 --reload > ../logs/glossary.log 2>&1 &
+nohup ../$UVICORN_CMD app.main:app --host 0.0.0.0 --port 8001 --reload > ../logs/glossary.log 2>&1 &
 GLOSSARY_PID=$!
 echo "Glossary System PID: $GLOSSARY_PID"
 cd ..
@@ -69,7 +71,7 @@ sleep 2
 # Start RAG System
 echo -e "${GREEN}Starting RAG System on port 8002...${NC}"
 cd RAG-SYSTEM
-nohup uvicorn app.main:app --host 0.0.0.0 --port 8002 --reload > ../logs/rag.log 2>&1 &
+nohup ../$UVICORN_CMD app.main:app --host 0.0.0.0 --port 8002 --reload > ../logs/rag.log 2>&1 &
 RAG_PID=$!
 echo "RAG System PID: $RAG_PID"
 cd ..
@@ -80,7 +82,7 @@ sleep 2
 # Start Prompt Construction
 echo -e "${GREEN}Starting Prompt Construction on port 8003...${NC}"
 cd prompt-construction
-nohup uvicorn app.main:app --host 0.0.0.0 --port 8003 --reload > ../logs/prompt.log 2>&1 &
+nohup ../$UVICORN_CMD app.main:app --host 0.0.0.0 --port 8003 --reload > ../logs/prompt.log 2>&1 &
 PROMPT_PID=$!
 echo "Prompt Construction PID: $PROMPT_PID"
 cd ..
