@@ -159,6 +159,10 @@ const Index = () => {
     try {
       const effectiveSourceLang = isSwapped ? 'ar' : sourceLanguage;
       const textToTranslate = uploadedFile ? uploadedFile.extractedText : inputText;
+      
+      // Always use OpenRouter with 3 variants (DeepL disabled)
+      const serviceToUse = 'openrouter';
+      const variantsToRequest = 3;
 
       const response = await fetch(`${API_URL}/translate`, {
         method: 'POST',
@@ -170,6 +174,8 @@ const Index = () => {
           source_language: effectiveSourceLang,
           target_language: isSwapped ? targetLanguage : 'ar',
           domain: 'general', // You can make this dynamic later
+          translation_service: serviceToUse, // Always OpenRouter
+          num_variants: variantsToRequest, // Always 3 variants
         }),
       });
 
@@ -286,9 +292,15 @@ const Index = () => {
     setIsSubmittingPreferences(true);
     
     try {
+      // Find the current session to get source text and languages
+      const currentSession = sessions.find(s => s.id === currentSessionId);
+      
       // Prepare the preference data
       const preferenceData = {
         sessionId: currentSessionId,
+        sourceText: currentSession?.sourceText || inputText,
+        sourceLanguage: currentSession?.sourceLanguage || (isSwapped ? 'ar' : sourceLanguage),
+        targetLanguage: isSwapped ? targetLanguage : 'ar',
         rankings: variants.map((v, index) => ({
           variantId: v.id,
           rank: index + 1,
@@ -300,15 +312,25 @@ const Index = () => {
         timestamp: new Date().toISOString(),
       };
 
-      // Log the data (for now, since backend is removed)
-      console.log('Submitting preferences:', preferenceData);
-      
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 500));
+      // Submit to backend API
+      const response = await fetch(`${API_URL}/submit-preferences`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(preferenceData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+      console.log('Preferences stored:', result);
 
       toast({
         title: t.preferencesSubmitted,
-        description: t.preferencesSubmittedDesc,
+        description: `${result.pairs_stored} preference pairs stored successfully`,
       });
 
       // Clear everything after successful submission
@@ -318,6 +340,7 @@ const Index = () => {
       setUploadedFile(null);
       setNewCustomId(null);
     } catch (error) {
+      console.error('Error submitting preferences:', error);
       toast({
         title: t.translationFailed,
         description: t.tryAgain,
@@ -326,7 +349,7 @@ const Index = () => {
     } finally {
       setIsSubmittingPreferences(false);
     }
-  }, [variants, currentSessionId, t]);
+  }, [variants, currentSessionId, sessions, inputText, sourceLanguage, targetLanguage, isSwapped, t]);
 
   const handleSelectSession = (session: TranslationSession) => {
     setInputText(session.sourceText);
