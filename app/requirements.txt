@@ -2,3 +2,9 @@ Flask==2.3.3
 Flask-CORS==4.0.0
 python-dotenv==1.0.0
 requests==2.31.0
+
+# For extracting text from uploaded files
+pypdf
+python-docx
+# Use PyMuPDF (fitz) for robust PDF text extraction
+PyMuPDF==1.26.0

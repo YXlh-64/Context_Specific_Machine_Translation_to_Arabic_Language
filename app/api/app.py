@@ -14,8 +14,8 @@ def create_app(config_name=None):
     # Load configuration
     app.config.from_object(config[config_name])
 
-    # Enable CORS
-    CORS(app, resources={r"/api/*": {"origins": "http://localhost:8080"}})
+    # Enable CORS using configured origins
+    CORS(app, resources={r"/api/*": {"origins": app.config.get('CORS_ORIGINS', ['http://localhost:5173'])}})
 
     # Configure logging
     if app.config['DEBUG']:
