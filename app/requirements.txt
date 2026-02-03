@@ -1,10 +1,16 @@
 Flask==2.3.3
 Flask-CORS==4.0.0
 python-dotenv==1.0.0
-requests==2.31.0
 
 # For extracting text from uploaded files
 pypdf
 python-docx
 # Use PyMuPDF (fitz) for robust PDF text extraction
 PyMuPDF==1.26.0
+
+# For local Gemma model translation
+torch>=2.0.0
+transformers>=4.36.0
+accelerate>=0.25.0
+# Optional: For quantization (reduces memory usage)
+bitsandbytes>=0.41.0  # For 8-bit/4-bit quantization on GPU

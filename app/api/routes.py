@@ -4,7 +4,7 @@ import requests
 from datetime import datetime
 import logging
 
-from app.api.rag_service import get_prompting_service
+from rag_service import get_prompting_service
 
 logger = logging.getLogger(__name__)
 api_bp = Blueprint('api', __name__)
