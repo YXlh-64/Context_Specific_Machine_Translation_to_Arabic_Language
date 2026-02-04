@@ -591,13 +591,3 @@ For issues not covered here:
 ## License
 
 This project is part of an NLP course project at ENSIA.
-
-## Contributors
-
-- Abdelrahim Anes CHABIRA
-- ENSIA 4th Year, NLP Project
-
-## Acknowledgments
-
-- DeepL for providing free translation API access
-- The open-source community for the excellent tools and libraries used in this project

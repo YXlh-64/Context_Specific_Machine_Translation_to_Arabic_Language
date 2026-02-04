@@ -3,17 +3,47 @@ pandas>=2.0.0
 requests>=2.31.0
 sacrebleu>=2.3.1
 
-# Advanced metrics (optional but recommended)
-bert-score>=0.3.13  # For semantic similarity evaluation (highly recommended for Arabic)
-torch>=2.0.0  # Required by bert-score
-transformers>=4.30.0  # Required by bert-score
+# ==========================================
+# SEMANTIC EVALUATION METRICS (Recommended)
+# ==========================================
+# These metrics capture semantic similarity better than static n-gram metrics
 
-# Additional advanced metrics (optional)
-# Uncomment if you want to use these:
-# unbabel-comet>=2.0.0  # State-of-the-art learned metric
-# nltk>=3.8.0  # For METEOR metric
-# sentencepiece>=0.1.99  # For some tokenization tasks
+# BERTScore - Contextual embedding-based similarity
+bert-score>=0.3.13
+torch>=2.0.0
+transformers>=4.30.0
 
-# Utilities
+# COMET - Neural metric trained on human judgments (state-of-the-art)
+unbabel-comet>=2.0.0
+
+# Sentence Transformers - For multilingual semantic similarity
+sentence-transformers>=2.2.0
+
+# Scikit-learn - For cosine similarity calculations
+scikit-learn>=1.3.0
+
+# Additional utilities
 numpy>=1.24.0
 scipy>=1.10.0
+matplotlib>=3.7.0  # For result visualizations
+
+# ==========================================
+# OPTIONAL TRADITIONAL METRICS
+# ==========================================
+# Uncomment if you need additional traditional metrics:
+# nltk>=3.8.0  # For METEOR metric
+# sentencepiece>=0.1.99  # For specialized tokenization
+
+# ==========================================
+# INSTALLATION NOTES
+# ==========================================
+# For fastest installation, use:
+#   pip install -r requirements.txt
+#
+# For minimal installation (traditional metrics only):
+#   pip install pandas requests sacrebleu
+#
+# For semantic evaluation (recommended):
+#   pip install pandas requests sacrebleu bert-score unbabel-comet sentence-transformers
+#
+# Note: COMET models are downloaded on first use (~1-2GB)

@@ -1,7 +1,13 @@
 """
 Enhanced Translation Evaluation with Multiple Metrics
 ======================================================
-This script includes BLEU, CHRF+, TER, and optional BERTScore for comprehensive evaluation.
+This script includes BLEU, CHRF+, TER, and BERTScore for comprehensive evaluation.
+
+For most accurate evaluation, use evaluate_semantic.py which includes COMET,
+BERTScore, and sentence embeddings.
+
+This script provides a good middle ground between basic (evaluate_translation.py)
+and full semantic evaluation (evaluate_semantic.py).
 """
 
 import pandas as pd
@@ -23,14 +29,15 @@ except ImportError:
     subprocess.check_call([sys.executable, "-m", "pip", "install", "sacrebleu"])
     from sacrebleu.metrics import BLEU, CHRF, TER
 
-# Try to import BERTScore (optional)
+# Try to import BERTScore (recommended)
 BERTSCORE_AVAILABLE = False
 try:
     from bert_score import score as bert_score
     BERTSCORE_AVAILABLE = True
+    logger.info("BERTScore available ✓")
 except ImportError:
-    print("\nBERTScore not available. Install with: pip install bert-score")
-    print("   BERTScore metrics will be skipped.\n")
+    logger.warning("BERTScore not available. Install with: pip install bert-score")
+    logger.info("For best evaluation quality, consider using evaluate_semantic.py")
 
 # Configure logging
 logging.basicConfig(
@@ -228,19 +235,23 @@ class EnhancedTranslationEvaluator:
     def print_results(self, results: Dict, language_pair: str):
         """Print evaluation results in a formatted way."""
         print("\n" + "="*80)
-        print(f"EVALUATION RESULTS: {language_pair}")
+        print(f"ENHANCED EVALUATION RESULTS: {language_pair}")
         print("="*80)
         print(f"Total samples: {results['total_samples']}")
         print(f"Successful translations: {results['successful_translations']}")
         print(f"Failed translations: {results['failed_translations']}")
-        print(f"\n📊 METRICS:")
+        
+        # Traditional metrics
+        print(f"\n📊 TRADITIONAL METRICS:")
         print(f"  BLEU Score:  {results['metrics']['bleu']:.2f}")
         print(f"  CHRF+ Score: {results['metrics']['chrf']:.2f}")
         print(f"  TER Score:   {results['metrics']['ter']:.2f} (lower is better)")
         
+        # Semantic metrics
         if "bertscore" in results["metrics"] and results["metrics"]["bertscore"]:
+            print(f"\n🧠 SEMANTIC METRICS:")
             bs = results["metrics"]["bertscore"]
-            print(f"\n  BERTScore:")
+            print(f"  BERTScore:")
             print(f"    Precision: {bs['precision']:.4f}")
             print(f"    Recall:    {bs['recall']:.4f}")
             print(f"    F1:        {bs['f1']:.4f}")
@@ -248,18 +259,33 @@ class EnhancedTranslationEvaluator:
         # Quality assessment
         print(f"\n🎯 QUALITY ASSESSMENT:")
         bleu = results['metrics']['bleu']
-        chrf = results['metrics']['chrf']
         
-        if bleu >= 30:
-            quality = "🌟 GOOD - Acceptable for production use"
-        elif bleu >= 20:
-            quality = "✅ FAIR - Needs some post-editing"
-        elif bleu >= 10:
-            quality = "⚠️  BASIC - Requires significant post-editing"
+        # Use BERTScore for quality if available, otherwise BLEU
+        if "bertscore" in results["metrics"] and results["metrics"]["bertscore"]:
+            bertscore_f1 = results["metrics"]["bertscore"]["f1"]
+            if bertscore_f1 >= 0.85:
+                quality = "🌟 EXCELLENT - High semantic similarity"
+            elif bertscore_f1 >= 0.75:
+                quality = "✅ GOOD - Acceptable semantic quality"
+            elif bertscore_f1 >= 0.65:
+                quality = "⚠️  FAIR - Some semantic differences"
+            else:
+                quality = "❌ NEEDS IMPROVEMENT - Significant semantic gaps"
+            print(f"  Based on BERTScore F1: {quality}")
         else:
-            quality = "❌ POOR - Needs system improvement"
+            if bleu >= 30:
+                quality = "🌟 GOOD - Acceptable for production use"
+            elif bleu >= 20:
+                quality = "✅ FAIR - Needs some post-editing"
+            elif bleu >= 10:
+                quality = "⚠️  BASIC - Requires significant post-editing"
+            else:
+                quality = "❌ POOR - Needs system improvement"
+            print(f"  Based on BLEU: {quality}")
         
-        print(f"  {quality}")
+        if not ("bertscore" in results["metrics"] and results["metrics"]["bertscore"]):
+            print(f"\n💡 TIP: Use --use-bertscore flag or evaluate_semantic.py for more accurate quality assessment")
+        
         print("="*80 + "\n")
     
     def save_results(self, results: Dict, output_path: str):
@@ -290,7 +316,9 @@ def main():
     parser.add_argument("--english-only", action="store_true")
     parser.add_argument("--french-only", action="store_true")
     parser.add_argument("--use-bertscore", action="store_true", 
-                       help="Calculate BERTScore (requires bert-score package)")
+                       help="Calculate BERTScore for semantic similarity (recommended)")
+    parser.add_argument("--all-metrics", action="store_true",
+                       help="Enable all available metrics (equivalent to --use-bertscore)")
     
     args = parser.parse_args()
     
@@ -311,8 +339,16 @@ def main():
         return
     
     logger.info("API is running. Starting enhanced evaluation...")
-    if args.use_bertscore and not BERTSCORE_AVAILABLE:
+    
+    # Enable all metrics if requested
+    use_bertscore = args.use_bertscore or args.all_metrics
+    
+    if use_bertscore and not BERTSCORE_AVAILABLE:
         logger.warning("BERTScore requested but not available. Install: pip install bert-score")
+        logger.info("Continuing with traditional metrics only...")
+    
+    if use_bertscore and BERTSCORE_AVAILABLE:
+        logger.info("BERTScore enabled ✓")
     
     evaluator = EnhancedTranslationEvaluator(args.api_url)
     
@@ -330,7 +366,7 @@ def main():
                 en_sources, en_references, 
                 source_lang="en",
                 sample_size=args.sample_size,
-                use_bertscore=args.use_bertscore
+                use_bertscore=use_bertscore
             )
             
             evaluator.print_results(en_results, "English → Arabic")
@@ -355,7 +391,7 @@ def main():
                 fr_sources, fr_references,
                 source_lang="fr",
                 sample_size=args.sample_size,
-                use_bertscore=args.use_bertscore
+                use_bertscore=use_bertscore
             )
             
             evaluator.print_results(fr_results, "French → Arabic")
@@ -367,6 +403,8 @@ def main():
             logger.error(f"Error evaluating French to Arabic: {e}")
     
     print("\n✅ Enhanced evaluation complete!")
+    print("\n💡 For most accurate quality assessment, consider using:")
+    print("   python evaluate_semantic.py --sample-size 50")
 
 
 if __name__ == "__main__":
